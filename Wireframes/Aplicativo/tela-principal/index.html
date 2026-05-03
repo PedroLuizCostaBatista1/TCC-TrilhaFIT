@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>TrilhaFIT - Menu principal</title>
+</head>
+<body>
+    <div class="app-wrapper">
+        <div style="background: linear-gradient(135deg, #FF5C00 0%, #FF8A3D 100%); max-width: 390px; width: 100%; margin: 0 auto; padding: 0; min-height: 100%; display: flex; flex-direction: column; position: relative; z-index: 1;">
+            <div style="flex: 1; overflow-y: auto;">
+                <div style="padding: 24px 20px;">
+                    <div style="text-align: center; margin-bottom: 28px;">
+                        <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                            <i data-lucide="user" style="width: 40px; height: 40px; color: #FFFFFF;"></i>
+                        </div>
+                        <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF; margin-bottom: 4px;">Bem vindo, Java man!</h2>
+                        <p style="color: rgba(255, 255, 255, 0.9); font-size: 14px;">Sua área pessoal</p>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.95); border-radius: 16px; padding: 20px; backdrop-filter: blur(10px);">
+                        <div style="margin-bottom: 20px;">
+                            <label style="font-size: 12px; font-weight: 600; color: #FF5C00; display: block; margin-bottom: 6px;">Nome</label>
+                            <p style="font-size: 16px; color: #1A1A1A; font-weight: 500;">Java man</p>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="font-size: 12px; font-weight: 600; color: #FF5C00; display: block; margin-bottom: 6px;">E-mail</label>
+                            <p style="font-size: 16px; color: #1A1A1A; font-weight: 500;">java@man.com</p>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="font-size: 12px; font-weight: 600; color: #FF5C00; display: block; margin-bottom: 6px;">Localidade</label>
+                            <p style="font-size: 16px; color: #1A1A1A; font-weight: 500;">Xique-Xique, BA</p>
+                        </div>
+                        <div style="background: #f5f5f5; border-radius: 12px; padding: 16px; margin-top: 20px; border-left: 4px solid #FF5C00;">
+                            <p style="font-size: 13px; color: #666; margin-bottom: 8px; font-weight: 600;">Estatísticas</p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                <div style="text-align: center;">
+                                    <div style="font-size: 24px; font-weight: 800; color: #FF5C00;">45</div>
+                                    <div style="font-size: 12px; color: #999; margin-top: 4px;">Treinos</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 24px; font-weight: 800; color: #FF5C00;">280km</div>
+                                    <div style="font-size: 12px; color: #999; margin-top: 4px;">Distância</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="position: sticky; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.95); border-top: 1px solid rgba(0, 0, 0, 0.1); backdrop-filter: blur(10px); display: flex; justify-content: space-around; padding: 12px 0 20px 0; max-width: 390px; margin: 0 auto; width: 100%;">
+                <button style="flex: 1; background: none; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px; transition: all 0.2s; color: #FF5C00;">
+                    <i data-lucide="user" style="width: 24px; height: 24px;"></i> <span style="font-size: 11px; font-weight: 600;">Perfil</span>
+                </button> 
+                <a href="../tela-turma/index.html" style="flex: 1; background: none; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px; transition: all 0.2s; color: #999;">
+                    <i data-lucide="users" style="width: 24px; height: 24px;"></i>
+                    <span style="font-size: 11px; font-weight: 600;">Turma</span> 
+                </a>
+                <a href="../tela-relatorio/index.html" style="flex: 1; background: none; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px; transition: all 0.2s; color: #999;">
+                    <i data-lucide="bar-chart-2" style="width: 24px; height: 24px;"></i>
+                    <span style="font-size: 11px; font-weight: 600;">Relatório</span>
+                </a>
+                <a href="../tela-desafios/index.html" style="flex: 1; background: none; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px; transition: all 0.2s; color: #999;">
+                    <i data-lucide="zap" style="width: 24px; height: 24px;"></i> <span style="font-size: 11px; font-weight: 600;">Desafios</span>
+                </a>
+                <a href="../tela-placar/index.html" style="flex: 1; background: none; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px; transition: all 0.2s; color: #999;">
+                    <i data-lucide="award" style="width: 24px; height: 24px;"></i>
+                    <span style="font-size: 11px; font-weight: 600;">Placar</span>
+                </a>
+                <a href="../tela-login/index.html" style="flex: 1; background: none; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px; transition: all 0.2s; color: #999;">
+                    <i data-lucide="log-out" style="width: 24px; height: 24px;"></i>
+                    <span style="font-size: 11px; font-weight: 600;">Sair</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
