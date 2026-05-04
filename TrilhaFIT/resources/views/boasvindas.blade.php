@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>TrilhaFIT</title>
+</head>
+<body>
+    <div class="app-wrapper bg-dots" style="background-color: #FFFFFF;">
+        <div style="max-width: 390px; width: 100%; margin: 0 auto; padding: 40px 20px; min-height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div class="anim-in anim-d1" style="text-align: center; margin-bottom: 48px; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <div class="bike-ring" style="margin: 0 auto 24px;">
+                    <i data-lucide="bike" style="width: 48px; height: 48px; color: #FF5C00;"></i>
+                </div>
+                <h1 style="font-size: 32px; font-weight: 800; color: #1A1A1A; margin-bottom: 12px;">Bem-vindo ao TrilhaFIT!</h1>
+                <p style="font-size: 16px; color: rgba(0,0,0,0.5); font-weight: 500;">Pedale, evolua e vença! 🚴‍♂️</p>
+            </div>
+            <div class="anim-in anim-d2" style="width: 100%; display: flex; flex-direction: column; gap: 12px;">
+                <a href="cadastro" class="submit-btn neon-glow" style="background: linear-gradient(135deg, #FF5C00 0%, #FF8A3D 100%); text-align: center;">
+                    <span>Criar Conta</span>
+                </a>
+                <a href="login" style="background: #f5f5f5; border: 2px solid #FF5C00; border-radius: 14px; padding: 16px; color: #FF5C00; font-size: 17px; font-weight: 700; font-family: 'Outfit', sans-serif; width: 100%; transition: transform 0.15s, box-shadow 0.2s; text-align: center;">
+                    <span>Entrar</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
