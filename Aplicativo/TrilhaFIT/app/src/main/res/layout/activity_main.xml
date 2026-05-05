@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="26dp"
+            android:paddingTop="53dp"
+            android:paddingRight="26dp"
+            android:paddingBottom="53dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="48dp"
+                android:orientation="vertical"
+                android:textAlignment="center">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginBottom="32dp"
+                    android:contentDescription="@string/logo"
+                    app:srcCompat="@drawable/icone" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/Titulo"
+                    android:textAlignment="center"
+                    android:textColor="#1A1A1A"
+                    android:textSize="43sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/subtitulo"
+                    android:textAlignment="center"
+                    android:textColor="#7F000000"
+                    android:textSize="21sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:backgroundTint="#FF5C00"
+                    android:maxWidth="800dp"
+                    android:paddingLeft="21dp"
+                    android:paddingTop="21dp"
+                    android:paddingRight="21dp"
+                    android:paddingBottom="21dp"
+                    android:text="@string/textocriarconta"
+                    android:textColor="#FFFFFF"
+                    android:textColorLink="#FFFFFF"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="18dp" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FFFFFF"
+                    android:paddingLeft="21dp"
+                    android:paddingTop="21dp"
+                    android:paddingRight="21dp"
+                    android:paddingBottom="21dp"
+                    android:text="@string/textoLogin"
+                    android:textColor="#FF5C00"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="18dp"
+                    app:strokeColor="#FF5C00"
+                    app:strokeWidth="2dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
