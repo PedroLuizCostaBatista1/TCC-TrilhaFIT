@@ -32,7 +32,7 @@
                     <input type="password" id="login-password" class="input-field" placeholder="Senha" required>
                 </div>
                 <div class="anim-in anim-d3" style="margin-top: 6px;">
-                    <a href="../tela-principal/index.html" class="submit-btn neon-glow" style="display: block; text-align: center;">
+                    <a href="perfil" class="submit-btn neon-glow" style="display: block; text-align: center;">
                         <span>Entrar</span>
                     </a>
                 </div>

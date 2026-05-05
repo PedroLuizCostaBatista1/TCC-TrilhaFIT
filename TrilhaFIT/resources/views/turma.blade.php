@@ -1,0 +1,72 @@
+@extends("index")
+@section("conteudo")
+<div class="app-wrapper">
+    <div style="background: linear-gradient(135deg, #FF5C00 0%, #FF8A3D 100%); max-width: 390px; width: 100%; margin: 0 auto; padding: 0; min-height: 100%; display: flex; flex-direction: column; position: relative; z-index: 1;">
+        <div style="flex: 1; overflow-y: auto;">
+            <div style="padding: 24px 20px;">
+                <h2 style="font-size: 24px; font-weight: 800; color: #FFFFFF; margin-bottom: 20px; text-shadow: 0 2px 8px rgba(0,0,0,0.15);">Sua Turma</h2>
+                <div style="background: rgba(255, 255, 255, 0.95); border-radius: 16px; padding: 20px; backdrop-filter: blur(10px); margin-bottom: 20px;">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #FF5C00, #FF8A3D); border-radius: 12px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(255,92,0,0.2);">
+                            <i data-lucide="users" style="width: 56px; height: 56px; color: #FFFFFF;"></i>
+                        </div>
+                        <h3 style="font-size: 22px; font-weight: 800; color: #1A1A1A; margin-bottom: 4px;">Grupo Bike Masters</h3>
+                        <p style="font-size: 13px; color: #999; margin-bottom: 12px;">Turma Avançada | 24 membros</p>
+                        <div style="background: #f5f5f5; border-radius: 8px; padding: 12px; text-align: left;">
+                            <p style="font-size: 12px; color: #666; line-height: 1.5;">🚴 Uma turma dedicada ao ciclismo profissional com foco em resistência e velocidade. Participe dos desafios e compita com seus colegas!</p>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; border-top: 1px solid #e5e5e5; padding-top: 16px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 20px; font-weight: 800; color: #FF5C00;">18</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 4px;">Treinos de Turma</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 20px; font-weight: 800; color: #FF5C00;">4</div>
+                            <div style="font-size: 12px; color: #999; margin-top: 4px;">Desafios Ativos</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.95); border-radius: 16px; padding: 20px; backdrop-filter: blur(10px);">
+                    <h4 style="font-size: 16px; font-weight: 700; color: #1A1A1A; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="bell" style="width: 20px; height: 20px; color: #FF5C00;"></i>
+                        Mural de Avisos
+                    </h4>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="background: #fff5f0; border-left: 4px solid #FF5C00; border-radius: 8px; padding: 12px; border: 1px solid #FFE5D9;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                                <span style="font-size: 12px; font-weight: 700; color: #FF5C00;">Instrutor</span>
+                                <span style="font-size: 11px; color: #999;">Hoje às 14:30</span>
+                            </div>
+                            <p style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 4px;">🏆 Novo Desafio: Maratona do Mês!</p>
+                            <p style="font-size: 12px; color: #666; line-height: 1.4;">Participe da Maratona de Agosto! Pedal 100km este mês e ganhe um bônus de 500 XP. Boa sorte! 💪</p>
+                        </div>
+                        <div style="background: #f0fdf4; border-left: 4px solid #22c55e; border-radius: 8px; padding: 12px; border: 1px solid #DBEAFE;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                                <span style="font-size: 12px; font-weight: 700; color: #22c55e;">Anúncio</span>
+                                <span style="font-size: 11px; color: #999;">Ontem às 10:15</span>
+                            </div>
+                            <p style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 4px;">✅ Treino em Grupo Confirmado!</p>
+                            <p style="font-size: 12px; color: #666; line-height: 1.4;">Amanhã às 07:00 saída do Parque Ibirapuera. Todos estão convidados para o treino matinal!</p>
+                        </div>
+                        <div style="background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 8px; padding: 12px; border: 1px solid #E0E7FF;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                                <span style="font-size: 12px; font-weight: 700; color: #3b82f6;">Instrutor</span>
+                                <span style="font-size: 11px; color: #999;">há 2 dias</span>
+                            </div>
+                            <p style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 4px;">📅 Atualização do Calendário de Treinos</p>
+                            <p style="font-size: 12px; color: #666; line-height: 1.4;">Confira a agenda de treinos na seção "Turma". Novos horários disponíveis para segunda-feira!</p>
+                        </div>
+                        <div style="background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 8px; padding: 12px; border: 1px solid #FEE2E2;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                                <span style="font-size: 12px; font-weight: 700; color: #f59e0b;">Lembrete</span>
+                                <span style="font-size: 11px; color: #999;">há 3 dias</span>
+                            </div>
+                            <p style="font-size: 13px; color: #333; font-weight: 600; margin-bottom: 4px;">⚠️ Manutenção de Equipamento</p>
+                            <p style="font-size: 12px; color: #666; line-height: 1.4;">Lembrete: Verifique seus pneus e freios antes de cada treino. Segurança em primeiro lugar!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+@endsection

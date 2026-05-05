@@ -9,7 +9,7 @@
     <title>TrilhaFIT - Cadastro</title>
 </head>
 <body>
-    <div class="app-wrapper bg-dots" style="background-color: #FFFFFF;">
+    <div class="app-wrapper">
         <div style="max-width: 390px; width: 100%; margin: 0 auto; padding: 40px 20px; min-height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <div class="anim-in" style="text-align: center; margin-bottom: 28px;">
                 <a href="/" style="border: none; color: #1A1A1A; font-size: 24px; padding: 0; margin-bottom: 16px;">
