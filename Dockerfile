@@ -1,8 +1,17 @@
-FROM php:8.2-apache
+FROM php:8.3-apache
 
 RUN apt-get update && apt-get install -y \
-    libpng-dev zlib1g-dev libxml2-dev libzip-dev \
-    && docker-php-ext-install bcmath gd pdo_mysql zip
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    libicu-dev \
+    libxml2-dev \
+    unzip \
+    zip \
+    curl \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install bcmath gd pdo_mysql zip intl opcache
 
 RUN a2enmod rewrite
 
