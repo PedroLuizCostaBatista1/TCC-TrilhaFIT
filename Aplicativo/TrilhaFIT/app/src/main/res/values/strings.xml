@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">TrilhaFIT</string>
-    <string name="Titulo">Bem-vindo ao TrilhaFIT!</string>
-    <string name="subtitulo">Pedale, evolua e vença!</string>
-    <string name="textocriarconta">Criar Conta</string>
-    <string name="textoLogin">Entrar</string>
-    <string name="logo">logo</string>
-</resources>
