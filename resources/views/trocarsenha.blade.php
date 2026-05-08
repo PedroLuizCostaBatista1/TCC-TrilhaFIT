@@ -6,15 +6,15 @@
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="/assets/css/auth.css">
-    <title>TrilhaFIT - Login</title>
+    <title>TrilhaFIT - Trocar senha</title>
 </head>
 <body>
     <main class="tela">
         <header class="anim-in">
-            <a href="/">
+            <a href="login">
                 <i data-lucide="chevron-left" class="icone"></i>
             </a>
-            <h1 class="titulo">Bem-vindo de volta!</h1>
+            <h1 class="titulo">Recuperar senha</h1>
         </header>
         <form method="post">
             <div class="anim-in anim-d1">
@@ -24,16 +24,8 @@
                 <input type="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
             </div>
 
-            <div class="anim-in anim-d2">
-                <label for="senha" class="label-wrap">
-                    <i data-lucide="key-round" style="label-icon"></i>
-                </label>
-                <input type="password" id="senha" class="campo" placeholder="Digite sua senha" required>
-            </div>
-
-            <div class="anim-in anim-d3 botoes">
-                <a href="perfil" class="botao1">Entrar</a>
-                <a href="trocar-senha" class="botao2">Esqueceu a senha?</a>
+            <div class="anim-in anim-d2 botoes">
+                <a href="#" class="botao1">Enviar codigo de recuperação</a>
             </div>
         </form>
     </main>

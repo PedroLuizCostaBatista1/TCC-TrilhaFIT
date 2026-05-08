@@ -14,6 +14,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/trocar-senha', function () {
+    return view('trocarsenha');
+});
+
 Route::get('/perfil', function () {
     return view('perfil');
 })->name("perfil");
