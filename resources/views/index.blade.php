@@ -6,13 +6,14 @@
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/perfil.css">
     <title>TrilhaFIT</title>
 </head>
 <body>
 
 @yield("conteudo")
 
-<div id="navbar">
+<nav id="navbar">
     <a href="perfil" class="botao @if(Route::is('perfil')) botao-ativo @else botao-inativo @endif;">
         <i data-lucide="user" class="icone"></i>
         <span class="texto">Perfil</span>
@@ -33,11 +34,7 @@
         <i data-lucide="award" class="icone"></i>
         <span class="texto">Placar</span>
     </a>
-    <a href="login" class="botao botao-inativo">
-        <i data-lucide="log-out" class="icone"></i>
-        <span class="texto">Sair</span>
-    </a>
-</div>
+</nav>
 <script>
     lucide.createIcons();
 </script>
