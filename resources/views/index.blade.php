@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="/assets/css/navbar.css">
     <link rel="stylesheet" href="/assets/css/perfil.css">
+    @stack('css')
     <title>TrilhaFIT</title>
 </head>
 <body>
