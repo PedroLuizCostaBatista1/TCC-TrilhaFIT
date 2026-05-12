@@ -19,7 +19,6 @@ body {
     background-color: var(--cor-fundo-navbar); 
     display: flex;
     padding: 16px 0px 16px 0px;
-    padding-bottom: env(safe-area-inset-bottom, 16px);
 }
 
 .botao {

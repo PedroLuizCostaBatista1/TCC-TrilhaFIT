@@ -1,0 +1,177 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;display=swap");
+
+:root {
+    --cor-fundo: white;
+    --cor-texto: #18181B;
+    --cor-descricao: #666666;
+
+    --cor-card-vermelho-fundo: #fff5f0;
+    --cor-card-verde-fundo: #f0fdf4;
+    --cor-card-azul-fundo: #eff6ff;
+    --cor-card-roxo-fundo: #f3e8ff;
+
+    --cor-fundo-barra: #e5e5e5;
+    --cor-segundaria: #FF822E;
+    --cor-verde: #22c55e;
+    --cor-azul: #3b82f6;
+    --cor-roxo: #a78bfa;
+    --fonte-principal: "Outfit", sans-serif;
+}
+
+.tela {
+    display: grid; 
+    gap: 20px;
+    background-color: var(--cor-fundo);
+    padding: 40px 20px;
+    min-height: 100dvh;
+}
+
+#card-vermelho {
+    border-radius: 16px; 
+    padding: 20px; 
+    border: 4px solid var(--cor-segundaria);
+    background-color: var(--cor-card-vermelho-fundo);
+}
+
+#card-verde {
+    border-radius: 16px; 
+    padding: 20px; 
+    border: 4px solid var(--cor-verde);
+    background-color: var(--cor-card-verde-fundo);
+}
+
+#card-azul {
+    border-radius: 16px; 
+    padding: 20px; 
+    border: 4px solid var(--cor-azul);
+    background-color: var(--cor-card-azul-fundo);
+}
+
+#card-roxo {
+    border-radius: 16px; 
+    padding: 20px; 
+    border: 4px solid var(--cor-roxo);
+    background-color: var(--cor-card-roxo-fundo);
+}
+
+.card-header {
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 16px;
+}
+
+.card-titulo {
+    font-size: 20px; 
+    font-weight: 700; 
+    color: var(--cor-texto); 
+    margin-bottom: 4px;
+}
+
+.card-descricao {
+    font-size: 15px; 
+    color: var(--cor-descricao);
+}
+
+#card-experiencia-vermelho {
+    font-size: 16px; 
+    font-weight: 700; 
+    color: var(--cor-segundaria);
+}
+
+#card-experiencia-verde {
+    font-size: 16px; 
+    font-weight: 700; 
+    color: var(--cor-verde);
+}
+
+#card-experiencia-azul {
+    font-size: 16px; 
+    font-weight: 700; 
+    color: var(--cor-azul);
+}
+
+#card-experiencia-roxo {
+    font-size: 16px; 
+    font-weight: 700; 
+    color: var(--cor-roxo);
+}
+
+.card-progresso {
+    margin-bottom: 12px;
+}
+
+.card-progresso-informacoes {
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 8px;
+}
+
+.card-progresso-titulo {
+    font-size: 14px; 
+    color: var(--cor-descricao); 
+    font-weight: 600;
+}
+
+#card-progresso-valor-vermelho {
+    font-size: 14px; 
+    font-weight: 700; 
+    color: var(--cor-segundaria);
+}
+
+#card-progresso-valor-verde {
+    font-size: 14px; 
+    font-weight: 700; 
+    color: var(--cor-verde);
+}
+
+#card-progresso-valor-azul {
+    font-size: 14px; 
+    font-weight: 700; 
+    color: var(--cor-azul);
+}
+
+#card-progresso-valor-roxo {
+    font-size: 14px; 
+    font-weight: 700; 
+    color: var(--cor-roxo);
+}
+
+.card-barra-progresso {
+    height: 20px; 
+    background-color: var(--cor-fundo-barra); 
+    border-radius: 50px;
+}
+
+#card-barra-vermelho {
+    width: 60%; 
+    height: 100%;
+    background: linear-gradient(90deg, #FF5C00, #FF8A3D);
+    border-radius: 50px;
+}
+
+#card-barra-verde {
+    width: 87%; 
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e, #4ade80);
+    border-radius: 50px;
+}
+
+#card-barra-azul {
+    width: 69%; 
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 50px;
+}
+
+#card-barra-roxo {
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(90deg, #a78bfa, #c4b5fd);
+    border-radius: 50px;
+}
+
+.card-progresso-texto {
+    font-size: 13px; 
+    color: var(--cor-descricao);
+}
