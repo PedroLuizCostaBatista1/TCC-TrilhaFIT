@@ -21,7 +21,7 @@
 }
 
 header {
-    margin-bottom: 40px;
+    padding-bottom: 40px;
 }
 
 #detalhes-card {
@@ -71,12 +71,12 @@ header {
     text-align: center;
     gap: 12px; 
     margin-top: 25px; 
-    border-top: 1px solid #e5e5e5; 
+    border-top: 1px solid #e5e5e5;
     padding-top: 16px;
 }
 
 .status-valor {
-    font-size: 32px; 
+    font-size: 36px; 
     font-weight: 800; 
     color: var(--cor-primaria);  
 }
@@ -89,22 +89,23 @@ header {
 
 #mural {
     border-radius: 16px; 
-    padding-top: 20px; 
+    padding-top: 40px; 
 }
 
 #mural-titulo {
-    font-size: 20px; 
+    font-size: 26px; 
     font-weight: 700; 
     color: var(--cor-texto); 
-    margin-bottom: 16px; 
+    margin-bottom: 24px; 
     display: flex; 
-    align-items: center; 
+    align-items: center;
+    justify-content: center;
     gap: 8px;
 }
 
 #mural-icone {
-    width: 25px; 
-    height: 25px; 
+    width: 32px; 
+    height: 32px; 
     color: var(--cor-primaria);
 }
 

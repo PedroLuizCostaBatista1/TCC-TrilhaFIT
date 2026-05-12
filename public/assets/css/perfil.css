@@ -108,3 +108,17 @@ header {
     padding: 16px;
     color: white;
 }
+
+#botao-editar-conta {
+    background-color: var(--cor-primaria);
+    width: 200px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px auto;
+    border-radius: 8px;
+    color: var(--cor-fundo);
+    gap: 15px;
+    font-weight: 600;
+}

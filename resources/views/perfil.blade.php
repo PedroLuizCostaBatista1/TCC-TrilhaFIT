@@ -6,7 +6,7 @@
                 <i data-lucide="user" id="icone-usuario"></i>
             </figure>
             <h1 id="titulo-perfil">Olá, Java man!</h1>
-            <a href=""><i data-lucide="pen-line" id=""></i>Editar conta</a>
+            <a href="#" id="botao-editar-conta"><i data-lucide="pen-line"></i>Editar conta</a>
         </header>
         <section id="estatisticas">
             <h2 id="subtitulo-perfil">Estatísticas</h2>
