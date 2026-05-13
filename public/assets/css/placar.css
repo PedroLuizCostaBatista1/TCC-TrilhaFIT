@@ -3,11 +3,11 @@
 
 :root {
     --cor-fundo: white;
-    --cor-borda: #0000001A;
     --cor-texto: #18181B;
     --cor-primaria: #FF6517;
     --cor-segundaria: #FF822E;
-    --cor-tercearia: #EF5411;
+    --cor-fundo-posicao: #f0fdf4;
+    --cor-fundo-posicao-borda: #22c55e;
     --fonte-principal: "Outfit", sans-serif;
 }
 
@@ -15,4 +15,171 @@
     background-color: var(--cor-fundo);
     padding: 40px 20px;
     min-height: 100dvh;
+}
+
+header {
+    background-color: var(--cor-segundaria); 
+    border-radius: 16px; 
+    padding: 16px; 
+    margin-bottom: 20px;
+    color: var(--cor-fundo);
+}
+
+#header-titulo {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 12px; 
+    margin-bottom: 8px;
+}
+
+#icone-header {
+    width: 26px; 
+    height: 26px; 
+}
+
+#header-subtitulo {
+    font-size: 18px; 
+    font-weight: 600;
+}
+
+#tempo {
+    font-size: 40px; 
+    font-weight: 800;
+}
+
+#header-descricao {
+    font-size: 14px; 
+    margin-top: 8px;
+}
+
+#posicao-usuario {
+    background-color: var(--cor-fundo-posicao); 
+    border-radius: 16px; 
+    padding: 20px; 
+    margin-bottom: 20px;
+    color: var(--cor-texto);
+    border: 4px solid var(--cor-fundo-posicao-borda);
+}
+
+#posicao-usuario-titulo {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+#posicao-usuario-informacoes {
+    text-align: center;
+}
+
+#posicao-usuario-foto {
+    width: 70px; 
+    height: 70px; 
+    border-radius: 50%; 
+    background-color: var(--cor-primaria);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin: 20px auto;
+}
+
+#posicao-usuario-icone {  
+    width: 36px; 
+    height: 36px; 
+    color: var(--cor-fundo);
+}
+
+#posicao-usuario-valores {
+    flex: 1;
+}
+
+#posicao-usuario-wrap {
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    margin-bottom: 8px;
+}
+
+#posicao-usuario-placar {
+    font-size: 36px; 
+    font-weight: 800;
+    color: var(--cor-fundo-posicao-borda);
+}
+
+#posicao-usuario-lugar {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#placar-titulo {
+    font-size: 24px; 
+    font-weight: 700; 
+    color: var(--cor-texto); 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    gap: 8px;
+    padding: 20px;
+}
+
+#placar-icone {
+    width: 28px; 
+    height: 28px; 
+    color: var(--cor-primaria);
+}
+
+#placar-wrap {
+    display: flex; 
+    flex-direction: column;
+}
+
+.placar {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0; 
+    display: flex; 
+    align-items: center; 
+    gap: 16px;
+}
+
+.placar-icone {
+    background-color: #D3D3D3;
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    font-weight: 800; 
+    font-size: 20px;
+}
+
+.placar-informacoes-wrap {
+    flex: 1;
+}
+
+.placar-nome {
+    font-size: 14px; 
+    font-weight: 700; 
+    color: var(--cor-texto);
+}
+
+.placar-academia {
+    font-size: 12px; 
+    color: #999;
+}
+
+.placar-experiencia {
+    text-align: center;
+}
+
+.placar-experiencia-valor {
+    font-size: 18px; 
+    font-weight: 800; 
+    color: var(--cor-primaria);
+}
+
+.placar-experiencia-nome {
+    font-size: 12px; 
+    color: #999;
 }
