@@ -18,7 +18,7 @@ body {
     border-top: 2px solid var(--cor-borda);
     background-color: var(--cor-fundo-navbar); 
     display: flex;
-    padding: 16px 0px 16px 0px;
+    padding: 16px 0px calc(16px + env(safe-area-inset-bottom));
 }
 
 .botao {
