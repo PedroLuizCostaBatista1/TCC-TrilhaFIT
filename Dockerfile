@@ -30,6 +30,10 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
+COPY render-deploy.sh ./render-deploy.sh
+
+RUN chmod +x ./render-deploy.sh
+
 EXPOSE 80
 
-CMD ["sh", "./render-deploy.sh"]
+CMD ["./render-deploy.sh"]
