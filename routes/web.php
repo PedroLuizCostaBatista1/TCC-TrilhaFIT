@@ -1,17 +1,19 @@
 <?php
 
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('boasvindas');
 });
 
-Route::get('/cadastro', function () {
-    return view('cadastro');
-});
+Route::middleware('guest')->group(function () {
+    Route::get('/cadastro', [UsuarioController::class, 'telaCadastro'])->name('cadastro');
+    Route::post('/cadastro', [UsuarioController::class, 'store']);
 
-Route::get('/login', function () {
-    return view('login');
+    Route::get('/login', [AuthController::class, 'telaLogin'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
 });
 
 Route::get('/trocar-senha', function () {

@@ -103,6 +103,13 @@ form {
     gap: 14px;
 }
 
+.campo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 .campo {
     background: rgba(0, 0, 0, 0.02);
     border: 2px solid rgba(0, 0, 0, 0.08);
@@ -125,9 +132,14 @@ form {
 .label-wrap {
     position: absolute;
     left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
+    z-index: 2;
     color: rgba(0, 0, 0, 0.35);
+}
+
+.mensagem-erro {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 8px;
 }
 
 #termos {

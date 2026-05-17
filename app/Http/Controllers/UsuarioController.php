@@ -1,0 +1,32 @@
+<?php
+    namespace App\Http\Controllers;
+
+    use App\Models\Usuario;
+    use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\Hash;
+
+    class UsuarioController extends Controller {
+        
+        public function telaCadastro() {
+            return view('auth.cadastro');
+        }
+
+        public function store(Request $request) {
+            $validated = $request->validate([
+                'nome' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:usuarios',
+                'senha' => 'required|string|min:6',
+                'cpf' => 'required|string|min:11|max:11|unique:usuarios',
+                'academia' => 'string|max:255'
+            ]);
+
+            $validated['senha'] = Hash::make($validated['senha']);
+            $usuario = Usuario::create($validated);
+
+            Auth::login($usuario);
+
+            return "Cadastro foi realizado com sucesso!";
+        }
+    }
+?>

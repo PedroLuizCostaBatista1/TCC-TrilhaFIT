@@ -16,19 +16,33 @@
             </a>
             <h1 class="titulo">Bem-vindo de volta!</h1>
         </header>
-        <form method="post">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+
             <div class="anim-in anim-d1">
-                <label for="email" class="label-wrap">
-                    <i data-lucide="mail" style="label-icon"></i>
-                </label>
-                <input type="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
+                <div class="campo-container">
+                    <label for="email" class="label-wrap">
+                        <i data-lucide="mail"></i>
+                    </label>
+                    <input type="email" name="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
+                </div>
+
+                @error('email')
+                    <p class="mensagem-erro">Erro</p>
+                @enderror
             </div>
 
             <div class="anim-in anim-d2">
-                <label for="senha" class="label-wrap">
-                    <i data-lucide="key-round" style="label-icon"></i>
-                </label>
-                <input type="password" id="senha" class="campo" placeholder="Digite sua senha" required>
+                <div class="campo-container">
+                    <label for="senha" class="label-wrap">
+                        <i data-lucide="key-round"></i>
+                    </label>
+                    <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua senha" required>
+                </div>
+
+                @error('senha')
+                    <p class="mensagem-erro">Erro</p>
+                @enderror
             </div>
 
             <div class="anim-in anim-d3 botoes">
