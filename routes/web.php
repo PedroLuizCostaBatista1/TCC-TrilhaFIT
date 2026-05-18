@@ -16,26 +16,30 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 });
 
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::get('/perfil', function () {
+        return view('dashboard.perfil');
+    })->name("perfil");
+
+    Route::get('/turma', function () {
+        return view('turma');
+    })->name("turma");
+
+    Route::get('/relatorio', function () {
+        return view('relatorio');
+    })->name("relatorio");
+
+    Route::get('/desafios', function () {
+        return view('desafios');
+    })->name("desafios");
+
+    Route::get('/placar', function () {
+        return view('placar');
+    })->name("placar");
+});
+
 Route::get('/trocar-senha', function () {
     return view('trocarsenha');
 });
-
-Route::get('/perfil', function () {
-    return view('perfil');
-})->name("perfil");
-
-Route::get('/turma', function () {
-    return view('turma');
-})->name("turma");
-
-Route::get('/relatorio', function () {
-    return view('relatorio');
-})->name("relatorio");
-
-Route::get('/desafios', function () {
-    return view('desafios');
-})->name("desafios");
-
-Route::get('/placar', function () {
-    return view('placar');
-})->name("placar");

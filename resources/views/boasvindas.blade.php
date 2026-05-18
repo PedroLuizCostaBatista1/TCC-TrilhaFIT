@@ -18,8 +18,14 @@
             <p class="subtitulo">Pedale, evolua e vença!</p>
         </header>
         <section class="anim-in anim-d2 botoes">
-            <a href="cadastro" class="botao1">Criar Conta</a>
-            <a href="login" class="botao2">Entrar</a>
+            @auth
+                <a href="{{ route('cadastro') }}" class="botao1">Criar Conta</a>
+                <a href="{{ route('perfil') }}" class="botao2">Entrar</a>
+            @endauth
+            @guest
+                <a href="{{ route('cadastro') }}" class="botao1">Criar Conta</a>
+                <a href="{{ route('login') }}" class="botao2">Entrar</a>
+            @endguest
         </section>
     </main>
     <script>

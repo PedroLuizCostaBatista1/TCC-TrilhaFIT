@@ -26,7 +26,7 @@
 
             Auth::login($usuario);
 
-            return "Cadastro foi realizado com sucesso!";
+            return redirect()->route('perfil');
         }
     }
 ?>

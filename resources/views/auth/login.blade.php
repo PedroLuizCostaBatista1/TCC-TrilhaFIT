@@ -37,7 +37,7 @@
                     <label for="senha" class="label-wrap">
                         <i data-lucide="key-round"></i>
                     </label>
-                    <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua senha" required>
+                    <input type="password" name="password" id="password" class="campo" placeholder="Digite sua senha" required>
                 </div>
 
                 @error('senha')
@@ -46,7 +46,7 @@
             </div>
 
             <div class="anim-in anim-d3 botoes">
-                <a href="perfil" class="botao1">Entrar</a>
+                <button type="submit" class="botao1">Entrar</button>
                 <a href="trocar-senha" class="botao2">Esqueceu a senha?</a>
             </div>
         </form>

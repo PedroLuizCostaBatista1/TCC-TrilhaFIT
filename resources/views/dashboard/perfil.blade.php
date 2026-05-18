@@ -5,7 +5,7 @@
             <figure id="logo">
                 <i data-lucide="user" id="icone-usuario"></i>
             </figure>
-            <h1 id="titulo-perfil">Olá, Java man!</h1>
+            <h1 id="titulo-perfil">Olá, {{ Auth::user()->nome }}</h1>
             <a href="#" id="botao-editar-conta"><i data-lucide="pen-line"></i>Editar conta</a>
         </header>
         <section id="estatisticas">
@@ -31,7 +31,10 @@
         </section>
         <section class="botoes">
             <a href="#" id="botao-compartilhar">Compartilhar</a>
-            <a href="/" id="botao-sair">Sair</a>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" id="botao-sair">Sair</button>
+            </form>
         </section>
     </main>
 @endsection
