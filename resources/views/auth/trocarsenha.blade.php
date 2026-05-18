@@ -11,21 +11,23 @@
 <body>
     <main class="tela">
         <header class="anim-in">
-            <a href="login">
+            <a href="{{ route('login') }}">
                 <i data-lucide="chevron-left" class="icone"></i>
             </a>
             <h1 class="titulo">Recuperar senha</h1>
         </header>
-        <form method="post">
+        <form method="POST" action="">
             <div class="anim-in anim-d1">
-                <label for="email" class="label-wrap">
-                    <i data-lucide="mail" style="label-icon"></i>
-                </label>
-                <input type="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
+                <div class="campo-container">
+                    <label for="email" class="label-wrap">
+                        <i data-lucide="mail"></i>
+                    </label>
+                    <input type="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
+                </div>
             </div>
 
             <div class="anim-in anim-d2 botoes">
-                <a href="#" class="botao1">Enviar codigo de recuperação</a>
+                <button type="submit" class="botao1">Enviar codigo de recuperação</button>
             </div>
         </form>
     </main>

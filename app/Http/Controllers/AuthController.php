@@ -11,31 +11,40 @@
             return view('auth.login');
         }
 
+        public function telaEsqueciSenha() {
+            return view('auth.trocarsenha');
+        }
+
+        public function verificarEmail(Request $request) {
+
+        }
+
+        public function telaRedefinirSenha($email) {
+
+        }
+
+        public function atualizarSenha(Request $request) {
+            
+        }
+
         public function login(Request $request) {
             $request->validate([
                 'email' => ['required', 'email'],
-                'password' => ['required']
+                'senha' => ['required']
             ]);
 
             $usuario = Usuario::where('email', $request->email)->first();
-    
-            if (!$usuario) {
-                dd("Erro de Login: O e-mail '{$request->email}' não foi encontrado no banco de dados.");
+
+            if (!$usuario or !Hash::check($request->senha, $usuario->senha)) {
+                return back()->withErrors([
+                    'credenciais' => 'E-mail ou senha estão invalidos. Tente novamente'
+                ])->onlyInput('email');
             }
 
-            if (!Hash::check($request->email, $request->password)) {
-        
-                dd('Nao');
-            }else{
-                dd('Login');
-            }
+            Auth::login($usuario);
 
-            if (Auth::login($usuario)) {
-                $request->session()->regenerate();
-                return redirect()->intended('dashboard.perfil');
-            }
-
-            dd("Erro desconhecido: O usuário e a senha estão certos, mas o Laravel não conseguiu criar a sessão local.");
+            $request->session()->regenerate();
+            return redirect()->intended('perfil');
         }
 
         public function logout(Request $request) {

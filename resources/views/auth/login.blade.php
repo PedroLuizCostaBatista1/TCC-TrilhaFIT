@@ -26,10 +26,6 @@
                     </label>
                     <input type="email" name="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
                 </div>
-
-                @error('email')
-                    <p class="mensagem-erro">Erro</p>
-                @enderror
             </div>
 
             <div class="anim-in anim-d2">
@@ -37,17 +33,17 @@
                     <label for="senha" class="label-wrap">
                         <i data-lucide="key-round"></i>
                     </label>
-                    <input type="password" name="password" id="password" class="campo" placeholder="Digite sua senha" required>
+                    <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua senha" required>
                 </div>
 
-                @error('senha')
-                    <p class="mensagem-erro">Erro</p>
+                @error('credenciais')
+                    <p class="mensagem-erro">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="anim-in anim-d3 botoes">
                 <button type="submit" class="botao1">Entrar</button>
-                <a href="trocar-senha" class="botao2">Esqueceu a senha?</a>
+                <a href="{{ route('trocar-senha') }}" class="botao2">Esqueceu a senha?</a>
             </div>
         </form>
     </main>

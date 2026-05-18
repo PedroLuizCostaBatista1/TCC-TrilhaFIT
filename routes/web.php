@@ -14,6 +14,9 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/login', [AuthController::class, 'telaLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
+
+    Route::get('/esqueci-senha', [AuthController::class, 'telaEsqueciSenha'])->name('trocar-senha');
+    Route::post('/esqueci-senha', [AuthController::class, 'verificarEmail']);
 });
 
 Route::middleware('auth')->group(function () {
