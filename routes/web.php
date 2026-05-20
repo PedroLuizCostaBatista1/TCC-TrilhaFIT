@@ -16,7 +16,9 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 
     Route::get('/esqueci-senha', [AuthController::class, 'telaEsqueciSenha'])->name('trocar-senha');
-    Route::post('/esqueci-senha', [AuthController::class, 'verificarEmail']);
+    Route::post('/esqueci-senha', [AuthController::class, 'verificarEmail'])->name('verificar-email');
+
+    Route::get('/redefinir-senha/{email}', [AuthController::class, 'telaRedefinirSenha'])->name('redefinir-senha');
 });
 
 Route::middleware('auth')->group(function () {
@@ -41,8 +43,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/placar', function () {
         return view('placar');
     })->name("placar");
-});
-
-Route::get('/trocar-senha', function () {
-    return view('trocarsenha');
 });

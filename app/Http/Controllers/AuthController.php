@@ -16,11 +16,27 @@
         }
 
         public function verificarEmail(Request $request) {
+            $request -> validate([
+                'email' => ['required', 'email']
+            ]);
 
+            $usuario = Usuario::where('email', $request->email)->first();
+
+            if (!$usuario) {
+                return back()->withErrors([
+                    'email' => 'E-mail invalido. Tente novamente'
+                ])->onlyInput('email');
+            }
+
+            $codigo = rand(100000, 999999);
+
+            session(['codigo_recuperacao']);
+
+            return redirect()->route('redefinir-senha', ['email' => $request->email]);
         }
 
         public function telaRedefinirSenha($email) {
-
+            return view('auth.redefinirsenha', ['email' => $email]);
         }
 
         public function atualizarSenha(Request $request) {

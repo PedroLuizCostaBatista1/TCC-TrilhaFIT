@@ -6,7 +6,7 @@
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="/assets/css/auth.css">
-    <title>TrilhaFIT</title>
+    <title>TrilhaFIT - Trocar senha</title>
 </head>
 <body>
     <main class="tela">
@@ -14,23 +14,28 @@
             <a href="{{ route('login') }}">
                 <i data-lucide="chevron-left" class="icone"></i>
             </a>
-            <h1 class="titulo">Recuperar senha</h1>
+            <h1 class="titulo">Redefinir senha</h1>
         </header>
-        <form method="POST" action="{{ route('verificar-email') }}">
+        <form method="POST" action="">
             <div class="anim-in anim-d1">
                 <div class="campo-container">
-                    <label for="email" class="label-wrap">
-                        <i data-lucide="mail"></i>
+                    <label for="senha" class="label-wrap">
+                        <i data-lucide="key-round"></i>
                     </label>
-                    <input type="email" name="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
+                    <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua nova senha (minimo 6 caracteres)" required>
                 </div>
-
-                @error('email')
-                    <p class="mensagem-erro">{{ $message }}</p>
-                @enderror
             </div>
 
-            <div class="anim-in anim-d2 botoes">
+            <div class="anim-in anim-d2">
+                <div class="campo-container">
+                    <label for="senha" class="label-wrap">
+                        <i data-lucide="key-round"></i>
+                    </label>
+                    <input type="password" name="senha" id="senha" class="campo" placeholder="Digite novamente sua nova senha" required>
+                </div>
+            </div>
+
+            <div class="anim-in anim-d3 botoes">
                 <button type="submit" class="botao1">Enviar codigo de recuperação</button>
             </div>
         </form>
