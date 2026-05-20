@@ -18,6 +18,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/esqueci-senha', [AuthController::class, 'telaEsqueciSenha'])->name('trocar-senha');
     Route::post('/esqueci-senha', [AuthController::class, 'verificarEmail'])->name('verificar-email');
 
+    /*Route::get('/verificar-codigo', function() {
+        return view('auth.verificarcodigo');
+    })->name('verificar-codigo');*/
+    Route::get('/verificar-codigo', [AuthController::class, 'telaVerificarCodigo'])->name('verificar-codigo');
+
     Route::get('/redefinir-senha/{email}', [AuthController::class, 'telaRedefinirSenha'])->name('redefinir-senha');
 });
 

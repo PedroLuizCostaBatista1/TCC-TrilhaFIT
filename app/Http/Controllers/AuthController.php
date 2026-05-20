@@ -2,7 +2,10 @@
     namespace App\Http\Controllers;
 
     use App\Models\Usuario;
+    use App\Mail\RecuperarSenhaMail;
+
     use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Mail;
     use Illuminate\Support\Facades\Hash;
     use Illuminate\Support\Facades\Auth;
 
@@ -30,9 +33,15 @@
 
             $codigo = rand(100000, 999999);
 
-            session(['codigo_recuperacao']);
+            session(['codigo_recuperacao' => $codigo, 'email_recuperacao' => $request->email]);
 
-            return redirect()->route('redefinir-senha', ['email' => $request->email]);
+            Mail::to($request->email)->send(new RecuperarSenhaMail($codigo));
+
+            return redirect()->route('verificar-codigo');
+        }
+
+        public function telaVerificarCodigo() {
+            return view('auth.verificarcodigo');
         }
 
         public function telaRedefinirSenha($email) {

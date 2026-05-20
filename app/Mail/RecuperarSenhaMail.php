@@ -21,14 +21,14 @@
         public function envelope(): Envelope
         {
             return new Envelope(
-                subject: 'Recuperar Senha Mail',
+                subject: 'Codigo de recuperar senha',
             );
         }
 
         public function content(): Content
         {
             return new Content(
-                view: 'auth.redefinirsenha',
+                view: 'emails.recuperarsenha',
                 with: [
                     'codigo' => $this->codigo,
                 ]
