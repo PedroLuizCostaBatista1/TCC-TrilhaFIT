@@ -39,6 +39,10 @@
                 @error('credenciais')
                     <p class="mensagem-erro">{{ $message }}</p>
                 @enderror
+
+                @if(session('success'))
+                    <p class="mensagem-sucesso">{{ session('success') }}</p>
+                @endif
             </div>
 
             <div class="anim-in anim-d3 botoes">

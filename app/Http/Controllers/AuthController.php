@@ -44,12 +44,43 @@
             return view('auth.verificarcodigo');
         }
 
-        public function telaRedefinirSenha($email) {
-            return view('auth.redefinirsenha', ['email' => $email]);
+        public function validarCodigo(Request $request) {
+            $request->validate([
+                'codigo' => 'required|numeric|digits:6'
+            ]);
+
+            if ($request->codigo == session('codigo_recuperacao')) {
+                $email = session('email_recuperacao');
+                return redirect()->route('redefinir-senha');
+            }
+
+            return back()->withErrors([
+                'codigo' => 'O código informado é invalido ou expirou.'
+            ]);
+        }
+
+        public function telaRedefinirSenha() {
+            return view('auth.redefinirsenha');
         }
 
         public function atualizarSenha(Request $request) {
-            
+            $request->validate([
+                'senha' => 'required|min:8|confirmed'
+            ]);
+
+            $email = session('email_recuperacao');
+            $usuario = Usuario::where('email', $email)->first();
+
+            if (!$usuario) {
+                return redirect()->route('trocar-senha')->withErrors(['email' => 'Sessão expirada.']);
+            }
+
+            $usuario->senha = Hash::make($request->senha);
+            $usuario->save();
+
+            session()->forget(['codigo_recuperacao', 'email_recuperacao']);
+
+            return redirect()->route('login')->with('success', 'Senha alterada com sucesso!');
         }
 
         public function login(Request $request) {

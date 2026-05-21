@@ -17,6 +17,8 @@
             <h1 class="titulo">Recuperar senha</h1>
         </header>
         <form method="POST" action="{{ route('verificar-email') }}">
+            @csrf
+
             <div class="anim-in anim-d1">
                 <div class="campo-container">
                     <label for="email" class="label-wrap">

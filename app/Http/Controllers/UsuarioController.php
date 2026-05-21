@@ -16,8 +16,8 @@
             $validated = $request->validate([
                 'nome' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:usuarios',
-                'senha' => 'required|string|min:6',
-                'cpf' => 'required|string|min:11|max:11|unique:usuarios',
+                'senha' => 'required|string|min:8',
+                'cpf' => 'required|string|digits:6|unique:usuarios',
                 'academia' => 'string|max:255'
             ]);
 

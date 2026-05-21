@@ -50,11 +50,11 @@
                     <label for="senha" class="label-wrap">
                         <i data-lucide="key-round"></i>
                     </label>
-                    <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua senha (minimo 6 caracteres)" required>
+                    <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua senha (minimo 8 caracteres)" required>
                 </div>
 
                 @error('senha')
-                    <p class="mensagem-erro">Senha abaixo de 6 caracteres</p>
+                    <p class="mensagem-erro">Senha abaixo de 8 caracteres</p>
                 @enderror
             </div>
 

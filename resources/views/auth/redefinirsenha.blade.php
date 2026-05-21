@@ -14,15 +14,17 @@
             <a href="{{ route('login') }}">
                 <i data-lucide="chevron-left" class="icone"></i>
             </a>
-            <h1 class="titulo">Redefinir senha</h1>
+            <h1 class="titulo">Redefinir sua senha</h1>
         </header>
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('atualizar-senha') }}">
+            @csrf
+
             <div class="anim-in anim-d1">
                 <div class="campo-container">
                     <label for="senha" class="label-wrap">
                         <i data-lucide="key-round"></i>
                     </label>
-                    <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua nova senha (minimo 6 caracteres)" required>
+                    <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua nova senha (minimo 8 caracteres)" required>
                 </div>
             </div>
 
@@ -31,12 +33,16 @@
                     <label for="senha" class="label-wrap">
                         <i data-lucide="key-round"></i>
                     </label>
-                    <input type="password" name="senha" id="senha" class="campo" placeholder="Digite novamente sua nova senha" required>
+                    <input type="password" name="senha_confirmation" id="senha_confirmation" class="campo" placeholder="Digite novamente sua nova senha" required>
                 </div>
+
+                @error('senha')
+                    <p class="mensagem-erro">As senhas não coincidem. Tente novamente</p>
+                @enderror
             </div>
 
             <div class="anim-in anim-d3 botoes">
-                <button type="submit" class="botao1">Enviar codigo de recuperação</button>
+                <button type="submit" class="botao1">Redefinir Senha</button>
             </div>
         </form>
     </main>

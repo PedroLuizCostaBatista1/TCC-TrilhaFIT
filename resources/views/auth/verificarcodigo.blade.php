@@ -13,13 +13,15 @@
         <header class="anim-in">
             <h1 class="titulo">Código de Verificação</h1>
         </header>
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('validar-codigo') }}">
+            @csrf
+
             <div class="anim-in anim-d1">
                 <div class="campo-container">
-                    <label for="email" class="label-wrap">
+                    <label for="codigo" class="label-wrap">
                         <i data-lucide="lock"></i>
                     </label>
-                    <input type="email" name="email" id="email" class="campo" placeholder="Digite o codigo enviado pelo e-mail" required>
+                    <input type="number" name="codigo" id="codigo" class="campo" placeholder="Digite o codigo enviado pelo e-mail" required>
                 </div>
 
                 @error('codigo')
