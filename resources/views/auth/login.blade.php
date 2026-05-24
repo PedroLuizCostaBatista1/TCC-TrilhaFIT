@@ -1,58 +1,41 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/auth.css">
-    <title>TrilhaFIT - Login</title>
-</head>
-<body>
-    <main class="tela">
-        <header class="anim-in">
-            <a href="/">
-                <i data-lucide="chevron-left" class="icone"></i>
-            </a>
-            <h1 class="titulo">Bem-vindo de volta!</h1>
-        </header>
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+@extends("config")
+@section("conteudo")
+<main class="tela">
+    <header class="anim-in">
+        <a href="/">
+            <span class="material-symbols-outlined icone-voltar">chevron_left</span>
+        </a>
+        <h1 class="titulo">Bem-vindo de volta!</h1>
+    </header>
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
 
-            <div class="anim-in anim-d1">
-                <div class="campo-container">
-                    <label for="email" class="label-wrap">
-                        <i data-lucide="mail"></i>
-                    </label>
-                    <input type="email" name="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
-                </div>
+        <div class="anim-in anim-d1">
+            <div class="campo-container">
+                <span class="material-symbols-outlined icone-campo">mail</span>
+                <input type="email" name="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
+            </div>
+        </div>
+
+        <div class="anim-in anim-d2">
+            <div class="campo-container">
+                <span class="material-symbols-outlined icone-campo">password_2</span>
+                <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua senha" required>
             </div>
 
-            <div class="anim-in anim-d2">
-                <div class="campo-container">
-                    <label for="senha" class="label-wrap">
-                        <i data-lucide="key-round"></i>
-                    </label>
-                    <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua senha" required>
-                </div>
+            @error('credenciais')
+                <p id="mensagem" class="mensagem-erro">{{ $message }}</p>
+            @enderror
 
-                @error('credenciais')
-                    <p class="mensagem-erro">{{ $message }}</p>
-                @enderror
+            @if(session('sucesso'))
+                <p id="mensagem" class="mensagem-sucesso">{{ session('sucesso') }}</p>
+            @endif
+        </div>
 
-                @if(session('success'))
-                    <p class="mensagem-sucesso">{{ session('success') }}</p>
-                @endif
-            </div>
-
-            <div class="anim-in anim-d3 botoes">
-                <button type="submit" class="botao1">Entrar</button>
-                <a href="{{ route('trocar-senha') }}" class="botao2">Esqueceu a senha?</a>
-            </div>
-        </form>
-    </main>
-    <script>
-        lucide.createIcons();
-    </script>
-</body>
-</html>
+        <div class="anim-in anim-d3 botoes">
+            <button type="submit" class="botao1">Entrar</button>
+            <a href="{{ route('trocar-senha') }}" class="botao2">Esqueceu a senha?</a>
+        </div>
+    </form>
+</main>
+@endsection

@@ -20,7 +20,7 @@
 
         public function verificarEmail(Request $request) {
             $request -> validate([
-                'email' => ['required', 'email']
+                'email' => 'required|email'
             ]);
 
             $usuario = Usuario::where('email', $request->email)->first();
@@ -55,8 +55,33 @@
             }
 
             return back()->withErrors([
-                'codigo' => 'O código informado é invalido ou expirou.'
+                'codigoInvalido' => 'O código informado é invalido ou expirou.'
             ]);
+        }
+
+        public function reenviarCodigo(Request $request) {
+            $tempoEspera = (int) session('tempo_espera', 0);
+            $tempoAgora = now()->timestamp;
+
+            if ($tempoEspera > $tempoAgora) {
+                $tempoRestante = $tempoEspera - $agora;
+                return back()->withErrors([
+                    'tempo' => "Aguarde {$restante} segundos para reenviar."
+                ]);
+            }
+
+            $codigo = rand(100000, 999999);
+            $email = session('email_recuperacao');
+            $novoTempoEspera = $tempoAgora + 30;
+
+            session([
+                'codigo_recuperacao' => $codigo,
+                'tempo_espera' => $novoTempoEspera
+            ]);
+
+            Mail::to($email)->send(new RecuperarSenhaMail($codigo));
+
+            return back()->with('sucesso', 'Código reenviado!');
         }
 
         public function telaRedefinirSenha() {
@@ -80,7 +105,7 @@
 
             session()->forget(['codigo_recuperacao', 'email_recuperacao']);
 
-            return redirect()->route('login')->with('success', 'Senha alterada com sucesso!');
+            return redirect()->route('login')->with('sucesso', 'Senha alterada com sucesso!');
         }
 
         public function login(Request $request) {

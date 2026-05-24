@@ -1,44 +1,27 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/auth.css">
-    <title>TrilhaFIT</title>
-</head>
-<body>
-    <main class="tela">
-        <header class="anim-in">
-            <a href="{{ route('login') }}">
-                <i data-lucide="chevron-left" class="icone"></i>
-            </a>
-            <h1 class="titulo">Recuperar senha</h1>
-        </header>
-        <form method="POST" action="{{ route('verificar-email') }}">
-            @csrf
+@extends("config")
+@section("conteudo")
+<main class="tela">
+    <header class="anim-in">
+        <a href="{{ route('login') }}">
+            <span class="material-symbols-outlined icone-voltar">chevron_left</span>
+        </a>
+        <h1 class="titulo">Recuperar senha</h1>
+    </header>
+    <form method="POST" action="{{ route('verificar-email') }}">
+        @csrf
 
-            <div class="anim-in anim-d1">
-                <div class="campo-container">
-                    <label for="email" class="label-wrap">
-                        <i data-lucide="mail"></i>
-                    </label>
-                    <input type="email" name="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
-                </div>
-
-                @error('email')
-                    <p class="mensagem-erro">{{ $message }}</p>
-                @enderror
+        <div class="anim-in anim-d1">
+            <div class="campo-container">
+                <span class="material-symbols-outlined icone-campo">mail</span>
+                <input type="email" name="email" id="email" class="campo" placeholder="Digite seu e-mail" oninput="esconderMensagem('erro')" required>
             </div>
 
-            <div class="anim-in anim-d2 botoes">
-                <button type="submit" class="botao1">Enviar codigo de recuperação</button>
-            </div>
-        </form>
-    </main>
-    <script>
-        lucide.createIcons();
-    </script>
-</body>
-</html>
+            @error('email')
+                <p id="mensagem" class="mensagem-erro">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <button type="submit" class="anim-in anim-d2 botao1">Enviar codigo de recuperação</button>
+    </form>
+</main>
+@endsection

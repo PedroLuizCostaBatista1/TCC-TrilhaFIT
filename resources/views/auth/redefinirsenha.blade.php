@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/auth.css">
-    <title>TrilhaFIT - Trocar senha</title>
-</head>
-<body>
+@extends("config")
+@section("conteudo")
     <main class="tela">
         <header class="anim-in">
-            <a href="{{ route('login') }}">
-                <i data-lucide="chevron-left" class="icone"></i>
-            </a>
             <h1 class="titulo">Redefinir sua senha</h1>
         </header>
         <form method="POST" action="{{ route('atualizar-senha') }}">
@@ -21,23 +9,19 @@
 
             <div class="anim-in anim-d1">
                 <div class="campo-container">
-                    <label for="senha" class="label-wrap">
-                        <i data-lucide="key-round"></i>
-                    </label>
+                    <span class="material-symbols-outlined icone-campo">password_2</span>
                     <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua nova senha (minimo 8 caracteres)" required>
                 </div>
             </div>
 
             <div class="anim-in anim-d2">
                 <div class="campo-container">
-                    <label for="senha" class="label-wrap">
-                        <i data-lucide="key-round"></i>
-                    </label>
+                    <span class="material-symbols-outlined icone-campo">check_circle</span>
                     <input type="password" name="senha_confirmation" id="senha_confirmation" class="campo" placeholder="Digite novamente sua nova senha" required>
                 </div>
 
                 @error('senha')
-                    <p class="mensagem-erro">As senhas não coincidem. Tente novamente</p>
+                    <p id="mensagem" class="mensagem-erro">As senhas não coincidem. Tente novamente</p>
                 @enderror
             </div>
 
@@ -46,8 +30,4 @@
             </div>
         </form>
     </main>
-    <script>
-        lucide.createIcons();
-    </script>
-</body>
-</html>
+@endsection

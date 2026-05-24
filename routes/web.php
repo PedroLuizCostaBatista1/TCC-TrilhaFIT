@@ -20,6 +20,7 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/verificar-codigo', [AuthController::class, 'telaVerificarCodigo'])->name('verificar-codigo');
     Route::post('/verificar-codigo', [AuthController::class, 'validarCodigo'])->name('validar-codigo');
+    Route::post('/reenviar-codigo', [AuthController::class, 'reenviarCodigo'])->name('reenviar-codigo');
 
     Route::get('/redefinir-senha', [AuthController::class, 'telaRedefinirSenha'])->name('redefinir-senha');
     Route::post('/redefinir-senha', [AuthController::class, 'atualizarSenha'])->name('atualizar-senha');
