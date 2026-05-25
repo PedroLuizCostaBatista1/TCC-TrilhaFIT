@@ -6,9 +6,12 @@
             <span id="perfil-icone" class="material-symbols-outlined">person</span>
         </figure>
         <h1 id="perfil-titulo">Olá, {{ Auth::user()->nome }}!</h1>
-        <a href="#" id="perfil-editar-conta"><span class="material-symbols-outlined">person_edit</span>Editar conta</a>
+        @if (!blank(Auth::user()->academia))   
+            <p id="perfil-academia"><span class="material-symbols-outlined icone-campo">location_on</span>{{ Auth::user()->academia }}</p>
+        @endif
+        <!--<a href="#" id="perfil-editar-conta"><span class="material-symbols-outlined">person_edit</span>Editar conta</a>-->
     </header>
-    <section id="estatisticas">
+    <section id="perfil-estatisticas">
         <h2 id="subtitulo-perfil">Estatísticas</h2>
         <div id="perfil-relatorio">
             <div class="relatorio-cartao">
