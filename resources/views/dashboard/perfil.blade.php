@@ -13,30 +13,38 @@
     </header>
     <section id="perfil-estatisticas">
         <h2 id="perfil-subtitulo">Estatísticas</h2>
+        <p id="perfil-estatisticas-data">Abril - 2026</p>
         <div id="perfil-estatisticas-grid">
             <div class="perfil-relatorio-cartao">
                 <h3 class="perfil-relatorio-valor">45</h3>
-                <p class="relatorio-titulo">Corridas</p>
+                <p class="perfil-relatorio-titulo"><span class="material-symbols-outlined">directions_bike</span>Corridas</p>
+                <div class="perfil-linha"></div>
             </div>
             <div class="perfil-relatorio-cartao">
                 <h3 class="perfil-relatorio-valor">280</h3>
-                <p class="perfil-relatorio-titulo">Distância total (km/h)</p>
+                <p class="perfil-relatorio-titulo"><span class="material-symbols-outlined">distance</span>Distância total (km/h)</p>
+                <div class="perfil-linha"></div>
             </div>
             <div class="perfil-relatorio-cartao">
                 <h3 class="perfil-relatorio-valor">85</h3>
-                <p class="relatorio-titulo">RPM</p>
+                <p class="perfil-relatorio-titulo"><span class="material-symbols-outlined">sync</span>Rotação por Minuto (RPM)</p>
+                <div class="perfil-linha"></div>
             </div>
             <div class="perfil-relatorio-cartao">
                 <h3 class="perfil-relatorio-valor">347</h3>
-                <p class="relatorio-titulo">Calorias</p>
+                <p class="perfil-relatorio-titulo"><span class="material-symbols-outlined">mode_heat</span>Calorias queimadas (kcal)</p>
             </div>
         </div>
     </section>
     <section class="botoes">
-        <a href="#" id="botao-compartilhar">Compartilhar</a>
+        <button class="botao1">Compartilhar</button>
+        <form method="POST" action="">
+            @csrf
+            <button type="submit" class="botao1">Editar conta</button>
+        </form>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button type="submit" id="botao-sair">Sair</button>
+            <button type="submit" class="botao1">Sair</button>
         </form>
     </section>
 </main>
