@@ -7,7 +7,7 @@
         </a>
         <h1 class="titulo">Bem-vindo de volta!</h1>
     </header>
-    <form method="POST" action="/login">
+    <form method="POST" action="{{ route('login') }}">
         @csrf
 
         <div class="anim-in anim-d1">

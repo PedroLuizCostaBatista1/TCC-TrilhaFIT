@@ -3,7 +3,7 @@
     <main class="tela">
         <header class="anim-in">
             <a href="{{ route('trocar-senha') }}">
-                <i data-lucide="chevron-left" class="icone"></i>
+                <span class="material-symbols-outlined icone-voltar">chevron_left</span>
             </a>
             <h1 class="titulo">Código de Verificação</h1>
         </header>

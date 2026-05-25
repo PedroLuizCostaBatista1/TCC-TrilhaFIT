@@ -26,8 +26,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/redefinir-senha', [AuthController::class, 'atualizarSenha'])->name('atualizar-senha');
 });
 
-Route::get('/login', [AuthController::class, 'telaLogin'])->name('login');
-
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 

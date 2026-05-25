@@ -12,22 +12,22 @@
         <!--<a href="#" id="perfil-editar-conta"><span class="material-symbols-outlined">person_edit</span>Editar conta</a>-->
     </header>
     <section id="perfil-estatisticas">
-        <h2 id="subtitulo-perfil">Estatísticas</h2>
-        <div id="perfil-relatorio">
-            <div class="relatorio-cartao">
-                <h3 class="relatorio-valor">45</h3>
+        <h2 id="perfil-subtitulo">Estatísticas</h2>
+        <div id="perfil-estatisticas-grid">
+            <div class="perfil-relatorio-cartao">
+                <h3 class="perfil-relatorio-valor">45</h3>
                 <p class="relatorio-titulo">Corridas</p>
             </div>
-            <div class="relatorio-cartao">
-                <h3 class="relatorio-valor">280km</h3>
-                <p class="relatorio-titulo">Distância total</p>
+            <div class="perfil-relatorio-cartao">
+                <h3 class="perfil-relatorio-valor">280</h3>
+                <p class="perfil-relatorio-titulo">Distância total (km/h)</p>
             </div>
-            <div class="relatorio-cartao">
-                <h3 class="relatorio-valor">85</h3>
+            <div class="perfil-relatorio-cartao">
+                <h3 class="perfil-relatorio-valor">85</h3>
                 <p class="relatorio-titulo">RPM</p>
             </div>
-            <div class="relatorio-cartao">
-                <h3 class="relatorio-valor">347kcal</h3>
+            <div class="perfil-relatorio-cartao">
+                <h3 class="perfil-relatorio-valor">347</h3>
                 <p class="relatorio-titulo">Calorias</p>
             </div>
         </div>
