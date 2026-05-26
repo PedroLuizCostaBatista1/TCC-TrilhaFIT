@@ -1,38 +1,44 @@
 @extends("dashboard/config")
 @section("conteudo")
-<main class="tela">
-    <header id="perfil-header">
-        <figure id="perfil-logo">
-            <span id="perfil-icone" class="material-symbols-outlined">person</span>
+@push('css')
+    <link rel="stylesheet" href="/assets/css/dashboard/perfil.css">
+@endpush
+<main>
+    <header>
+        <figure>
+            <span id="icone" class="material-symbols-outlined">person</span>
         </figure>
-        <h1 id="perfil-titulo">Olá, {{ Auth::user()->nome }}!</h1>
-        @if (!blank(Auth::user()->academia))   
-            <p id="perfil-academia"><span class="material-symbols-outlined icone-campo">location_on</span>{{ Auth::user()->academia }}</p>
+        <h1>Olá, {{ Auth::user()->nome }}!</h1>
+        @if (!blank(Auth::user()->academia))
+            <p id="academia"><span class="material-symbols-outlined icone-campo">location_on</span>{{ Auth::user()->academia }}</p>
         @endif
-        <!--<a href="#" id="perfil-editar-conta"><span class="material-symbols-outlined">person_edit</span>Editar conta</a>-->
+        <a href="#" id="editar-conta"><span id="editar-conta-icone" class="material-symbols-outlined">edit</span>Editar conta</a>
     </header>
-    <section id="perfil-estatisticas">
-        <h2 id="perfil-subtitulo">Estatísticas</h2>
-        <p id="perfil-estatisticas-data"><span class="material-symbols-outlined">chevron_left</span>Abril - 2026<span class="material-symbols-outlined">chevron_right]/</span></p>
-        <div id="perfil-estatisticas-grid">
-            <div class="perfil-relatorio-cartao">
-                <h3 class="perfil-relatorio-valor">45</h3>
-                <p class="perfil-relatorio-titulo"><span class="material-symbols-outlined">directions_bike</span>Corridas</p>
-                <div class="perfil-linha"></div>
+    <section id="estatisticas">
+        <div id="estatisticas-header">
+            <h2 id="subtitulo">Estatísticas</h2>
+            <p id="estatisticas-data"><span class="material-symbols-outlined">chevron_left</span>Abril - 2026<span class="material-symbols-outlined">chevron_right</span></p>
+        </div>
+        <div id="estatisticas-grid">
+            <div class="relatorio-cartao relatorio-cartao-full">
+                <span class="material-symbols-outlined relatorio-cartao-icone">distance</span>
+                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->distancia, 2, ',', '.') }} km</h3>
+                <p class="relatorio-titulo">Distância total</p>
             </div>
-            <div class="perfil-relatorio-cartao">
-                <h3 class="perfil-relatorio-valor">280</h3>
-                <p class="perfil-relatorio-titulo"><span class="material-symbols-outlined">distance</span>Distância total (km/h)</p>
-                <div class="perfil-linha"></div>
+            <div class="relatorio-cartao">
+                <span class="material-symbols-outlined relatorio-cartao-icone">directions_bike</span>
+                <h3 class="relatorio-valor">{{ Auth::user()->estatistica->corridas }}</h3>
+                <p class="relatorio-titulo">Corridas</p>
             </div>
-            <div class="perfil-relatorio-cartao">
-                <h3 class="perfil-relatorio-valor">85</h3>
-                <p class="perfil-relatorio-titulo"><span class="material-symbols-outlined">sync</span>Rotação por Minuto (RPM)</p>
-                <div class="perfil-linha"></div>
+            <div class="relatorio-cartao">
+                <span class="material-symbols-outlined relatorio-cartao-icone">sync</span>
+                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->rpm, 2, ',', '.') }} km/h</h3>
+                <p class="relatorio-titulo">Velocidade Média</p>
             </div>
-            <div class="perfil-relatorio-cartao">
-                <h3 class="perfil-relatorio-valor">347</h3>
-                <p class="perfil-relatorio-titulo"><span class="material-symbols-outlined">mode_heat</span>Calorias queimadas (kcal)</p>
+            <div class="relatorio-cartao relatorio-cartao-full">
+                <span class="material-symbols-outlined relatorio-cartao-icone">mode_heat</span>
+                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->calorias, 2, ',', '.') }} kcal</h3>
+                <p class="relatorio-titulo">Calorias Queimadas</p>
             </div>
         </div>
     </section>

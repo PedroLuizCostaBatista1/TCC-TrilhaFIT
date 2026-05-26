@@ -2,9 +2,11 @@
     namespace App\Http\Controllers;
 
     use App\Models\Usuario;
+    use App\Models\Estatisticas;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Hash;
+    use Illuminate\Support\Facades\DB;
 
     class UsuarioController extends Controller {
         
@@ -22,7 +24,15 @@
             ]);
 
             $validated['senha'] = Hash::make($validated['senha']);
-            $usuario = Usuario::create($validated);
+            $usuario = DB::transaction(function() use ($validated) {
+                $usuarioCriado = Usuario::create($validated);
+
+                Estatisticas::create([
+                    'usuarios_id' => $usuarioCriado->id
+                ]);
+
+                return $usuarioCriado;
+            });
 
             Auth::login($usuario);
 

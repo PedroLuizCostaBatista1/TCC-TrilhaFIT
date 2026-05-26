@@ -27,5 +27,9 @@
         public function getAuthPassword() {
             return $this->senha;
         }
+
+        public function estatistica() {
+            return $this->hasOne(Estatisticas::class, 'usuarios_id');
+        }
     }
 ?>

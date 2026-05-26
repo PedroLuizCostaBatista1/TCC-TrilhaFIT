@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('corridas')->default(0);
             $table->decimal('distancia', 10, 2)->default(0.00);
             $table->decimal('calorias', 10, 2)->default(0.00);
-            $table->decimal('velocidaade', 10, 2)->default(0.00);
+            $table->decimal('velocidade', 10, 2)->default(0.00);
             $table->timestamps();
         });
     }
