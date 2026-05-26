@@ -13,7 +13,7 @@
     </header>
     <section id="perfil-estatisticas">
         <h2 id="perfil-subtitulo">Estatísticas</h2>
-        <p id="perfil-estatisticas-data">Abril - 2026</p>
+        <p id="perfil-estatisticas-data"><span class="material-symbols-outlined">chevron_left</span>Abril - 2026<span class="material-symbols-outlined">chevron_right]/</span></p>
         <div id="perfil-estatisticas-grid">
             <div class="perfil-relatorio-cartao">
                 <h3 class="perfil-relatorio-valor">45</h3>
