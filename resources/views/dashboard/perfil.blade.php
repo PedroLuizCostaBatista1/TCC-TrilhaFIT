@@ -1,6 +1,6 @@
 @extends("dashboard/config")
 @section("conteudo")
-@push('css')
+@push("css")
     <link rel="stylesheet" href="/assets/css/dashboard/perfil.css">
 @endpush
 <main>
@@ -22,7 +22,7 @@
         <div id="estatisticas-grid">
             <div class="relatorio-cartao relatorio-cartao-full">
                 <span class="material-symbols-outlined relatorio-cartao-icone">distance</span>
-                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->distancia, 2, ',', '.') }} km</h3>
+                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->distancia, 2, ',', '.') }} <span class="relatorio-medida">km</span></h3>
                 <p class="relatorio-titulo">Distância total</p>
             </div>
             <div class="relatorio-cartao">
@@ -32,25 +32,21 @@
             </div>
             <div class="relatorio-cartao">
                 <span class="material-symbols-outlined relatorio-cartao-icone">sync</span>
-                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->rpm, 2, ',', '.') }} km/h</h3>
+                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->rpm, 2, ',', '.') }} <span class="relatorio-medida">km/h</span></h3>
                 <p class="relatorio-titulo">Velocidade Média</p>
             </div>
             <div class="relatorio-cartao relatorio-cartao-full">
                 <span class="material-symbols-outlined relatorio-cartao-icone">mode_heat</span>
-                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->calorias, 2, ',', '.') }} kcal</h3>
+                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->calorias, 2, ',', '.') }} <span class="relatorio-medida">kcal</span></h3>
                 <p class="relatorio-titulo">Calorias Queimadas</p>
             </div>
         </div>
     </section>
     <section class="botoes">
-        <button class="botao1">Compartilhar</button>
-        <form method="POST" action="">
-            @csrf
-            <button type="submit" class="botao1">Editar conta</button>
-        </form>
+        <button id="botao1"><span class="material-symbols-outlined">share</span>Compartilhar</button>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button type="submit" class="botao1">Sair</button>
+            <button type="submit" id="botao2"><span class="material-symbols-outlined">logout</span>Sair</button>
         </form>
     </section>
 </main>

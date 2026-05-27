@@ -1,36 +1,36 @@
-@extends("index")
+@extends("dashboard/config")
 @section("conteudo")
-@push('css')
-<link rel="stylesheet" href="/assets/css/turma.css">
+@push("css")
+    <link rel="stylesheet" href="/assets/css/dashboard/turma.css">
 @endpush
-<main class="tela">
-    <header>
-        <section id="detalhes">
-            <div id="detalhes-card">
-                <i data-lucide="users" id="icone"></i>
-            </div>
-            <h1 id="detalhes-titulo">Grupo Bike Masters</h1>
-            <p id="detalhes-subtitulo">Turma Avançada | 24 membros</p>
-            <div id="detalhes-descricao">
-                <p>🚴 Uma turma dedicada ao ciclismo profissional com foco em resistência e velocidade. Participe dos desafios e compita com seus colegas!</p>
-            </div>
-        </section>
-        <section id="status">
-            <div>
-                <div class="status-valor">18</div>
-                <div class="status-titulo">Treinos de Turma</div>
-            </div>
-            <div>
-                <div class="status-valor">4</div>
-                <div class="status-titulo">Desafios Ativos</div>
-            </div>
-        </section>
-    </header>
+<header>
+    <h1>Grupo Bike Masters</h1>
+    <div id="tags">
+        <div class="tag">
+            <span class="material-symbols-outlined">group</span>
+            <p>24 membros</p>
+        </div>
+        <div class="tag">
+            <p>Turma avançada</p>
+        </div>
+    </div>
+</header>
+<main>
+    <section id="detalhes-descricao">
+        <p>Uma turma dedicada ao ciclismo profissional com foco em resistência e velocidade. Participe dos desafios e compita com seus colegas!</p>
+    </section>
+    <section id="status">
+        <div class="status-card">
+            <div class="status-valor">18</div>
+            <div class="status-titulo">Treinos de Turma</div>
+        </div>
+        <div class="status-card">
+            <div class="status-valor">4</div>
+            <div class="status-titulo">Desafios Ativos</div>
+        </div>
+    </section>
     <section id="mural">
-        <h2 id="mural-titulo">
-            <i data-lucide="bell" id="mural-icone"></i>
-            Mural de Avisos
-        </h2>
+        <h2 id="mural-titulo"><span class="material-symbols-outlined">campaign</span>Mural de Avisos</h2>
         <div id="mural-wrap">
             <div id="mural-card-vermelho">
                 <div class="mural-card-titulo">

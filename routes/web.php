@@ -34,18 +34,18 @@ Route::middleware('auth')->group(function () {
     })->name("perfil");
 
     Route::get('/turma', function () {
-        return view('turma');
+        return view('dashboard.turma');
     })->name("turma");
 
     Route::get('/relatorio', function () {
-        return view('relatorio');
+        return view('dashboard.relatorio');
     })->name("relatorio");
 
     Route::get('/desafios', function () {
-        return view('desafios');
+        return view('dashboard.desafios');
     })->name("desafios");
 
     Route::get('/placar', function () {
-        return view('placar');
+        return view('dashboard.placar');
     })->name("placar");
 });
