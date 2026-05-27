@@ -1,7 +1,7 @@
-@extends("index")
+@extends("dashboard/config")
 @section("conteudo")
-@push('css')
-<link rel="stylesheet" href="/assets/css/desafios.css">
+@push("css")
+<link rel="stylesheet" href="/assets/css/dashboard/desafios.css">
 @endpush
 <main class="tela">
     <div id="card-vermelho">

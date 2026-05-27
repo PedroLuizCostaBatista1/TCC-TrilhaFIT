@@ -10,13 +10,11 @@
             <span class="material-symbols-outlined">group</span>
             <p>24 membros</p>
         </div>
-        <div class="tag">
-            <p>Turma avançada</p>
-        </div>
     </div>
 </header>
 <main>
-    <section id="detalhes-descricao">
+    <section id="descricao">
+        <h2><span class="material-symbols-outlined">description</span>Descrição</h2>
         <p>Uma turma dedicada ao ciclismo profissional com foco em resistência e velocidade. Participe dos desafios e compita com seus colegas!</p>
     </section>
     <section id="status">
@@ -30,38 +28,38 @@
         </div>
     </section>
     <section id="mural">
-        <h2 id="mural-titulo"><span class="material-symbols-outlined">campaign</span>Mural de Avisos</h2>
+        <h2 id="mural-titulo"><span id="mural-icone" class="material-symbols-outlined">campaign</span>Mural de Avisos</h2>
         <div id="mural-wrap">
-            <div id="mural-card-vermelho">
-                <div class="mural-card-titulo">
-                    <p class="nome-instrutor">Instrutor Martado</p>
+            <div class="mural-card">
+                <div class="mural-card-titulo titulo-desafio">
+                    <p id="desafio-nome">Instrutor Martado</p>
                     <p class="horario">Hoje às 14:30</p>
                 </div>
-                <p class="aviso-titlo">🏆 Novo Desafio: Maratona do Mês!</p>
+                <h3 class="aviso-titulo">Novo Desafio: Maratona do Mês!</h3>
                 <p class="aviso">Participe da Maratona de Agosto! Pedal 100km este mês e ganhe um bônus de 500 XP. Boa sorte! 💪</p>
             </div>
-            <div id="mural-card-verde">
-                <div class="mural-card-titulo">
-                    <p class="anuncio-confirmacao">Anúncio</p>
+            <div class="mural-card">
+                <div class="mural-card-titulo titulo-anuncio">
+                    <p id="anuncio-nome">Anúncio</p>
                     <p class="horario">Ontem às 10:15</p>
                 </div>
-                <p class="aviso-titlo">✅ Treino em Grupo Confirmado!</p>
+                <h3 class="aviso-titlo">Treino em Grupo Confirmado!</h3>
                 <p class="aviso">Amanhã às 07:00 saída do Parque Ibirapuera. Todos estão convidados para o treino matinal!</p>
             </div>
-            <div id="mural-card-azul">
-                <div class="mural-card-titulo">
-                    <p class="anuncio-informacao">Instrutor Martado</p>
+            <div class="mural-card">
+                <div class="mural-card-titulo titulo-informacao">
+                    <p id="informacao-nome">Instrutor Martado</p>
                     <p class="horario">há 2 dias</p>
                 </div>
-                <p class="aviso-titlo">📅 Atualização do Calendário de Treinos</p>
+                <h3 class="aviso-titlo">Atualização do Calendário de Treinos</h3>
                 <p class="aviso">Confira a agenda de treinos na seção "Turma". Novos horários disponíveis para segunda-feira!</p>
             </div>
-            <div id="mural-card-amarelo">
-                <div class="mural-card-titulo">
-                    <p class="anuncio-lembrete">Lembrete</p>
+            <div class="mural-card">
+                <div class="mural-card-titulo titulo-lembrete">
+                    <p id="lembrete-nome">Lembrete</p>
                     <p class="horario">há 3 dias</p>
                 </div>
-                <p class="aviso-titlo">⚠️ Manutenção de Equipamento</p>
+                <h3 class="aviso-titlo">Manutenção de Equipamento</h3>
                 <p class="aviso">Lembrete: Verifique seus pneus e freios antes de cada treino. Segurança em primeiro lugar!</p>
             </div>
         </div>

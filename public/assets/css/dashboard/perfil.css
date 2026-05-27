@@ -4,10 +4,8 @@
     --cor-card: white;
     --cor-borda: #D0D0D0;
 
-    --cor-subtitulo: rgba(0, 0, 0, 0.5);
     --cor-primaria: #FF6517;
-    --cor-segundaria: #FF822E;
-    --cor-tercearia: #FF6B35;
+    --cor-segundaria: #FF6B35;
     --fonte-principal: "Outfit", sans-serif;
 }
 
@@ -180,8 +178,8 @@ h1 {
     justify-content: center;
     gap: 10px;
     background: var(--cor-fundo); 
-    border: 2px solid var(--cor-tercearia); 
+    border: 2px solid var(--cor-primaria); 
     border-radius: 14px; 
     padding: 18px; 
-    color: var(--cor-tercearia);
+    color: var(--cor-primaria);
 }

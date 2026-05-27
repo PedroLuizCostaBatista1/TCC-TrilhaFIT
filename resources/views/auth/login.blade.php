@@ -33,7 +33,7 @@
         </div>
 
         <div class="anim-in anim-d3 botoes">
-            <button type="submit" class="botao1">Entrar</button>
+            <button type="submit" class="botao1"><span class="material-symbols-outlined">login</span>Entrar</button>
             <a href="{{ route('trocar-senha') }}" class="botao2">Esqueceu a senha?</a>
         </div>
     </form>

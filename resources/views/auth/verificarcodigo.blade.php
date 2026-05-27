@@ -30,14 +30,14 @@
             </div>
 
             <div class="anim-in anim-d2 botoes">
-                <button type="submit" class="botao1">Validar o código</button>
+                <button type="submit" class="botao1"><span class="material-symbols-outlined">check</span>Validar o código</button>
             </div>
         </form>
         <form id="reenviar-codigo-form" method="POST" action="{{ route('reenviar-codigo') }}">
             @csrf
 
             <div class="anim-in anim-d3 botoes">
-                <button type="submit" id="reenviar" class="botao2">Reenviar código</button>
+                <button type="submit" id="reenviar" class="botao2"><span class="material-symbols-outlined">sync</span>Reenviar código</button>
             </div>
         </form>
     </main>

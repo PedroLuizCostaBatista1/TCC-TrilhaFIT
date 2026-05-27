@@ -1,7 +1,7 @@
-@extends("index")
+@extends("dashboard/config")
 @section("conteudo")
-@push('css')
-<link rel="stylesheet" href="/assets/css/placar.css">
+@push("css")
+    <link rel="stylesheet" href="/assets/css/dashboard/placar.css">
 @endpush
 <main class="tela">
     <header>

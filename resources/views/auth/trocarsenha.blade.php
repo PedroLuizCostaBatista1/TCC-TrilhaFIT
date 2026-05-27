@@ -13,7 +13,7 @@
         <div class="anim-in anim-d1">
             <div class="campo-container">
                 <span class="material-symbols-outlined icone-campo">mail</span>
-                <input type="email" name="email" id="email" class="campo" placeholder="Digite seu e-mail" oninput="esconderMensagem('erro')" required>
+                <input type="email" name="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
             </div>
 
             @error('email')

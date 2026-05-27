@@ -1,10 +1,21 @@
 :root {
     --cor-fundo: #F9F9F9;
-    --cor-inativa: #707070;
+    --texto-cinza: #555555;
+    --cor-linha: #0000001A;
     --cor-tag: white;
-    --cor-borda: #D0D0D0;
 
-    --cor-subtitulo: rgba(0, 0, 0, 0.5);
+    --cor-fundo-desafio: #FFF3E0;
+    --cor-desafio: #E65100;
+
+    --cor-fundo-anuncio: #E8F5E9;
+    --cor-anuncio: #1B5E20;
+
+    --cor-fundo-informacao: #E3F2FD;
+    --cor-informacao: #0D47A1;
+
+    --cor-fundo-lembrete: #FFFDE7;
+    --cor-lembrete: #F57F17;
+
     --cor-primaria: #FF6517;
     --cor-segundaria: #FF822E;
     --cor-tercearia: #FF6B35;
@@ -56,62 +67,49 @@ header {
     gap: 10px;
     background-color: var(--cor-tag);
     color: var(--cor-primaria);
-    padding: 4px 10px;
+    padding: 4px 12px;
     border-radius: 20px;
 }
 
+.tag > span {
+    font-size: 28px;
+}
+
 .tag > p {
+    font-size: 14px;
     margin: 0px;
 }
 
-#detalhes-card {
-    background-image: linear-gradient(135deg, var(--cor-primaria), var(--cor-segundaria));
-    border-radius: 12px; 
-    margin-bottom: 16px;
-    padding: 50px;
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-}
-
-#icone {
-    width: 56px; 
-    height: 56px;
-    color: var(--cor-fundo);
-}
-
-#detalhes-titulo {
-    font-size: 30px; 
-    font-weight: 800; 
-    color: var(--cor-texto); 
-    margin-bottom: 8px;
-}
-
-#detalhes-subtitulo {
-    font-size: 16px; 
-    color: var(--cor-descricao); 
-    margin-bottom: 25px;
-}
-
-#detalhes-descricao {
+#descricao {
     background-color: white;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-    border-radius: 8px; 
+    border-radius: 16px; 
     padding: 12px;
     margin-bottom: 20px;
 }
 
-#detalhes-descricao > p {
-    font-size: 14px; 
-    color: var(--cor-descricao); 
+#descricao > h2 {
+    color: var(--cor-primaria);
+    margin: 5px 0px 14px 0px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#descricao > h2 > span {
+    font-size: 28px;
+}
+
+#descricao > p {
+    color: var(--texto-cinza);
+    font-size: 14px;
     line-height: 1.5;
 }
 
 #status {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 28px;
+    gap: 20px;
 }
 
 .status-card {
@@ -130,110 +128,102 @@ header {
 
 .status-titulo {
     font-size: 14px; 
-    color: var(--cor-descricao); 
+    color: var(--texto-cinza);
     margin-top: 4px;
 }
 
 #mural {
-    border-radius: 16px; 
     padding-top: 40px; 
 }
 
 #mural-titulo {
-    font-size: 26px; 
-    font-weight: 700; 
-    color: var(--cor-texto); 
+    font-size: 26px;
     margin-bottom: 24px; 
     display: flex; 
     align-items: center;
-    justify-content: center;
     gap: 8px;
 }
 
 #mural-icone {
-    width: 32px; 
-    height: 32px; 
     color: var(--cor-primaria);
+    font-size: 40px;
 }
 
 #mural-wrap {
     display: flex; 
     flex-direction: column; 
-    gap: 12px;
+    gap: 30px;
 }
 
-#mural-card-vermelho {
-    background-color: #ff5e0015;
-    border-radius: 8px; 
-    padding: 12px; 
-    border: 2px solid #FFE5D9;
-}
-
-#mural-card-verde {
-    background-color: #f0fdf4;
-    border-radius: 8px; 
-    padding: 12px; 
-    border: 2px solid #22c50015;
-}
-
-#mural-card-azul {
-    background-color: #eff6ff;
-    border-radius: 8px; 
-    padding: 12px; 
-    border: 2px solid #3b83f630;
-}
-
-#mural-card-amarelo {
-    background-color: #fef3c7;
-    border-radius: 8px; 
-    padding: 12px; 
-    border: 2px solid #f59f0b30;
+.mural-card {
+    background-color: var(--cor-tag);
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .mural-card-titulo {
-    display: flex; 
-    justify-content: space-between; 
-    margin-bottom: 8px;
-}
-
-.nome-instrutor {
-    font-size: 12px; 
-    font-weight: 700; 
-    color: var(--cor-primaria);
-}
-
-.anuncio-confirmacao {
-    font-size: 12px; 
-    font-weight: 700; 
-    color: #22c55e;
-}
-
-.anuncio-informacao {
-    font-size: 12px; 
-    font-weight: 700; 
-    color: #3b82f6;
-}
-
-.anuncio-lembrete {
-    font-size: 12px; 
-    font-weight: 700; 
-    color: #f59e0b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-radius: 16px 16px 0px 0px;
+    margin: -16px -16px 16px -16px;
 }
 
 .horario {
-    font-size: 12px; 
-    color: var(--cor-descricao);
+    font-size: 13px;
+    margin: 0px;
+    color: var(--texto-cinza);
 }
 
-.aviso-titlo {
-    font-size: 13px; 
-    color: var(--cor-texto); 
+.aviso-titulo {
+    font-size: 18px; 
     font-weight: 600;
-    margin-bottom: 4px;
 }
 
 .aviso {
-    font-size: 12px; 
-    color: var(--cor-descricao); 
+    font-size: 14px; 
+    color: var(--texto-cinza); 
     line-height: 1.4;
+}
+
+#desafio-nome {
+    margin: 0px;
+    color: var(--cor-desafio);
+}
+
+.titulo-desafio {
+    background-color: var(--cor-fundo-desafio);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+#anuncio-nome {
+    margin: 0px;
+    color: var(--cor-anuncio);
+}
+
+.titulo-anuncio {
+    background-color: var(--cor-fundo-anuncio);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+#informacao-nome {
+    margin: 0px;
+    color: var(--cor-informacao);
+}
+
+.titulo-informacao {
+    background-color: var(--cor-fundo-informacao);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+#lembrete-nome {
+    margin: 0px;
+    color: var(--cor-lembrete);
+}
+
+.titulo-lembrete {
+    background-color: var(--cor-fundo-lembrete);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
 }

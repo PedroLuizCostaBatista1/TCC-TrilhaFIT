@@ -10,12 +10,11 @@
     </header>
     <section class="anim-in anim-d2 botoes">
         @auth
-            <a href="{{ route('cadastro') }}" class="botao1">Criar Conta</a>
-            <a href="{{ route('perfil') }}" class="botao2">Entrar</a>
+            <a href="{{ route('perfil') }}" class="botao1"><span class="material-symbols-outlined">person</span>Ir no perfil</a>
         @endauth
         @guest
-            <a href="{{ route('cadastro') }}" class="botao1">Criar Conta</a>
-            <a href="{{ route('login') }}" class="botao2">Entrar</a>
+            <a href="{{ route('cadastro') }}" class="botao1"><span class="material-symbols-outlined">person_add</span>Criar Conta</a>
+            <a href="{{ route('login') }}" class="botao2"><span class="material-symbols-outlined">login</span>Entrar</a>
         @endguest
     </section>
 </main>
