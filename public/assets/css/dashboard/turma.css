@@ -1,7 +1,6 @@
 :root {
     --cor-fundo: #F9F9F9;
     --texto-cinza: #555555;
-    --cor-linha: #0000001A;
     --cor-tag: white;
 
     --cor-fundo-desafio: #FFF3E0;
@@ -17,8 +16,6 @@
     --cor-lembrete: #F57F17;
 
     --cor-primaria: #FF6517;
-    --cor-segundaria: #FF822E;
-    --cor-tercearia: #FF6B35;
     --fonte-principal: "Outfit", sans-serif;
 }
 
