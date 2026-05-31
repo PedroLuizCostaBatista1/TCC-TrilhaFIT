@@ -6,35 +6,6 @@
 
     --cor-primaria: #FF6517;
     --cor-segundaria: #FF6B35;
-    --fonte-principal: "Outfit", sans-serif;
-}
-
-* {
-    box-sizing: border-box;
-    border-width: 0;
-    text-decoration: none;
-    font-family: var(--fonte-principal);
-    letter-spacing: 0.3px;
-}
-
-body {
-    background-color: var(--cor-fundo);
-    margin: 0px;
-}
-
-button {
-    width: 100%;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-main {
-    padding: 40px 20px;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: center;
 }
 
 header {
@@ -66,6 +37,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 500;
     gap: 5px;
     color: var(--cor-inativa);
     font-size: 20px;
@@ -94,14 +66,12 @@ h1 {
 }
 
 #estatisticas-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 #subtitulo {
-    font-size: 26px;
+    font-size: 32px;
     margin: 0px;
 }
 
@@ -109,14 +79,13 @@ h1 {
     display: flex;
     align-items: center; 
     justify-content: center;
-    margin: 0px;
+    margin: 15px 0px;
     gap: 10px;
     color: var(--cor-inativa);
 }
 
 #estatisticas-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -124,7 +93,7 @@ h1 {
     background-color: var(--cor-card);
     border-radius: 16px;
     padding: 20px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .relatorio-cartao-full {
@@ -138,12 +107,12 @@ h1 {
 
 .relatorio-valor {
     color: var(--cor-primaria);
-    font-size: 38px;
+    font-size: 32px;
     margin: 0px 0px 5px 0px;
 }
 
 .relatorio-medida {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .relatorio-titulo {
@@ -177,7 +146,7 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: var(--cor-fundo); 
+    background-color: var(--cor-card); 
     border: 2px solid var(--cor-primaria); 
     border-radius: 14px; 
     padding: 18px; 

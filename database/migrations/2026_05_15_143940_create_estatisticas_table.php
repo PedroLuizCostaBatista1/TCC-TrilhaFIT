@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('estatisticas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('usuarios_id')->constrained();
+            $table->foreignId('usuarios_id')->constrained()->cascadeOnDelete();
             $table->integer('rpm')->default(0);
             $table->integer('corridas')->default(0);
             $table->decimal('distancia', 10, 2)->default(0.00);

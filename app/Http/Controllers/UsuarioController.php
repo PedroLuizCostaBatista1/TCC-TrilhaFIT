@@ -4,6 +4,7 @@
     use App\Models\Usuario;
     use App\Models\Estatisticas;
     use Illuminate\Http\Request;
+    use Illuminate\Validation\Rule;
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Hash;
     use Illuminate\Support\Facades\DB;
@@ -20,7 +21,7 @@
                 'email' => 'required|string|email|max:255|unique:usuarios',
                 'senha' => 'required|string|min:8',
                 'cpf' => 'required|string|digits:11|unique:usuarios',
-                'academia' => 'string|max:255'
+                'academia' => 'nullable|string|max:255'
             ]);
 
             $validated['senha'] = Hash::make($validated['senha']);
@@ -37,6 +38,42 @@
             Auth::login($usuario);
 
             return redirect()->route('perfil');
+        }
+
+        public function editar() {
+            $usuario = Auth::user();
+            return view('auth.editarperfil', compact('usuario'));
+        }
+
+        public function atualizar(Request $request) {
+            $usuario = Auth::user();
+            $validated = $request->validate([
+                'nome' => 'required|string|max:255',
+                'email' => ['required', 'string', 'email', 'max:255', Rule::unique('usuarios')->ignore($usuario->id)],
+                'senha' => 'nullable|string|min:8|confirmed',
+                'academia' => 'nullable|string|max:255'
+            ]);
+
+            if ($request->filled('senha')) {
+                $validated['senha'] = Hash::make($request->senha);
+            } else {
+                unset($validated['senha']);
+            }
+
+            $usuario->update($validated);
+
+            return redirect()->route('perfil')->with('success', 'Perfil atualizado com sucesso!');
+        }
+
+        public function deletar(Request $request) {
+            $usuario = Auth::user();
+            $usuario->delete();
+
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            return redirect('/')->with('status', 'Conta excluída com sucesso.');
         }
     }
 ?>

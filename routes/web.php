@@ -29,6 +29,10 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+    Route::get('/perfil/editar', [UsuarioController::class, 'editar'])->name('perfil-editar');
+    Route::put('/perfil/editar', [UsuarioController::class, 'atualizar'])->name('perfil-atualizar');
+    Route::delete('/perfil/deletar', [UsuarioController::class, 'deletar'])->name('perfil-deletar');
+
     Route::get('/perfil', function () {
         return view('dashboard.perfil');
     })->name("perfil");

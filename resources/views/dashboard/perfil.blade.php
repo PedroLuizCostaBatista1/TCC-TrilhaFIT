@@ -12,7 +12,7 @@
         @if (!blank(Auth::user()->academia))
             <p id="academia"><span class="material-symbols-outlined icone-campo">location_on</span>{{ Auth::user()->academia }}</p>
         @endif
-        <a href="#" id="editar-conta"><span id="editar-conta-icone" class="material-symbols-outlined">edit</span>Editar conta</a>
+        <a href="{{ route('perfil-editar') }}" id="editar-conta"><span id="editar-conta-icone" class="material-symbols-outlined">edit</span>Editar conta</a>
     </header>
     <section id="estatisticas">
         <div id="estatisticas-header">
@@ -31,8 +31,8 @@
                 <p class="relatorio-titulo">Corridas</p>
             </div>
             <div class="relatorio-cartao">
-                <span class="material-symbols-outlined relatorio-cartao-icone">sync</span>
-                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->rpm, 2, ',', '.') }} <span class="relatorio-medida">km/h</span></h3>
+                <span class="material-symbols-outlined relatorio-cartao-icone">speed</span>
+                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->velocidade, 2, ',', '.') }} <span class="relatorio-medida">km/h</span></h3>
                 <p class="relatorio-titulo">Velocidade Média</p>
             </div>
             <div class="relatorio-cartao relatorio-cartao-full">
