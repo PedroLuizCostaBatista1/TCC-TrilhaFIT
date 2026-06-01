@@ -42,6 +42,7 @@ header > div {
     border-radius: 16px;
     padding: 14px 16px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+    border-bottom: 3px solid #EDEDED;
 }
 
 .card > span {
@@ -78,6 +79,21 @@ header > div {
     border-radius: 16px;
     padding: 16px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+    border-bottom: 3px solid #EDEDED;
+}
+
+#chart-titulo {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#chart-titulo > span {
+    color: var(--cor-primaria);
+}
+
+#chart-titulo > h3 {
+    margin: 0px;
 }
 
 #botoes {
@@ -85,13 +101,16 @@ header > div {
     flex-direction: column;
     text-align: center;
     font-size: 20px;
-    letter-spacing: 0.3px;
     font-weight: 700;
+    margin-top: 24px;
     gap: 16px;
-    width: 100%;
 }
 
 #botao-compartilhar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-segundaria) 100%);
     border-radius: 14px;
     padding: 16px;
@@ -99,9 +118,13 @@ header > div {
 }
 
 #botao-exportar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     background: var(--cor-fundo); 
-    border: 2px solid var(--cor-tercearia); 
+    border: 2px solid var(--cor-primaria); 
     border-radius: 14px; 
     padding: 16px; 
-    color: var(--cor-tercearia);
+    color: var(--cor-primaria);
 }

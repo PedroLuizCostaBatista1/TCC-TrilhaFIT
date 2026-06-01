@@ -43,13 +43,15 @@
         </div>
     </section>
     <section id="chart">
-        <span id="mural-icone" class="material-symbols-outlined">chart_data</span>
-        <h3>Ritmo de Velocidade (Sessão)</h3>
+        <div id="chart-titulo">
+            <span id="mural-icone" class="material-symbols-outlined">chart_data</span>
+            <h3>Ritmo de Velocidade (Sessão)</h3>
+        </div>
         <canvas id="chartVelocidade"></canvas>
     </section>
     <section id="botoes">
-        <a href="#" id="botao-compartilhar">Compartilhar</a>
-        <a href="#" id="botao-exportar">Exportar</a>
+        <a href="#" id="botao-compartilhar"><span class="material-symbols-outlined relatorio-cartao-icone">share</span>Compartilhar</a>
+        <a href="#" id="botao-exportar"><span class="material-symbols-outlined relatorio-cartao-icone">download</span>Exportar Dados (.csv)</a>
     </section>
 </main>
 @endsection
