@@ -1,6 +1,7 @@
 :root {
     --cor-fundo: #F9F9F9;
     --texto-cinza: #707070;
+    --texto-escuro: black;
     --cor-card: white;
     --cor-borda: #D0D0D0;
 
@@ -43,26 +44,21 @@ header > div {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.card-titulo {
-    display: flex;
-    align-items: center;
-    color: var(--cor-primaria); 
-    gap: 5px;
-}
-
 .card > span {
-    color: var(--cor-primaria); 
-    margin-bottom: 5px;
+    color: var(--cor-inativa); 
+    margin-bottom: 10px;
     font-size: 28px;
 }
 
 .card-valor {
-    color: var(--cor-primaria); 
-    font-size: 32px;
+    color: var(--texto-escuro); 
+    font-size: 28px;
     margin:0px 0px 5px 0px;
 }
 
 .card-valor > span {
+    color: var(--cor-inativa);
+    font-weight: normal;
     font-size: 14px;
 }
 
@@ -75,6 +71,13 @@ header > div {
 
 .card-cheio {
     grid-column: span 2;
+}
+
+#chart {
+    background-color: var(--cor-card);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 #botoes {

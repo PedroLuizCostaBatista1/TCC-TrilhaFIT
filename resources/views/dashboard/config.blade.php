@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <script src="/assets/js/app.js" defer></script>
     <link rel="stylesheet" href="/assets/css/dashboard/navbar.css">
     @stack('css')
+    @stack('scripts')
     <title>TrilhaFIT</title>
 </head>
 <body>
@@ -27,10 +27,10 @@
         <span class="material-symbols-outlined">exercise</span>
         <p class="nav-texto">Desafios</p>
     </a>
-    <a href="{{ route('placar') }}" class="nav-botao @if(Route::is('placar')) nav-botao-ativo @else nav-botao-inativo @endif;">
+    <!--<a href="{{ route('placar') }}" class="nav-botao @if(Route::is('placar')) nav-botao-ativo @else nav-botao-inativo @endif;">
         <span class="material-symbols-outlined">social_leaderboard</span>
         <p class="nav-texto">Placar</p>
-    </a>
+    </a>-->
 </nav>
 </body>
 </html>

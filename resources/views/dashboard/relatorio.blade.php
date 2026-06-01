@@ -3,6 +3,10 @@
 @push("css")
     <link rel="stylesheet" href="/assets/css/dashboard/relatorio.css">
 @endpush
+@push("scripts")
+    <script src="/assets/js/dashboard/relatorio.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+@endpush
 <main>
     <header>
         <h1>Última sessão</h1>
@@ -33,12 +37,15 @@
             <p class="card-titulo">Vel. Média</p>
         </div>
         <div class="card card-cheio">
-            <div class="card-titulo">
-                <span id="mural-icone" class="material-symbols-outlined">mode_heat</span>
-                <p>Calorias queimadas</p>
-            </div>
-            <h3 class="card-valor">347 <span>kcal gastas</span></h3>
+            <span id="mural-icone" class="material-symbols-outlined">mode_heat</span>
+            <h3 class="card-valor">{{ number_format(Auth::user()->estatistica->calorias, 2, ',', '.') }} <span>kcal gastas</span></h3>
+            <p class="card-titulo">Calorias queimadas</p>
         </div>
+    </section>
+    <section id="chart">
+        <span id="mural-icone" class="material-symbols-outlined">chart_data</span>
+        <h3>Ritmo de Velocidade (Sessão)</h3>
+        <canvas id="chartVelocidade"></canvas>
     </section>
     <section id="botoes">
         <a href="#" id="botao-compartilhar">Compartilhar</a>
