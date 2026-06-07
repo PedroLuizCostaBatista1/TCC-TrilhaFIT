@@ -27,10 +27,6 @@
         <span class="material-symbols-outlined">exercise</span>
         <p class="nav-texto">Desafios</p>
     </a>
-    <!--<a href="{{ route('placar') }}" class="nav-botao @if(Route::is('placar')) nav-botao-ativo @else nav-botao-inativo @endif;">
-        <span class="material-symbols-outlined">social_leaderboard</span>
-        <p class="nav-texto">Placar</p>
-    </a>-->
 </nav>
 </body>
 </html>

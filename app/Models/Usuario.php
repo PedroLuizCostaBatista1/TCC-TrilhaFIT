@@ -14,7 +14,8 @@
             'email',
             'senha',
             'cpf',
-            'academia'
+            'academia',
+            'tipo'
         ];
         protected $hidden = [
             'senha'
@@ -30,6 +31,10 @@
 
         public function estatistica() {
             return $this->hasOne(Estatisticas::class, 'usuarios_id');
+        }
+        
+        public function turmas() {
+            return $this->belongsToMany(Turma::class, 'turma_usuario', 'usuario_id', 'turma_id');
         }
     }
 ?>

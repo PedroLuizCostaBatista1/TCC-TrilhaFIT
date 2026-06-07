@@ -2,44 +2,47 @@
 
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TurmaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('boasvindas');
 });
 
-Route::middleware('guest')->group(function () {
-    Route::get('/cadastro', [UsuarioController::class, 'telaCadastro'])->name('cadastro');
-    Route::post('/cadastro', [UsuarioController::class, 'store']);
+Route::get('/cadastro', [UsuarioController::class, 'telaCadastro'])->name('cadastro');
+Route::post('/cadastro', [UsuarioController::class, 'store']);
 
-    Route::get('/login', [AuthController::class, 'telaLogin'])->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
+Route::get('/login', [AuthController::class, 'telaLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
 
-    Route::get('/esqueci-senha', [AuthController::class, 'telaEsqueciSenha'])->name('trocar-senha');
-    Route::post('/esqueci-senha', [AuthController::class, 'verificarEmail'])->name('verificar-email');
+Route::get('/esqueci-senha', [AuthController::class, 'telaEsqueciSenha'])->name('trocar-senha');
+Route::post('/esqueci-senha', [AuthController::class, 'verificarEmail'])->name('verificar-email');
 
-    Route::get('/verificar-codigo', [AuthController::class, 'telaVerificarCodigo'])->name('verificar-codigo');
-    Route::post('/verificar-codigo', [AuthController::class, 'validarCodigo'])->name('validar-codigo');
-    Route::post('/reenviar-codigo', [AuthController::class, 'reenviarCodigo'])->name('reenviar-codigo');
+Route::get('/verificar-codigo', [AuthController::class, 'telaVerificarCodigo'])->name('verificar-codigo');
+Route::post('/verificar-codigo', [AuthController::class, 'validarCodigo'])->name('validar-codigo');
+Route::post('/reenviar-codigo', [AuthController::class, 'reenviarCodigo'])->name('reenviar-codigo');
 
-    Route::get('/redefinir-senha', [AuthController::class, 'telaRedefinirSenha'])->name('redefinir-senha');
-    Route::post('/redefinir-senha', [AuthController::class, 'atualizarSenha'])->name('atualizar-senha');
-});
+Route::get('/redefinir-senha', [AuthController::class, 'telaRedefinirSenha'])->name('redefinir-senha');
+Route::post('/redefinir-senha', [AuthController::class, 'atualizarSenha'])->name('atualizar-senha');
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+    Route::get('/perfil', function () {
+        return view('dashboard.perfil');
+    })->name("perfil");
     Route::get('/perfil/editar', [UsuarioController::class, 'editar'])->name('perfil-editar');
     Route::put('/perfil/editar', [UsuarioController::class, 'atualizar'])->name('perfil-atualizar');
     Route::delete('/perfil/deletar', [UsuarioController::class, 'deletar'])->name('perfil-deletar');
 
-    Route::get('/perfil', function () {
-        return view('dashboard.perfil');
-    })->name("perfil");
+    Route::get('/turma/criar', [TurmaController::class, 'criar'])->name('turma.criar');
+    Route::post('/turma/salvar', [TurmaController::class, 'salvar'])->name('turma.salvar');
 
-    Route::get('/turma', function () {
-        return view('dashboard.turma');
-    })->name("turma");
+    Route::get('/turma/entrar', [TurmaController::class, 'entrar'])->name('turma.entrar');
+    Route::post('/turma/entrar', [TurmaController::class, 'entrarComCodigo'])->name('turma.entrarComCodigo');
+
+    Route::get('/turma', [TurmaController::class, 'index'])->name('turma');
+    Route::get('/turma/{id}', [TurmaController::class, 'exibir'])->name('turma.exibir');
 
     Route::get('/relatorio', function () {
         return view('dashboard.relatorio');
@@ -48,8 +51,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/desafios', function () {
         return view('dashboard.desafios');
     })->name("desafios");
-
-    Route::get('/placar', function () {
-        return view('dashboard.placar');
-    })->name("placar");
 });

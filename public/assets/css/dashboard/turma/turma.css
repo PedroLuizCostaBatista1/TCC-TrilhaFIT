@@ -16,12 +16,26 @@
     --cor-lembrete: #F57F17;
 
     --cor-primaria: #FF6517;
+    --cor-segundaria: #FF822E;
+    --cor-tercearia: #EF5411;
 }
 
-header {
+#turma-header {
     background-color: var(--cor-primaria);
     color: white;
     padding: 24px;
+}
+
+#turma-header > h1 {
+    margin-top: 12px;
+}
+
+#icone-voltar {
+    color: white;
+}
+
+#icone-voltar > span {
+    font-size: 42px;
 }
 
 #tags {
@@ -44,6 +58,25 @@ header {
 }
 
 .tag > p {
+    font-size: 14px;
+    margin: 0px;
+}
+
+.tag2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid var(--cor-tag);
+    color: var(--cor-tag);
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.tag2 > span {
+    font-size: 28px;
+}
+
+.tag2 > p {
     font-size: 14px;
     margin: 0px;
 }

@@ -8,6 +8,7 @@
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Hash;
     use Illuminate\Support\Facades\DB;
+    use Illuminate\Support\Str;
 
     class UsuarioController extends Controller {
         
@@ -23,6 +24,10 @@
                 'cpf' => 'required|string|digits:11|unique:usuarios',
                 'academia' => 'nullable|string|max:255'
             ]);
+
+            if (Str::endsWith($request->email, 'instrutor.com')) {
+                $validated['tipo'] = 'instrutor';
+            }
 
             $validated['senha'] = Hash::make($validated['senha']);
             $usuario = DB::transaction(function() use ($validated) {

@@ -1,23 +1,32 @@
 @extends("dashboard/config")
 @section("conteudo")
 @push("css")
-    <link rel="stylesheet" href="/assets/css/dashboard/turma.css">
+    <link rel="stylesheet" href="/assets/css/dashboard/turma/turma.css">
 @endpush
-<header>
-    <h1>Grupo Bike Masters</h1>
+<header id="turma-header">
+    <a href="{{ route('turma') }}" id="icone-voltar"><span class="material-symbols-outlined">chevron_left</span></a>
+    <h1>{{ $turma->nome }}</h1>
     <div id="tags">
         <div class="tag">
             <span class="material-symbols-outlined">group</span>
-            <p>24 membros</p>
+            <p>{{ $turma->alunos->count() }} membros</p>
         </div>
+        @if(Auth::user()->tipo === 'instrutor')
+            <a href="#" class="tag2">
+                <span class="material-symbols-outlined">edit</span>
+                <p>Editar turma</p>
+            </a>
+        @endif
     </div>
 </header>
 <main>
-    <section id="descricao">
-        <h2><span class="material-symbols-outlined">description</span>Descrição</h2>
-        <p>Uma turma dedicada ao ciclismo profissional com foco em resistência e velocidade. Participe dos desafios e compita com seus colegas!</p>
-    </section>
-    <section id="status">
+    @if (!blank($turma->descricao))
+        <section id="descricao">
+            <h2><span class="material-symbols-outlined">description</span>Descrição</h2>
+            <p>{{ $turma->descricao }}</p>
+        </section>
+    @endif
+    <!--<section id="status">
         <div class="status-card">
             <div class="status-valor">18</div>
             <div class="status-titulo">Treinos de Turma</div>
@@ -26,7 +35,7 @@
             <div class="status-valor">4</div>
             <div class="status-titulo">Desafios Ativos</div>
         </div>
-    </section>
+    </section>-->
     <section id="mural">
         <h2 id="mural-titulo"><span id="mural-icone" class="material-symbols-outlined">campaign</span>Mural de Avisos</h2>
         <div id="mural-wrap">

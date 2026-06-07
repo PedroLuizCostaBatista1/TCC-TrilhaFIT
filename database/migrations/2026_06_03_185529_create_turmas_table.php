@@ -8,20 +8,18 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('turmas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('instrutor_id')->constrained('usuarios')->onDelete('cascade');
+            $table->string('codigo')->unique();
             $table->string('nome');
-            $table->string('email')->unique();
-            $table->string('senha');
-            $table->string('cpf')->unique();
-            $table->string('academia')->nullable();
-            $table->string('tipo')->default('aluno');
+            $table->text('descricao')->nullable();
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('turmas');
     }
 };

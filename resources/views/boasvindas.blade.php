@@ -13,7 +13,7 @@
             <a href="{{ route('perfil') }}" class="botao1"><span class="material-symbols-outlined">person</span>Ir no perfil</a>
         @endauth
         @guest
-            <a href="{{ route('cadastro') }}" class="botao1" draggable="false"><span class="material-symbols-outlined">person_add</span>Criar Conta</a>
+            <a href="{{ route('cadastro') }}" class="botao1"><span class="material-symbols-outlined">person_add</span>Criar Conta</a>
             <a href="{{ route('login') }}" class="botao2"><span class="material-symbols-outlined">login</span>Entrar</a>
         @endguest
     </section>
