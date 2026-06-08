@@ -20,7 +20,8 @@
         <div class="anim-in anim-d2">
             <div class="campo-container">
                 <span class="material-symbols-outlined icone-campo">password_2</span>
-                <input type="password" name="senha" id="senha" class="campo" placeholder="Digite sua senha" required>
+                <input type="password" name="senha" id="senha-campo" placeholder="Digite sua senha" required>
+                <button type="button" id="botao-mostrar-senha"><span class="material-symbols-outlined" id="icone-mostrar-senha">visibility_off</span></button>
             </div>
 
             @error('credenciais')

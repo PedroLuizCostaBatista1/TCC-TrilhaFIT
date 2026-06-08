@@ -46,7 +46,7 @@
         <div class="anim-in anim-d4">
             <div class="campo-container">
                 <span class="material-symbols-outlined icone-campo">id_card</span>
-                <input type="text" name="cpf" id="cpf" class="campo" placeholder="Digite seu CPF" required>
+                <input type="number" name="cpf" id="cpf" class="campo" placeholder="Digite seu CPF" required>
             </div>
 
             @error('cpf')
