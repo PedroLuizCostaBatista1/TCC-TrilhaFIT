@@ -40,8 +40,43 @@
             return view('dashboard.turma.turma', compact('turma'));
         }
 
-        public function adicionarAluno(Request $request) {
-            
+        public function editar($id) {
+            $turma = Turma::findOrFail($id);
+
+            if ($turma->instrutor_id !== Auth::id()) {
+                abort(403, 'Você não tem permissão para editar esta turma.');
+            }
+
+            return view('dashboard.turma.editar', compact('turma'));
+        }
+
+        public function atualizar(Request $request, $id) {
+            $turma = Turma::findOrFail($id);
+
+            if ($turma->instrutor_id !== Auth::id()) {
+                abort(403, 'Você não tem permissão para editar esta turma.');
+            }
+
+            $validated = $request->validate([
+                'nome' => 'required|string|max:255',
+                'descricao' => 'nullable|string'
+            ]);
+
+            $turma->update($validated);
+
+            return redirect()->route('turma.exibir', $turma->id)->with('success', 'Turma atualizada com sucesso!');
+        }
+
+        public function deletar($id) {
+            $turma = Turma::findOrFail($id);
+
+            if ($turma->instrutor_id !== Auth::id()) {
+                abort(403, 'Você não tem permissão para editar esta turma.');
+            }
+
+            $turma->delete();
+
+            return redirect()->route('turma')->with('success', 'Turma excluída permanentemente.');
         }
 
         public function entrar() {

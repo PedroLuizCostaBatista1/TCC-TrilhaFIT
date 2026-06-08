@@ -44,6 +44,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/turma', [TurmaController::class, 'index'])->name('turma');
     Route::get('/turma/{id}', [TurmaController::class, 'exibir'])->name('turma.exibir');
 
+    Route::get('/turma/{id}/editar', [TurmaController::class, 'editar'])->name('turma.editar');
+    Route::put('/turma/{id}/atualizar', [TurmaController::class, 'atualizar'])->name('turma.atualizar');
+    Route::delete('/turma/{id}/deletar', [TurmaController::class, 'deletar'])->name('turma.deletar');
+
     Route::get('/relatorio', function () {
         return view('dashboard.relatorio');
     })->name("relatorio");

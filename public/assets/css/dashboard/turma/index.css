@@ -11,7 +11,11 @@
 
 header {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+header > h1 {
+    margin-bottom: 0px;
 }
 
 .turma-card {

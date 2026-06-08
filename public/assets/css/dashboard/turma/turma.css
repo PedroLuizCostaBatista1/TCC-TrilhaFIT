@@ -28,6 +28,12 @@
 
 #turma-header > h1 {
     margin-top: 12px;
+    margin-bottom: 0px;
+}
+
+#turma-header > p {
+    margin-top: 10px;
+    margin-bottom: 24px;
 }
 
 #icone-voltar {

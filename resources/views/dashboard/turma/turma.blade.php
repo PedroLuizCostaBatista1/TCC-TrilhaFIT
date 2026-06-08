@@ -6,13 +6,16 @@
 <header id="turma-header">
     <a href="{{ route('turma') }}" id="icone-voltar"><span class="material-symbols-outlined">chevron_left</span></a>
     <h1>{{ $turma->nome }}</h1>
+    @if(Auth::user()->tipo === 'instrutor')
+        <p>Codigo da turma: <strong>{{ $turma->codigo }}</strong></p>
+    @endif
     <div id="tags">
         <div class="tag">
             <span class="material-symbols-outlined">group</span>
             <p>{{ $turma->alunos->count() }} membros</p>
         </div>
-        @if(Auth::user()->tipo === 'instrutor')
-            <a href="#" class="tag2">
+        @if(Auth::user()->tipo === 'instrutor' && $turma->instrutor_id === Auth::id())
+            <a href="{{ route('turma.editar', $turma->id) }}" class="tag2">
                 <span class="material-symbols-outlined">edit</span>
                 <p>Editar turma</p>
             </a>
