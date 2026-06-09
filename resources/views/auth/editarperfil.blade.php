@@ -11,7 +11,7 @@
         <h1>Editar Conta</h1>
         <p>Deixe o campo de senha em branco caso não queira alterar sua senha</p>
     </header>
-    <form method="POST" action="{{ route('perfil-atualizar') }}">
+    <form method="POST" action="{{ route('perfil-atualizar') }}" onsubmit="return confirm('Tem certeza? Esta ação substituirá as informações anteriores');">
         @csrf
         @method('PUT')
 
@@ -66,13 +66,13 @@
             </div>
         </div>
 
-        <button type="submit" class="botao1"><span class="material-symbols-outlined">save</span>Salvar alterações</button>
+        <button type="submit" class="botao1" texto-carregando="Salvando as alterações..."><span class="material-symbols-outlined">save</span>Salvar alterações</button>
     </form>
-    <form id="form-deletar" method="POST" action="{{ route('perfil-deletar') }}" onsubmit="return confirm('Tem certeza? Esta ação não pode ser desfeita.');">
+    <form id="form-deletar" method="POST" action="{{ route('perfil-deletar') }}" onsubmit="return confirm('Tem certeza? Esta ação não pode ser desfeita');">
         @csrf
         @method('DELETE')
 
-        <button type="submit" id="botao-deletar" class="botao2"><span class="material-symbols-outlined">delete</span>Apagar conta</button>
+        <button type="submit" id="botao-deletar" class="botao2" texto-carregando="Apagando a conta..."><span class="material-symbols-outlined">delete</span>Apagar conta</button>
     </form>
 </main>
 @endsection
