@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" href="/assets/css/dashboard/navbar.css">
+    <script src="/assets/js/dashboard/config.js" defer></script>
     @stack('css')
     @stack('scripts')
     <title>TrilhaFIT</title>

@@ -21,7 +21,7 @@
             @enderror
         </div>
 
-        <button type="submit" class="anim-in anim-d2 botao1">Enviar codigo de recuperação</button>
+        <button type="submit" class="anim-in anim-d2 botao1" texto-carregando="Enviando o codigo...">Enviar codigo de recuperação</button>
     </form>
 </main>
 @endsection

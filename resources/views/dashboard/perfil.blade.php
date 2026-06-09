@@ -46,7 +46,7 @@
         <button id="botao1"><span class="material-symbols-outlined">share</span>Compartilhar</button>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button type="submit" id="botao2"><span class="material-symbols-outlined">logout</span>Sair</button>
+            <button type="submit" id="botao2" texto-carregando="Saindo..."><span class="material-symbols-outlined">logout</span>Sair</button>
         </form>
     </section>
 </main>

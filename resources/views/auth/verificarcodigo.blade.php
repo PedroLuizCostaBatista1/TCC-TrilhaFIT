@@ -30,7 +30,7 @@
             </div>
 
             <div class="anim-in anim-d2 botoes">
-                <button type="submit" class="botao1"><span class="material-symbols-outlined">check</span>Validar o código</button>
+                <button type="submit" class="botao1" texto-carregando="Validando o código..."><span class="material-symbols-outlined">check</span>Validar o código</button>
             </div>
         </form>
         <form id="reenviar-codigo-form" method="POST" action="{{ route('reenviar-codigo') }}">

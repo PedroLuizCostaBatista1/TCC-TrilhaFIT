@@ -26,7 +26,7 @@
             </div>
 
             <div class="anim-in anim-d3 botoes">
-                <button type="submit" class="botao1"><span class="material-symbols-outlined">lock_reset</span>Redefinir Senha</button>
+                <button type="submit" class="botao1" texto-carregando="Redefinindo a senha..."><span class="material-symbols-outlined">lock_reset</span>Redefinir Senha</button>
             </div>
         </form>
     </main>
