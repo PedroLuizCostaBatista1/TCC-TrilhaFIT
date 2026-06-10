@@ -79,9 +79,14 @@ h1 {
     display: flex;
     align-items: center; 
     justify-content: center;
-    margin: 15px 0px;
-    gap: 10px;
+    font-size: 18px;
+    gap: 15px;
     color: var(--cor-inativa);
+}
+
+#estatisticas-data > a > span {
+    font-size: 40px;
+    color: var(--cor-primaria);
 }
 
 #estatisticas-grid {

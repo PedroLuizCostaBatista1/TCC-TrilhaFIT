@@ -3,6 +3,7 @@
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TurmaController;
+use App\Http\Controllers\PerfilController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,9 +29,11 @@ Route::post('/redefinir-senha', [AuthController::class, 'atualizarSenha'])->name
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/perfil', function () {
+    Route::get('/perfil', [PerfilController::class, 'exibirEstatisticas'])->name('perfil');
+    /*Route::get('/perfil', function () {
         return view('dashboard.perfil');
-    })->name("perfil");
+    })->name("perfil");*/
+
     Route::get('/perfil/editar', [UsuarioController::class, 'editar'])->name('perfil-editar');
     Route::put('/perfil/editar', [UsuarioController::class, 'atualizar'])->name('perfil-atualizar');
     Route::delete('/perfil/deletar', [UsuarioController::class, 'deletar'])->name('perfil-deletar');

@@ -20,7 +20,9 @@
     <section id="estatisticas">
         <div id="estatisticas-header">
             <h2 id="subtitulo">Estatísticas</h2>
-            <p id="estatisticas-data"><span class="material-symbols-outlined">chevron_left</span>Abril - 2026<span class="material-symbols-outlined">chevron_right</span></p>
+            <p id="estatisticas-data">
+                <a href="{{ route('perfil', ['mes' => $mesAnterior->month, 'ano' => $mesAnterior->year]) }}"><span class="material-symbols-outlined">chevron_left</span></a>{{ $nomeMes }} - {{ $ano }}<a href="{{ route('perfil', ['mes' => $proximoMes->month, 'ano' => $proximoMes->year]) }}"><span class="material-symbols-outlined">chevron_right</span></a>
+            </p>
         </div>
         <div id="estatisticas-grid">
             <div class="relatorio-cartao relatorio-cartao-full">
@@ -46,7 +48,7 @@
         </div>
     </section>
     <section class="botoes">
-        <button id="botao1" data-user='@json(Auth::user())'><span class="material-symbols-outlined">share</span>Compartilhar</button>
+        <button id="botao1" data-user='@json(Auth::user())' data-mes="{{ $nomeMes }}" data-ano="{{ $ano }}"><span class="material-symbols-outlined">share</span>Compartilhar</button>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
             <button type="submit" id="botao2" texto-carregando="Saindo..."><span class="material-symbols-outlined">logout</span>Sair</button>

@@ -5,12 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = JSON.parse(botaoCompartilhar.dataset.user);
 
         botaoCompartilhar.addEventListener('click', async() => {
-            const nome = data.nome;
             const distancia = data.estatistica.distancia;
             const corridas = data.estatistica.corridas;
             const calorias = data.estatistica.calorias;
+            const mes = botaoCompartilhar.dataset.mes;
+            const ano = botaoCompartilhar.dataset.ano;
 
-            const texto = "teste";
+            const texto = "Minha evolução no TrilhaFIT (" + mes + " - " + ano + ")\n\n" +
+                          "Corridas realizadas: " + corridas + "\n" +
+                          "Distância total: " + distancia + " km\n" +
+                          "Calorias queimadas: " + calorias + " kcal\n\n" +
+                          "Bora treinar?";
 
             if (navigator.share) {
                 try {
@@ -26,7 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.open(url, '_blank');
             }
         });
-        
-        console.log(data);
     }
 });
