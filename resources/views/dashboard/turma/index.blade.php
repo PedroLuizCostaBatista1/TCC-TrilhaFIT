@@ -15,11 +15,8 @@
             @foreach($turmas as $turma)
                 <div class="turma-card">
                     <h2>{{ $turma->nome }}</h2>
-                    <p class="descricao">{{ Str::limit($turma->descricao, 100) }}</p>
+                    <p class="descricao">Instrutor: {{ $turma->instrutor->nome }}</p>
                     <a class="botao-acessar" href="{{ route('turma.exibir', $turma->id) }}">Acessar mural</a>
-                    @if(Auth::user()->tipo === 'instrutor')
-                        <p>Codigo da turma: <strong>{{ $turma->codigo }}</strong></p>
-                    @endif
                 </div>
             @endforeach
         </section>

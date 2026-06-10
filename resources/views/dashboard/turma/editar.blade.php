@@ -10,7 +10,7 @@
         </a>
         <h1>Editar turma</h1>
     </header>
-    <form method="POST" action="{{ route('turma.atualizar', $turma->id) }}">
+    <form method="POST" action="{{ route('turma.atualizar', $turma->id) }}" onsubmit="return confirm('Tem certeza? Esta ação substituirá as informações anteriores.');">
         @csrf
         @method('PUT')
 
@@ -36,13 +36,13 @@
             @enderror
         </div>
 
-        <button type="submit" class="botao1"><span class="material-symbols-outlined">save</span>Salvar alterações</button>
+        <button type="submit" class="botao1" texto-carregando="Salvando as alterações..."><span class="material-symbols-outlined">save</span>Salvar alterações</button>
     </form>
     <form id="form-deletar" method="POST" action="{{ route('turma.deletar', $turma->id) }}" onsubmit="return confirm('Tem certeza? Esta ação não pode ser desfeita.');">
         @csrf
         @method('DELETE')
 
-        <button type="submit" id="botao-deletar" class="botao2"><span class="material-symbols-outlined">delete</span>Apagar a turma</button>
+        <button type="submit" id="botao-deletar" class="botao2" texto-carregando="Apagando a turma..."><span class="material-symbols-outlined">delete</span>Apagar a turma</button>
     </form>
 </main>
 @endsection

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formulario = botao.closest('form');
 
             if (formulario && !formulario.checkValidity()) {
-                form.reportValidity();
+                formulario.reportValidity();
                 return;
             }
 

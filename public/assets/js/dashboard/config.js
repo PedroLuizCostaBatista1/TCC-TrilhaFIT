@@ -3,6 +3,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const botao = evento.target.closest('[texto-carregando]');
 
         if (botao) {
+            const formulario = botao.closest('form');
+
+            if (formulario && !formulario.checkValidity()) {
+                formulario.reportValidity();
+                return;
+            }
+
+            if (formulario && botao.type === "submit" && typeof formulario.onsubmit === 'function') {
+                if (formulario.onsubmit() === false) {
+                    evento.preventDefault();
+                    return;
+                }
+
+                formulario.onsubmit = null;
+            }
+
             const icone = botao.querySelector('.material-symbols-outlined');
             const textoCarregando = botao.getAttribute('texto-carregando');
 

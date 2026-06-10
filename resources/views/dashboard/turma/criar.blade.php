@@ -35,7 +35,7 @@
             @enderror
         </div>
 
-        <button type="submit" class="botao1"><span class="material-symbols-outlined">group_add</span>Criar turma</button>
+        <button type="submit" class="botao1" texto-carregando="Criando turma..."><span class="material-symbols-outlined">group_add</span>Criar turma</button>
     </form>
 </main>
 @endsection
