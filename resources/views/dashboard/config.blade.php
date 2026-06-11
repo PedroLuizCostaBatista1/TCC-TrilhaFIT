@@ -18,18 +18,16 @@
     </a> 
     <a href="{{ route('turma') }}" class="nav-botao @if(Route::is('turma')) nav-botao-ativo @else nav-botao-inativo @endif;">
         <span class="material-symbols-outlined">group</span>
-        <p class="nav-texto">Turma</p> 
+        <p class="nav-texto">Mural</p> 
     </a>
     <a href="{{ route('relatorio') }}" class="nav-botao @if(Route::is('relatorio')) nav-botao-ativo @else nav-botao-inativo @endif;">
         <span class="material-symbols-outlined">bar_chart</span>
         <p class="nav-texto">Relatório</p>
     </a>
-    @if(Auth::user()->turmas()->exists())
-        <a href="{{ route('desafios') }}" class="nav-botao @if(Route::is('desafios')) nav-botao-ativo @else nav-botao-inativo @endif;">
-            <span class="material-symbols-outlined">exercise</span>
-            <p class="nav-texto">Desafios</p>
-        </a>
-    @endif
+    <a href="{{ route('desafios') }}" class="nav-botao @if(Route::is('desafios')) nav-botao-ativo @else nav-botao-inativo @endif;">
+        <span class="material-symbols-outlined">exercise</span>
+        <p class="nav-texto">Desafios</p>
+    </a>
 </nav>
 </body>
 </html>

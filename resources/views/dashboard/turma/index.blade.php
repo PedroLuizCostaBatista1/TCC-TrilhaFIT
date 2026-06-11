@@ -8,7 +8,7 @@
         <header>
             <h1>Minhas turmas</h1>
             @if(Auth::user()->tipo === 'instrutor')
-                <a href="{{ route('turma.criar') }}" id="botao-criar-turma"><span class="material-symbols-outlined">group_add</span>Criar nova turma</a>
+                <a href="{{ route('turma.criar') }}" id="botao-criar-turma"><span class="material-symbols-outlined">group_add</span>Criar novo mural</a>
             @endif
         </header>
         <section>
@@ -28,11 +28,11 @@
                 <figure class="logo">
                     <span class="material-symbols-outlined">assignment</span>
                 </figure>
-                <h1>Gerenciamento de Turmas</h1>
-                <p>Como instrutor, você pode criar uma nova comunidade de ciclistas ou vincular-se a uma turma de parceiros já existente.</p>
+                <h1>Gerenciamento de Murais</h1>
+                <p>Como instrutor, você pode criar uma nova comunidade de ciclistas ou vincular-se a um mural de parceiros já existente.</p>
                 <div class="botoes">
-                    <a href="{{ route('turma.criar') }}" class="botao1"><span class="material-symbols-outlined">add</span>Criar nova turma</a>
-                    <a href="{{ route('turma.entrar') }}" class="botao2"><span class="material-symbols-outlined">login</span>Entrar em uma turma</a>
+                    <a href="{{ route('turma.criar') }}" class="botao1"><span class="material-symbols-outlined">add</span>Criar novo mural</a>
+                    <a href="{{ route('turma.entrar') }}" class="botao2"><span class="material-symbols-outlined">login</span>Entrar em um mural</a>
                 </div>
             </section>
         </main>

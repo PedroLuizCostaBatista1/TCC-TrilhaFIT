@@ -19,6 +19,11 @@
                 <span class="material-symbols-outlined">edit</span>
                 <p>Editar turma</p>
             </a>
+        @else
+            <a href="#" class="tag2">
+                <span class="material-symbols-outlined">logout</span>
+                <p>Sair da turma</p>
+            </a>
         @endif
     </div>
 </header>
