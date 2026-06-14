@@ -1,5 +1,8 @@
 @extends("config")
 @section("conteudo")
+@push("scripts")
+    <script src="/assets/js/auth/verificarcodigo.js" defer></script>
+@endpush
     <main class="tela">
         <header class="anim-in">
             <a href="{{ route('trocar-senha') }}">
@@ -16,12 +19,8 @@
                     <input type="number" name="codigo" id="codigo" class="campo" placeholder="Digite o codigo enviado pelo e-mail" required>
                 </div>
 
-                @error('codigoInvalido')
-                    <p id="mensagem" class="mensagem-erro">{{ $message }}</p>
-                @enderror
-
                 @error('codigo')
-                    <p id="mensagem" class="mensagem-erro">Codigo teve ser exatamente 6 digitos</p>
+                    <p id="mensagem" class="mensagem-erro">{{ $message }}</p>
                 @enderror
 
                 @if(session('sucesso'))
@@ -37,30 +36,8 @@
             @csrf
 
             <div class="anim-in anim-d3 botoes">
-                <button type="submit" id="reenviar" class="botao2"><span class="material-symbols-outlined">sync</span>Reenviar código</button>
+                <button type="submit" id="reenviar" class="botao2" texto-carregando="Reenviando o código..." data-tempo-espera="{{ (int) session('tempo_espera', 0) }}"><span class="material-symbols-outlined">sync</span>Reenviar código</button>
             </div>
         </form>
     </main>
-    <script>
-        const reenviar = document.getElementById('reenviar');
-        let tempoEspera = {{ (int) session('tempo_espera', 0) }};
-
-        function atualizarContador() {
-            const tempoAgora = Math.floor(Date.now() / 1000);
-            const tempoRestante = tempoEspera - tempoAgora;
-
-            if (tempoRestante > 0) {
-                reenviar.disabled = true;
-                reenviar.innerText = `Aguarde ${tempoRestante}s para reenviar novamente`;
-                setTimeout(atualizarContador, 1000);
-            } else {
-                reenviar.disabled = false;
-                reenviar.innerText = "Reenviar código";
-            }
-        }
-
-        if (tempoEspera > 0) {
-            atualizarContador();
-        }
-    </script>
 @endsection

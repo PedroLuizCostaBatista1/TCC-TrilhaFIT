@@ -3,50 +3,32 @@
 @push("css")
     <link rel="stylesheet" href="/assets/css/dashboard/turma/index.css">
 @endpush
-@if($turmas->isNotEmpty())
+@if(Auth::user()->tipo === 'instrutor')
     <main>
-        <header>
-            <h1>Minhas turmas</h1>
-            @if(Auth::user()->tipo === 'instrutor')
-                <a href="{{ route('turma.criar') }}" id="botao-criar-turma"><span class="material-symbols-outlined">group_add</span>Criar novo mural</a>
-            @endif
-        </header>
-        <section>
-            @foreach($turmas as $turma)
-                <div class="turma-card">
-                    <h2>{{ $turma->nome }}</h2>
-                    <p class="descricao">Instrutor: {{ $turma->instrutor->nome }}</p>
-                    <a class="botao-acessar" href="{{ route('turma.exibir', $turma->id) }}">Acessar mural</a>
-                </div>
-            @endforeach
+        <section class="nao-presente">
+            <figure class="logo">
+                <span class="material-symbols-outlined">assignment</span>
+            </figure>
+            <h1>Criar seu mural</h1>
+            <p>Como instrutor, você pode criar o seu mural exclusivo para postar avisos e desafiar com seus alunos, ou entrar em um mural existente.</p>
+            <div class="botoes">
+                <a href="{{ route('turma.criar') }}" class="botao1"><span class="material-symbols-outlined">group_add</span>Criar novo mural</a>
+                <a href="{{ route('turma.entrar') }}" class="botao2"><span class="material-symbols-outlined">login</span>Entrar em um mural</a>
+            </div>
         </section>
     </main>
 @else
-    @if(Auth::user()->tipo === 'instrutor')
-        <main>
-            <section class="nao-presente">
-                <figure class="logo">
-                    <span class="material-symbols-outlined">assignment</span>
-                </figure>
-                <h1>Gerenciamento de Murais</h1>
-                <p>Como instrutor, você pode criar uma nova comunidade de ciclistas ou vincular-se a um mural de parceiros já existente.</p>
-                <div class="botoes">
-                    <a href="{{ route('turma.criar') }}" class="botao1"><span class="material-symbols-outlined">add</span>Criar novo mural</a>
-                    <a href="{{ route('turma.entrar') }}" class="botao2"><span class="material-symbols-outlined">login</span>Entrar em um mural</a>
-                </div>
-            </section>
-        </main>
-    @else
-        <main>
-            <section class="nao-presente">
-                <figure class="logo">
-                    <span class="material-symbols-outlined">pedal_bike</span>
-                </figure>
-                <h1>Nenhuma turma vinculada</h1>
-                <p>Para acessar os treinos, desafios e o mural do seu professor, você precisa se conectar a uma turma ativa.</p>
-                <a href="{{ route('turma.entrar') }}" class="botao1"><span class="material-symbols-outlined">login</span>Entrar em uma turma?</a>
-            </section>
-        </main>
-    @endif
+    <main>
+        <section class="nao-presente">
+            <figure class="logo">
+                <span class="material-symbols-outlined">pedal_bike</span>
+            </figure>
+            <h1>Nenhum mural vinculado</h1>
+            <p>Para acessar os desafios e o mural do seu instrutor, você precisa se conectar a um mural ativo utilizando o código de acesso.</p>
+            <div class="botoes">
+                <a href="{{ route('turma.entrar') }}" class="botao1"><span class="material-symbols-outlined">login</span>Entrar em um mural</a>
+            </div>
+        </section>
+    </main>
 @endif
 @endsection

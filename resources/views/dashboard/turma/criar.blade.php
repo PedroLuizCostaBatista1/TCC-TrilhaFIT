@@ -8,7 +8,7 @@
         <a href="{{ route('turma') }}">
             <span class="material-symbols-outlined icone-voltar">chevron_left</span>
         </a>
-        <h1 class="titulo">Criar turma</h1>
+        <h1 class="titulo">Criar mural</h1>
     </header>
     <form method="POST" action="{{ route('turma.salvar') }}">
         @csrf
@@ -16,26 +16,22 @@
         <div>
             <div class="campo-container">
                 <span class="material-symbols-outlined icone-campo">person</span>
-                <input type="text" name="nome" id="nome" placeholder="Digite o nome da turma" required></input>
+                <input type="text" name="nome" id="nome" placeholder="Digite o nome do mural" required></input>
             </div>
-
-            @error('nome')
-                <p>{{ $message }}</p>
-            @enderror
         </div>
 
         <div>
             <div class="campo-container">
                 <span class="material-symbols-outlined icone-campo">description</span>
-                <input type="text" name="descricao" id="descricao" placeholder="Descrição da turma (opcional)">
+                <input type="text" name="descricao" id="descricao" placeholder="Descrição do mural (opcional)">
             </div>
 
-            @error('descricao')
-                <p>{{ $message }}</p>
+            @error('error')
+                <p id="mensagem" class="mensagem-erro">{{ $message }}</p>
             @enderror
         </div>
 
-        <button type="submit" class="botao1" texto-carregando="Criando turma..."><span class="material-symbols-outlined">group_add</span>Criar turma</button>
+        <button type="submit" class="botao1" texto-carregando="Criando mural..."><span class="material-symbols-outlined">group_add</span>Criar mural</button>
     </form>
 </main>
 @endsection

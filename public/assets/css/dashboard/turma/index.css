@@ -92,14 +92,34 @@ header > h1 {
     color: var(--texto-cinza);
 }
 
+.botoes {
+    display: flex; 
+    flex-direction: column;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    gap: 16px;
+}
+
 .botao1 {
     display: flex;
     align-items: center;
-    font-weight: 700;
     justify-content: center;
     gap: 10px;
     background-image: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-segundaria) 100%);
     border-radius: 14px;
     padding: 18px;
     color: white;
+}
+
+.botao2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--cor-fundo); 
+    border: 2px solid var(--cor-tercearia); 
+    border-radius: 14px; 
+    padding: 18px; 
+    color: var(--cor-tercearia);
 }

@@ -48,6 +48,7 @@
     margin-top: 15px;
     display: flex;
     gap: 12px;
+    font-weight: 600;
 }
 
 .tag {
@@ -76,16 +77,14 @@
     border: 2px solid var(--cor-tag);
     color: var(--cor-tag);
     padding: 4px 12px;
+    font-size: 14px;
+    margin: 0px;
     border-radius: 20px;
+    background-color: transparent;
 }
 
 .tag2 > span {
     font-size: 28px;
-}
-
-.tag2 > p {
-    font-size: 14px;
-    margin: 0px;
 }
 
 #descricao {
@@ -142,6 +141,7 @@
 
 #mural-titulo {
     font-size: 26px;
+    margin-top: 0px;
     margin-bottom: 24px; 
     display: flex; 
     align-items: center;

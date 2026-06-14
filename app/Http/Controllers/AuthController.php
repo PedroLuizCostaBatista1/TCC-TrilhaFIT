@@ -26,9 +26,7 @@
             $usuario = Usuario::where('email', $request->email)->first();
 
             if (!$usuario) {
-                return back()->withErrors([
-                    'email' => 'E-mail invalido. Tente novamente'
-                ])->onlyInput('email');
+                return back()->withErrors(['email' => 'E-mail invalido. Tente novamente'])->onlyInput('email');
             }
 
             $codigo = rand(100000, 999999);
@@ -47,6 +45,8 @@
         public function validarCodigo(Request $request) {
             $request->validate([
                 'codigo' => 'required|numeric|digits:6'
+            ], [
+                'codigo.digits' => 'O código ter que ser exatamente 6 digitos.'
             ]);
 
             if ($request->codigo == session('codigo_recuperacao')) {
@@ -55,7 +55,7 @@
             }
 
             return back()->withErrors([
-                'codigoInvalido' => 'O código informado é invalido ou expirou.'
+                'codigo' => 'O código informado é invalido ou expirou.'
             ]);
         }
 
@@ -64,9 +64,9 @@
             $tempoAgora = now()->timestamp;
 
             if ($tempoEspera > $tempoAgora) {
-                $tempoRestante = $tempoEspera - $agora;
+                $tempoRestante = $tempoEspera - $tempoAgora;
                 return back()->withErrors([
-                    'tempo' => "Aguarde {$restante} segundos para reenviar."
+                    'tempo' => "Aguarde {$tempoRestante} segundos para reenviar."
                 ]);
             }
 
@@ -91,6 +91,9 @@
         public function atualizarSenha(Request $request) {
             $request->validate([
                 'senha' => 'required|min:8|confirmed'
+            ], [
+                'senha.min' => 'Senha abaixo de 8 caracteres',
+                'senha.confirmed' => 'As senhas não coincidem. Tente novamente'
             ]);
 
             $email = session('email_recuperacao');

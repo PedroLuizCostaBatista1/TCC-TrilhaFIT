@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/cadastro', [UsuarioController::class, 'telaCadastro'])->name('cadastro');
-Route::post('/cadastro', [UsuarioController::class, 'store']);
+Route::post('/cadastro', [UsuarioController::class, 'cadastrar']);
 
 Route::get('/login', [AuthController::class, 'telaLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -30,10 +30,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/perfil', [PerfilController::class, 'exibirEstatisticas'])->name('perfil');
-    /*Route::get('/perfil', function () {
-        return view('dashboard.perfil');
-    })->name("perfil");*/
-
     Route::get('/perfil/editar', [UsuarioController::class, 'editar'])->name('perfil-editar');
     Route::put('/perfil/editar', [UsuarioController::class, 'atualizar'])->name('perfil-atualizar');
     Route::delete('/perfil/deletar', [UsuarioController::class, 'deletar'])->name('perfil-deletar');
@@ -43,6 +39,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/turma/entrar', [TurmaController::class, 'entrar'])->name('turma.entrar');
     Route::post('/turma/entrar', [TurmaController::class, 'entrarComCodigo'])->name('turma.entrarComCodigo');
+    Route::post('/turma/sair', [TurmaController::class, 'sair'])->name('turma.sair');
 
     Route::get('/turma', [TurmaController::class, 'index'])->name('turma');
     Route::get('/turma/{id}', [TurmaController::class, 'exibir'])->name('turma.exibir');

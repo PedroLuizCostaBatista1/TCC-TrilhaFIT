@@ -21,7 +21,7 @@
                 </div>
 
                 @error('senha')
-                    <p id="mensagem" class="mensagem-erro">As senhas não coincidem. Tente novamente</p>
+                    <p id="mensagem" class="mensagem-erro">{{ $message }}</p>
                 @enderror
             </div>
 

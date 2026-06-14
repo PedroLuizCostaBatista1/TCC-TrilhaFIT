@@ -15,10 +15,6 @@
                 <span class="material-symbols-outlined icone-campo">person</span>
                 <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" required></input>
             </div>
-
-            @error('nome')
-                <p>{{ $message }}</p>
-            @enderror
         </div>
 
         <div class="anim-in anim-d2">
@@ -28,7 +24,7 @@
             </div>
 
             @error('email')
-                <p id="mensagem" class="mensagem-erro">Este E-mail ja existe</p>
+                <p id="mensagem" class="mensagem-erro">{{ $message }}</p>
             @enderror
         </div>
 
@@ -39,7 +35,7 @@
             </div>
 
             @error('senha')
-                <p id="mensagem" class="mensagem-erro">Senha abaixo de 8 caracteres</p>
+                <p id="mensagem" class="mensagem-erro">{{ $message }}</p>
             @enderror
         </div>
 
@@ -50,7 +46,7 @@
             </div>
 
             @error('cpf')
-                <p id="mensagem" class="mensagem-erro">CPF invalido</p>
+                <p id="mensagem" class="mensagem-erro">{{ $message }}</p>
             @enderror
         </div>
 

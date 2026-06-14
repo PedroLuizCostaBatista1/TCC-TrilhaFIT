@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('cpf')->unique();
             $table->string('academia')->nullable();
             $table->string('tipo')->default('aluno');
+            $table->unsignedBigInteger('turma_id')->nullable();
             $table->timestamps();
         });
     }

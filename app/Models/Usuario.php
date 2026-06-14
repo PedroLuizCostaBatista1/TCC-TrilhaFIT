@@ -34,7 +34,11 @@
         }
         
         public function turmas() {
-            return $this->belongsToMany(Turma::class, 'turma_usuario', 'usuario_id', 'turma_id');
+            return $this->belongsTo(Turma::class, 'turma_id');
+        }
+
+        public function turmaCriada() {
+            return $this->hasOne(Turma::class, 'instrutor_id');
         }
     }
 ?>

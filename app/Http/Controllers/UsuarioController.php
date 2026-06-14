@@ -16,13 +16,18 @@
             return view('auth.cadastro');
         }
 
-        public function store(Request $request) {
+        public function cadastrar(Request $request) {
             $validated = $request->validate([
                 'nome' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:usuarios',
                 'senha' => 'required|string|min:8',
                 'cpf' => 'required|string|digits:11|unique:usuarios',
                 'academia' => 'nullable|string|max:255'
+            ], [
+                'email.unique' => 'Este e-mail já existe',
+                'senha.min' => 'Senha abaixo de 8 caracteres',
+                'cpf.digits' => 'CPF invalido',
+                'cpf.unique' => 'Este CPF já existe'
             ]);
 
             if (Str::endsWith($request->email, 'instrutor.com')) {

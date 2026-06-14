@@ -10,9 +10,9 @@ return new class extends Migration
     {
         Schema::create('turmas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('instrutor_id')->constrained('usuarios')->onDelete('cascade');
-            $table->string('codigo')->unique();
             $table->string('nome');
+            $table->string('codigo')->unique();
+            $table->foreignId('instrutor_id')->constrained('usuarios')->onDelete('cascade');
             $table->text('descricao')->nullable();
             $table->timestamps();
         });

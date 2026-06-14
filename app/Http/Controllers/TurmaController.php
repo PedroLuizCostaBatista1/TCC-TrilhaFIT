@@ -11,11 +11,18 @@
     class TurmaController extends Controller {
         public function index() {
             $usuario = Auth::user();
-            $turmas = ($usuario->tipo === 'instrutor') 
-                ? Turma::where('instrutor_id', $usuario->id)->get()
-                : $usuario->turmas;
 
-            return view('dashboard.turma.index', compact('turmas'));
+            if ($usuario->tipo === 'instrutor') {
+                $turma = Turma::where('instrutor_id', $usuario->id)->first();
+            } else {
+                $turma = $usuario->turmas()->first();
+            }
+
+            if (!$turma) {
+                return view('dashboard.turma.index');
+            }
+
+            return view('dashboard.turma.turma', compact('turma'));
         }
 
         public function criar() {
@@ -23,6 +30,10 @@
         }
 
         public function salvar(Request $request) {
+            if (Turma::where('instrutor_id', Auth::id())->exists()) {
+                return redirect()->back()->with('error', 'Você já possui um mural criado');
+            }
+
             $validated = $request->validate([
                 'nome' => 'required|string|max:255',
                 'descricao' => 'nullable|string'
@@ -36,7 +47,10 @@
         }
 
         public function exibir($id) {
-            $turma = Turma::with(['alunos', 'avisos', 'instrutor'])->findOrFail($id);
+            $turma = Turma::with(['avisos', 'instrutor'])
+                    ->withCount('alunos')
+                    ->findOrFail($id);
+                    
             return view('dashboard.turma.turma', compact('turma'));
         }
 
@@ -85,19 +99,30 @@
 
         public function entrarComCodigo(Request $request) {
             $request->validate([
-                'codigo' => 'required|string|max:6'
+                'codigo' => 'required|string|min:6|max:6'
+            ], [
+                'codigo.max' => 'O código ter que ser exatamente 6 caracteres.',
+                'codigo.min' => 'O código ter que ser exatamente 6 caracteres.'
             ]);
 
             $codigoFormatado = strtoupper($request->codigo);
             $turma = Turma::where('codigo', $codigoFormatado)->first();
             
             if (!$turma) {
-                return back()->withErrors(['codigo_erro' => 'Código inválido. Tente novamente']);
+                return back()->withErrors(['codigo' => 'Código inválido. Tente novamente']);
             }
 
-            $turma->alunos()->syncWithoutDetaching([Auth::id()]);
+            $turma->alunos()->save(Auth::user());
 
-            return redirect()->route('turma');
+            return redirect()->route('turma'); 
+        }
+
+        public function sair() {
+            $usuario = Auth::user();
+            $usuario->turma_id = null;
+            $usuario->save();
+
+            return redirect()->route('turma')->with('success', 'Você saiu do mural com sucesso!');
         }
 
         public function postarAviso() {

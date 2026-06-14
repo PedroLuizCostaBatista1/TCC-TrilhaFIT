@@ -12,19 +12,19 @@
 <body>
 @yield("conteudo")
 <nav>
-    <a href="{{ route('perfil') }}" class="nav-botao @if(Route::is('perfil')) nav-botao-ativo @else nav-botao-inativo @endif;">
+    <a href="{{ route('perfil') }}" class="nav-botao {{ request()->is('perfil*') ? 'nav-botao-ativo' : 'nav-botao-inativo' }}">
         <span class="material-symbols-outlined">person</span>
         <p class="nav-texto">Perfil</p>
     </a> 
-    <a href="{{ route('turma') }}" class="nav-botao @if(Route::is('turma')) nav-botao-ativo @else nav-botao-inativo @endif;">
+    <a href="{{ route('turma') }}" class="nav-botao {{ request()->is('turma*') ? 'nav-botao-ativo' : 'nav-botao-inativo' }}">
         <span class="material-symbols-outlined">group</span>
         <p class="nav-texto">Mural</p> 
     </a>
-    <a href="{{ route('relatorio') }}" class="nav-botao @if(Route::is('relatorio')) nav-botao-ativo @else nav-botao-inativo @endif;">
+    <a href="{{ route('relatorio') }}" class="nav-botao {{ request()->is('relatorio*') ? 'nav-botao-ativo' : 'nav-botao-inativo' }}">
         <span class="material-symbols-outlined">bar_chart</span>
         <p class="nav-texto">Relatório</p>
     </a>
-    <a href="{{ route('desafios') }}" class="nav-botao @if(Route::is('desafios')) nav-botao-ativo @else nav-botao-inativo @endif;">
+    <a href="{{ route('desafios') }}" class="nav-botao {{ request()->is('desafios*') ? 'nav-botao-ativo' : 'nav-botao-inativo' }}">
         <span class="material-symbols-outlined">exercise</span>
         <p class="nav-texto">Desafios</p>
     </a>

@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="/assets/css/dashboard/turma/turma.css">
 @endpush
 <header id="turma-header">
-    <a href="{{ route('turma') }}" id="icone-voltar"><span class="material-symbols-outlined">chevron_left</span></a>
     <h1>{{ $turma->nome }}</h1>
     @if(Auth::user()->tipo === 'instrutor')
         <p>Codigo da turma: <strong>{{ $turma->codigo }}</strong></p>
@@ -12,7 +11,7 @@
     <div id="tags">
         <div class="tag">
             <span class="material-symbols-outlined">group</span>
-            <p>{{ $turma->alunos->count() }} membros</p>
+            <p>{{ $turma->alunos->count() + 1 }} membros</p>
         </div>
         @if(Auth::user()->tipo === 'instrutor' && $turma->instrutor_id === Auth::id())
             <a href="{{ route('turma.editar', $turma->id) }}" class="tag2">
@@ -20,10 +19,10 @@
                 <p>Editar turma</p>
             </a>
         @else
-            <a href="#" class="tag2">
-                <span class="material-symbols-outlined">logout</span>
-                <p>Sair da turma</p>
-            </a>
+            <form method="POST" action="{{ route('turma.sair') }}" onsubmit="return confirm('Tem certeza que deseja sair deste mural?');">
+                @csrf
+                <button type="submit" class="tag2" texto-carregando="Saindo..."><span class="material-symbols-outlined">logout</span>Sair do mural</button>
+            </form>
         @endif
     </div>
 </header>

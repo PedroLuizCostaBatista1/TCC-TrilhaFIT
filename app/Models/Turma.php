@@ -16,7 +16,7 @@
         }
 
         public function alunos() {
-            return $this->belongsToMany(Usuario::class, 'turma_usuario', 'turma_id', 'usuario_id');
+            return $this->hasMany(Usuario::class, 'turma_id');
         }
 
         public function avisos() {

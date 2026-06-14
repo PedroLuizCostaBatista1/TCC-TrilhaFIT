@@ -79,6 +79,7 @@ header {
 
 .titulo {
     font-weight: 800;
+    margin-bottom: 0px;
 }
 
 .subtitulo {
@@ -205,6 +206,10 @@ input:focus {
 
 .termos-cor {
     color: var(--cor-tercearia);
+}
+
+#reenviar:disabled {
+    opacity: 0.4;
 }
 
 @keyframes float-in {
