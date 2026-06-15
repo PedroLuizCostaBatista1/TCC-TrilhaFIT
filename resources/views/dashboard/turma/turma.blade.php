@@ -27,7 +27,7 @@
     </div>
 </header>
 <main>
-    @if (!blank($turma->descricao))
+    @if(!blank($turma->descricao))
         <section id="descricao">
             <h2><span class="material-symbols-outlined">description</span>Descrição</h2>
             <p>{{ $turma->descricao }}</p>
@@ -44,17 +44,13 @@
         </div>
     </section>-->
     @if(Auth::user()->tipo === 'instrutor' && $turma->instrutor_id === Auth::id())
-        <form action="{{ route('turma.aviso', $turma->id) }}" method="post">
-            @csrf
-            <textarea name="conteudo" placeholder="Escreva um comunicado, dica de treino ou aviso para seus ciclistas..." required></textarea>
-            <button type="submit">Publicar</button>
-        </form>
+        <a href="{{ route('turma.aviso', $turma->id) }}" id="botao-criar"><span class="material-symbols-outlined">add_alert</span></a>
     @endif
     <section id="mural">
         <h2 id="mural-titulo"><span id="mural-icone" class="material-symbols-outlined">campaign</span>Mural de Avisos</h2>
         <div id="mural-wrap">
             @if($turma->avisos->isEmpty())
-                <p>Sem aviso</p>
+                <p id="texto-sem-aviso">Sem aviso no mural</p>
             @else
                 @foreach ($turma->avisos as $aviso)
                     <div class="mural-card">

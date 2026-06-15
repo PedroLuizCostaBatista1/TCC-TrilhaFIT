@@ -10,8 +10,10 @@ return new class extends Migration
     {
         Schema::create('avisos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('turma_id')->constrained('turmas')->onDelete('cascade');
+            $table->string('titulo');
             $table->text('conteudo');
+            $table->enum('tipo', ['desafio', 'anuncio', 'informacao', 'lembrete'])->default('informacao');
+            $table->foreignId('turma_id')->constrained('turmas')->onDelete('cascade');
             $table->timestamps();
         });
     }

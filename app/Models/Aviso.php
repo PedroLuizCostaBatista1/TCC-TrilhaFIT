@@ -4,7 +4,7 @@
     use Illuminate\Database\Eloquent\Model;
 
     class Aviso extends Model {
-        protected $fillable = ['turma_id', 'conteudo'];
+        protected $fillable = ['titulo', 'conteudo', 'tipo', 'turma_id'];
 
         public function turma() {
             return $this->belongsTo(Turma::class, 'turma_id');
