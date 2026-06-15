@@ -20,7 +20,9 @@
 
         public function publicar(Request $request, $turmaId) {
             $request->validate([
-                'conteudo' => 'required|string|max:1000'
+                'titulo' => 'required|string|max:150',
+                'conteudo' => 'required|string|max:1000',
+                'tipo' => 'required|in:desafio,anuncio,informacao,lembrete'
             ]);
 
             $turma = Turma::findOrFail($turmaId);
@@ -30,11 +32,13 @@
             }
 
             Aviso::create([
+                'titulo' => $request->titulo,
                 'conteudo' => $request->conteudo,
-                'mural_id' => $turma->id
+                'tipo' => $request->tipo,
+                'turma_id' => $turma->id
             ]);
 
-            return redirect()->back()->with('success', 'Aviso publicado no mural!');
+            return redirect()->route('turma.exibir', $turma->id)->with('success', 'Aviso publicado com sucesso!');
         }
     }
 ?>

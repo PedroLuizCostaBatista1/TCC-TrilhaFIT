@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/turma/{id}/deletar', [TurmaController::class, 'deletar'])->name('turma.deletar');
 
     Route::get('/turma/{id}/aviso/criar', [AvisoController::class, 'criar'])->name('turma.aviso');
-    Route::post('/turma/{id}/aviso', [AvisoController::class, 'publicar'])->name('turma.aviso');
+    Route::post('/turma/{id}/aviso', [AvisoController::class, 'publicar'])->name('turma.publicar');
 
     Route::get('/relatorio', function () {
         return view('dashboard.relatorio');

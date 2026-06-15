@@ -10,7 +10,7 @@
         </a>
         <h1 class="titulo">Criar aviso</h1>
     </header>
-    <form method="POST" action="{{ route('turma.aviso', $turma->id) }}">
+    <form method="POST" action="{{ route('turma.publicar', $turma->id) }}">
         @csrf
 
         <div>

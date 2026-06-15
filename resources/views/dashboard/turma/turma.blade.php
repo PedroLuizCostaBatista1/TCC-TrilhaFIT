@@ -33,16 +33,6 @@
             <p>{{ $turma->descricao }}</p>
         </section>
     @endif
-    <!--<section id="status">
-        <div class="status-card">
-            <div class="status-valor">18</div>
-            <div class="status-titulo">Treinos de Turma</div>
-        </div>
-        <div class="status-card">
-            <div class="status-valor">4</div>
-            <div class="status-titulo">Desafios Ativos</div>
-        </div>
-    </section>-->
     @if(Auth::user()->tipo === 'instrutor' && $turma->instrutor_id === Auth::id())
         <a href="{{ route('turma.aviso', $turma->id) }}" id="botao-criar"><span class="material-symbols-outlined">add_alert</span></a>
     @endif
@@ -54,39 +44,15 @@
             @else
                 @foreach ($turma->avisos as $aviso)
                     <div class="mural-card">
-                        <div class="mural-card-titulo titulo-desafio">
-                            <p id="desafio-nome">Instrutor {{ $turma->instrutor->nome }}</p>
-                            <p class="horario">Hoje às 14:30</p>
+                        <div class="mural-card-titulo titulo-{{ $aviso->tipo }}">
+                            <p id="{{ $aviso->tipo }}-nome">Instrutor {{ $turma->instrutor->nome }}</p>
+                            <p class="horario">{{ $aviso->created_at->calendar() }}</p>
                         </div>
-                        <h3 class="aviso-titulo">Novo Desafio: Maratona do Mês!</h3>
+                        <h3 class="aviso-titulo">{{ $aviso->titulo }}</h3>
                         <p class="aviso">{{ nl2br(e($aviso->conteudo)) }}</p>
                     </div>
                 @endforeach
             @endif
-            <!--<div class="mural-card">
-                <div class="mural-card-titulo titulo-anuncio">
-                    <p id="anuncio-nome">Anúncio</p>
-                    <p class="horario">Ontem às 10:15</p>
-                </div>
-                <h3 class="aviso-titlo">Treino em Grupo Confirmado!</h3>
-                <p class="aviso">Amanhã às 07:00 saída do Parque Ibirapuera. Todos estão convidados para o treino matinal!</p>
-            </div>
-            <div class="mural-card">
-                <div class="mural-card-titulo titulo-informacao">
-                    <p id="informacao-nome">Instrutor Martado</p>
-                    <p class="horario">há 2 dias</p>
-                </div>
-                <h3 class="aviso-titlo">Atualização do Calendário de Treinos</h3>
-                <p class="aviso">Confira a agenda de treinos na seção "Turma". Novos horários disponíveis para segunda-feira!</p>
-            </div>
-            <div class="mural-card">
-                <div class="mural-card-titulo titulo-lembrete">
-                    <p id="lembrete-nome">Lembrete</p>
-                    <p class="horario">há 3 dias</p>
-                </div>
-                <h3 class="aviso-titlo">Manutenção de Equipamento</h3>
-                <p class="aviso">Lembrete: Verifique seus pneus e freios antes de cada treino. Segurança em primeiro lugar!</p>
-            </div>-->
         </div>
     </section>
 </main>
