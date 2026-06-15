@@ -7,7 +7,7 @@
         protected $fillable = ['turma_id', 'conteudo'];
 
         public function turma() {
-            return $this->belongsTo(Turma::class);
+            return $this->belongsTo(Turma::class, 'turma_id');
         }
     }
 ?>

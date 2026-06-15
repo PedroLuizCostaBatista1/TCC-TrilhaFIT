@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AvisoController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TurmaController;
@@ -47,6 +48,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/turma/{id}/editar', [TurmaController::class, 'editar'])->name('turma.editar');
     Route::put('/turma/{id}/atualizar', [TurmaController::class, 'atualizar'])->name('turma.atualizar');
     Route::delete('/turma/{id}/deletar', [TurmaController::class, 'deletar'])->name('turma.deletar');
+
+    Route::post('/turma/{id}/aviso', [AvisoController::class, 'publicar'])->name('turma.aviso');
 
     Route::get('/relatorio', function () {
         return view('dashboard.relatorio');

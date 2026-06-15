@@ -28,7 +28,7 @@
         <div>
             <div class="campo-container">
                 <span class="material-symbols-outlined icone-campo">description</span>
-                <input type="text" name="descricao" id="descricao" value="{{ old('descricao', $turma->descricao) }}" placeholder="Descrição da turma" required>
+                <input type="text" name="descricao" id="descricao" value="{{ old('descricao', $turma->descricao) }}" placeholder="Descrição da turma">
             </div>
 
             @error('email')

@@ -14,6 +14,10 @@
 
             if ($usuario->tipo === 'instrutor') {
                 $turma = Turma::where('instrutor_id', $usuario->id)->first();
+
+                if (!$turma) {
+                    $turma = $usuario->turmas()->first();
+                }
             } else {
                 $turma = $usuario->turmas()->first();
             }

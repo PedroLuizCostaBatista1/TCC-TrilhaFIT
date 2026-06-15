@@ -43,18 +43,31 @@
             <div class="status-titulo">Desafios Ativos</div>
         </div>
     </section>-->
+    @if(Auth::user()->tipo === 'instrutor' && $turma->instrutor_id === Auth::id())
+        <form action="{{ route('turma.aviso', $turma->id) }}" method="post">
+            @csrf
+            <textarea name="conteudo" placeholder="Escreva um comunicado, dica de treino ou aviso para seus ciclistas..." required></textarea>
+            <button type="submit">Publicar</button>
+        </form>
+    @endif
     <section id="mural">
         <h2 id="mural-titulo"><span id="mural-icone" class="material-symbols-outlined">campaign</span>Mural de Avisos</h2>
         <div id="mural-wrap">
-            <div class="mural-card">
-                <div class="mural-card-titulo titulo-desafio">
-                    <p id="desafio-nome">Instrutor Martado</p>
-                    <p class="horario">Hoje às 14:30</p>
-                </div>
-                <h3 class="aviso-titulo">Novo Desafio: Maratona do Mês!</h3>
-                <p class="aviso">Participe da Maratona de Agosto! Pedal 100km este mês e ganhe um bônus de 500 XP. Boa sorte! 💪</p>
-            </div>
-            <div class="mural-card">
+            @if($turma->avisos->isEmpty())
+                <p>Sem aviso</p>
+            @else
+                @foreach ($turma->avisos as $aviso)
+                    <div class="mural-card">
+                        <div class="mural-card-titulo titulo-desafio">
+                            <p id="desafio-nome">Instrutor {{ $turma->instrutor->nome }}</p>
+                            <p class="horario">Hoje às 14:30</p>
+                        </div>
+                        <h3 class="aviso-titulo">Novo Desafio: Maratona do Mês!</h3>
+                        <p class="aviso">{{ nl2br(e($aviso->conteudo)) }}</p>
+                    </div>
+                @endforeach
+            @endif
+            <!--<div class="mural-card">
                 <div class="mural-card-titulo titulo-anuncio">
                     <p id="anuncio-nome">Anúncio</p>
                     <p class="horario">Ontem às 10:15</p>
@@ -77,7 +90,7 @@
                 </div>
                 <h3 class="aviso-titlo">Manutenção de Equipamento</h3>
                 <p class="aviso">Lembrete: Verifique seus pneus e freios antes de cada treino. Segurança em primeiro lugar!</p>
-            </div>
+            </div>-->
         </div>
     </section>
 </main>
