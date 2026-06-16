@@ -9,10 +9,10 @@
         <p>Codigo da turma: <strong>{{ $turma->codigo }}</strong></p>
     @endif
     <div id="tags">
-        <div class="tag">
+        <a href="#" class="tag">
             <span class="material-symbols-outlined">group</span>
             <p>{{ $turma->alunos->count() + 1 }} membros</p>
-        </div>
+        </a>
         @if(Auth::user()->tipo === 'instrutor' && $turma->instrutor_id === Auth::id())
             <a href="{{ route('turma.editar', $turma->id) }}" class="tag2">
                 <span class="material-symbols-outlined">edit</span>
@@ -45,11 +45,26 @@
                 @foreach ($turma->avisos as $aviso)
                     <div class="mural-card">
                         <div class="mural-card-titulo titulo-{{ $aviso->tipo }}">
-                            <p id="{{ $aviso->tipo }}-nome">Instrutor {{ $turma->instrutor->nome }}</p>
+                            <p id="{{ $aviso->tipo }}-nome">{{ ucfirst($aviso->tipo) }}</p>
                             <p class="horario">{{ $aviso->created_at->calendar() }}</p>
                         </div>
                         <h3 class="aviso-titulo">{{ $aviso->titulo }}</h3>
                         <p class="aviso">{{ nl2br(e($aviso->conteudo)) }}</p>
+                        <div class="instrutor">
+                            <p id="instrutor-nome"><span id="instrutor-icone" class="material-symbols-outlined">badge</span>Instrutor: {{ $turma->instrutor->nome }}</p>
+                            @if(Auth::user()->tipo === 'instrutor' && $turma->instrutor_id === Auth::id())
+                                <div id="acoes-instrutor">
+                                    <form action="{{ route('aviso.editar', $aviso->id) }}" method="get">
+                                        <button type="submit" id="botao-editar"><span class="material-symbols-outlined">edit</span></button>
+                                    </form>
+                                    <form action="{{ route('aviso.deletar', $aviso->id) }}" method="post" onsubmit="return confirm('Excluir este aviso definitivamente?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" id="botao-deletar"><span class="material-symbols-outlined">delete</span></button>
+                                    </form>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 @endforeach
             @endif

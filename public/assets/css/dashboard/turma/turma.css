@@ -54,12 +54,14 @@
 .tag {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     background-color: var(--cor-tag);
     color: var(--cor-primaria);
     padding: 4px 12px;
     font-size: 14px;
     border-radius: 20px;
+    width: 100%;
 }
 
 .tag > span {
@@ -73,6 +75,7 @@
 .tag2 {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     border: 2px solid var(--cor-tag);
     color: var(--cor-tag);
@@ -80,6 +83,7 @@
     font-size: 14px;
     border-radius: 20px;
     background-color: transparent;
+    width: 100%;
 }
 
 .tag2 > span {
@@ -217,6 +221,46 @@ main {
     font-size: 14px; 
     color: var(--texto-cinza); 
     line-height: 1.4;
+}
+
+.instrutor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px dashed #EAEAEA;
+}
+
+#instrutor-nome {
+    display: inherit;
+    gap: 6px;
+    align-items: center;
+    color: var(--texto-cinza);
+    margin: 0px;
+    font-size: 12px;
+    font-style: italic;
+}
+
+#instrutor-icone {
+    font-size: 20px;
+}
+
+#acoes-instrutor {
+    gap: 5px;
+    display: inherit;
+}
+
+#botao-editar, #botao-deletar {
+    background-color: transparent;
+    color: var(--texto-cinza);
+}
+
+#botao-editar > span {
+    font-size: 20px;
+}
+
+#botao-deletar > span {
+    font-size: 20px;
 }
 
 #desafio-nome {

@@ -28,7 +28,7 @@
         <div>
             <div class="campo-container">
                 <span class="material-symbols-outlined icone-campo">titlecase</span>
-                <input type="text" name="titulo" id="titulo" placeholder="Digite o titulo do mural" required></input>
+                <input type="text" name="titulo" id="titulo" placeholder="Digite o titulo do aviso" required></input>
             </div>
         </div>
 

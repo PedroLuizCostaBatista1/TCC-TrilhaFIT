@@ -51,6 +51,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/turma/{id}/aviso/criar', [AvisoController::class, 'criar'])->name('turma.aviso');
     Route::post('/turma/{id}/aviso', [AvisoController::class, 'publicar'])->name('turma.publicar');
+    Route::delete('/aviso/{id}', [AvisoController::class, 'deletar'])->name('aviso.deletar');
+    Route::get('/aviso/{id}/editar', [AvisoController::class, 'editar'])->name('aviso.editar');
+    Route::put('/aviso/{id}', [AvisoController::class, 'atualizar'])->name('aviso.atualizar');
 
     Route::get('/relatorio', function () {
         return view('dashboard.relatorio');
