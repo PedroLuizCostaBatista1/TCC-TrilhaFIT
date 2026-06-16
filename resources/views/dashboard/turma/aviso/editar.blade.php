@@ -10,7 +10,7 @@
         </a>
         <h1 class="titulo">Editar o aviso</h1>
     </header>
-    <form method="POST" action="{{ route('aviso.atualizar', $aviso->id) }}">
+    <form method="POST" action="{{ route('aviso.atualizar', $aviso->id) }}" onsubmit="return confirm('Tem certeza? Esta ação substituirá as informações do aviso');">
         @csrf
         @method('PUT')
 

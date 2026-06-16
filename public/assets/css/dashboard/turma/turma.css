@@ -201,6 +201,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     padding: 16px;
     border-radius: 16px 16px 0px 0px;
     margin: -16px -16px 16px -16px;
@@ -265,6 +266,7 @@ main {
 
 #desafio-nome {
     margin: 0px;
+    font-weight: 600;
     color: var(--cor-desafio);
 }
 
@@ -275,6 +277,7 @@ main {
 
 #anuncio-nome {
     margin: 0px;
+    font-weight: 600;
     color: var(--cor-anuncio);
 }
 
@@ -285,6 +288,7 @@ main {
 
 #informacao-nome {
     margin: 0px;
+    font-weight: 600;
     color: var(--cor-informacao);
 }
 
@@ -295,10 +299,62 @@ main {
 
 #lembrete-nome {
     margin: 0px;
+    font-weight: 600;
     color: var(--cor-lembrete);
 }
 
 .titulo-lembrete {
     background-color: var(--cor-fundo-lembrete);
     border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+#avisos-paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#avisos-paginacao > nav {
+    border: 0px;
+    padding: 0px;
+    background-color: transparent;
+}
+
+#avisos-paginacao ul.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 8px;
+    gap: 5px;
+}
+
+#avisos-paginacao .page-item .page-link {
+    position: relative;
+    display: block;
+    padding: 8px 16px;
+    color: var(--cor-primaria);
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+#avisos-paginacao .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    cursor: default;
+}
+
+#avisos-paginacao .page-item.disabled .page-link {
+    color: #bbb;
+    pointer-events: none;
+    background-color: #fafafa;
+    border-color: #e0e0e0;
+}
+
+#form-sair {
+    width: 100%;
 }

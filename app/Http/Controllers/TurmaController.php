@@ -26,7 +26,7 @@
                 return view('dashboard.turma.index');
             }
 
-            return view('dashboard.turma.turma', compact('turma'));
+            return redirect()->route('turma.exibir', $turma->id);
         }
 
         public function criar() {
@@ -54,8 +54,10 @@
             $turma = Turma::with(['avisos', 'instrutor'])
                     ->withCount('alunos')
                     ->findOrFail($id);
+
+            $avisos_paginados = $turma->avisos()->latest()->paginate(5);
                     
-            return view('dashboard.turma.turma', compact('turma'));
+            return view('dashboard.turma.turma', compact('turma', 'avisos_paginados'));
         }
 
         public function editar($id) {

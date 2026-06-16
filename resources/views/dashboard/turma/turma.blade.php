@@ -19,9 +19,9 @@
                 <p>Editar turma</p>
             </a>
         @else
-            <form method="POST" action="{{ route('turma.sair') }}" onsubmit="return confirm('Tem certeza que deseja sair deste mural?');">
+            <form method="POST" id="form-sair" action="{{ route('turma.sair') }}" onsubmit="return confirm('Tem certeza que deseja sair deste mural?');">
                 @csrf
-                <button type="submit" class="tag2" texto-carregando="Saindo..."><span class="material-symbols-outlined">logout</span>Sair do mural</button>
+                <button type="submit" class="tag2" id="botao-sair" texto-carregando="Saindo..."><span class="material-symbols-outlined">logout</span>Sair do mural</button>
             </form>
         @endif
     </div>
@@ -42,7 +42,7 @@
             @if($turma->avisos->isEmpty())
                 <p id="texto-sem-aviso">Sem aviso no mural</p>
             @else
-                @foreach ($turma->avisos as $aviso)
+                @foreach ($avisos_paginados as $aviso)
                     <div class="mural-card">
                         <div class="mural-card-titulo titulo-{{ $aviso->tipo }}">
                             <p id="{{ $aviso->tipo }}-nome">{{ ucfirst($aviso->tipo) }}</p>
@@ -67,6 +67,9 @@
                         </div>
                     </div>
                 @endforeach
+                <div id="avisos-paginacao">
+                    {{ $avisos_paginados->links('pagination::bootstrap-4') }}
+                </div>
             @endif
         </div>
     </section>
