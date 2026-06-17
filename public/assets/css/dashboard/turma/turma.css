@@ -229,7 +229,7 @@ main {
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
-    border-top: 1px dashed #EAEAEA;
+    border-top: 2px dashed #EAEAEA;
 }
 
 #instrutor-nome {

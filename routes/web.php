@@ -7,9 +7,7 @@ use App\Http\Controllers\TurmaController;
 use App\Http\Controllers\PerfilController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('boasvindas');
-});
+Route::view('/', 'boasvindas');
 
 Route::get('/cadastro', [UsuarioController::class, 'telaCadastro'])->name('cadastro');
 Route::post('/cadastro', [UsuarioController::class, 'cadastrar']);
@@ -55,11 +53,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/aviso/{id}/editar', [AvisoController::class, 'editar'])->name('aviso.editar');
     Route::put('/aviso/{id}', [AvisoController::class, 'atualizar'])->name('aviso.atualizar');
 
-    Route::get('/relatorio', function () {
-        return view('dashboard.relatorio');
-    })->name("relatorio");
-
-    Route::get('/desafios', function () {
-        return view('dashboard.desafios');
-    })->name("desafios");
+    Route::view('/relatorio', 'dashboard.relatorio')->name('relatorio');
+    Route::view('/desafios', 'dashboard.desafios')->name('desafios');
 });
