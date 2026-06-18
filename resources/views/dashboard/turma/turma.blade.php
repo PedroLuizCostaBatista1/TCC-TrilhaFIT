@@ -3,13 +3,13 @@
 @push("css")
     <link rel="stylesheet" href="/assets/css/dashboard/turma/turma.css">
 @endpush
-<header id="turma-header">
+<header class="turma-header">
     <h1>{{ $turma->nome }}</h1>
     @if(Auth::user()->tipo === 'instrutor')
         <p>Codigo da turma: <strong>{{ $turma->codigo }}</strong></p>
     @endif
     <div id="tags">
-        <a href="#" class="tag">
+        <a href="{{ route('turma.membros', $turma->id) }}" class="tag">
             <span class="material-symbols-outlined">group</span>
             <p>{{ $turma->alunos->count() + 1 }} membros</p>
         </a>

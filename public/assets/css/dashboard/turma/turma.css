@@ -20,18 +20,18 @@
     --cor-tercearia: #EF5411;
 }
 
-#turma-header {
+.turma-header {
     background-color: var(--cor-primaria);
     color: white;
     padding: 20px;
 }
 
-#turma-header > h1 {
+.turma-header > h1 {
     margin-top: 12px;
     margin-bottom: 0px;
 }
 
-#turma-header > p {
+.turma-header > p {
     margin-top: 10px;
     margin-bottom: 24px;
 }
@@ -239,7 +239,6 @@ main {
     color: var(--texto-cinza);
     margin: 0px;
     font-size: 12px;
-    font-style: italic;
 }
 
 #instrutor-icone {
@@ -357,4 +356,66 @@ main {
 
 #form-sair {
     width: 100%;
+}
+
+#lista-membros {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.membro-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cor-tag);
+    border-radius: 20px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 14px 16px;
+}
+
+.membro-card-lado-esquerdo, .membro-card-lado-direito  {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--cor-primaria);
+    background-color: #FFEFE9;
+    border: 1px solid #FFDCD0;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+}
+
+.membro-informacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.membro-nome {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0px;
+}
+
+.membro-tipo {
+    font-size: 12px;
+    color: var(--texto-cinza);
+    margin: 0px;
+}
+
+#botao-expulsar {
+    color: var(--cor-primaria);
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 4px 8px;
+    background-color: #FFF0EA;
 }

@@ -4,6 +4,7 @@
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Notifications\Notifiable;
     use Illuminate\Foundation\Auth\User as Authenticatable;
+    use Illuminate\Support\Str;
 
     class Usuario extends Authenticatable {
         use HasFactory, Notifiable;
@@ -39,6 +40,10 @@
 
         public function turmaCriada() {
             return $this->hasOne(Turma::class, 'instrutor_id');
+        }
+
+        public function getIniciaisAttribute(): string {
+            return Str::upper(mb_substr($this->nome, 0, 2));
         }
     }
 ?>

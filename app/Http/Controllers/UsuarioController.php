@@ -26,7 +26,7 @@
             ], [
                 'email.unique' => 'Este e-mail já existe',
                 'senha.min' => 'Senha abaixo de 8 caracteres',
-                'cpf.digits' => 'CPF invalido',
+                'cpf.digits' => 'CPF tem que ser exatamente 11 digitos',
                 'cpf.unique' => 'Este CPF já existe'
             ]);
 

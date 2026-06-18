@@ -87,6 +87,13 @@
             return redirect()->route('turma.exibir', $turma->id)->with('success', 'Turma atualizada com sucesso!');
         }
 
+        public function listar($id) {
+            $turma = Turma::with('instrutor')->findOrFail($id);
+            $membros = Usuario::where('turma_id', $turma->id)->orderBy('nome', 'asc')->paginate(10);
+
+            return view('dashboard.turma.membros', compact('turma', 'membros'));
+        }
+
         public function deletar($id) {
             $turma = Turma::findOrFail($id);
 
@@ -129,10 +136,6 @@
             $usuario->save();
 
             return redirect()->route('turma')->with('success', 'Você saiu do mural com sucesso!');
-        }
-
-        public function postarAviso() {
-
         }
     }
 ?>
