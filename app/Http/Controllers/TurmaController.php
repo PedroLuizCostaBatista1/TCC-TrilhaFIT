@@ -130,6 +130,25 @@
             return redirect()->route('turma'); 
         }
 
+        public function remover($turmaId, $usuarioId) {
+            $turma = Turma::findOrFail($turmaId);
+
+            if ($turma->instrutor_id !== Auth::id()) {
+                abort(403, 'Apenas o instrutor criador deste mural pode remover membros.');
+            }
+
+            $usuario = Usuario::findOrFail($usuarioId); 
+
+            if ($usuario->id === $turma->instrutor_id) {
+                return redirect()->back()->with('error', 'Você não pode se remover do seu próprio mural.');
+            }
+
+            $usuario->turma_id = null; 
+            $usuario->save();
+
+            return redirect()->back()->with('success', "O usuário {$usuario->nome} foi removido do mural com sucesso.");
+        }
+
         public function sair() {
             $usuario = Auth::user();
             $usuario->turma_id = null;

@@ -29,9 +29,13 @@
                         <p class="membro-tipo">{{ ucfirst($membro->tipo) }}</p>
                     </div>
                 </div>
-                @if($turma->instrutor_id === Auth::id())
+                @if(Auth::user()->tipo === 'instrutor' && $turma->instrutor_id === Auth::id())
                     <div class="membro-card-lado-direito">
-                        <a href="#" id="botao-expulsar">Expulsar?</a>
+                        <form action="{{ route('turma.remover', [$turma->id, $membro->id]) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja remover {{ $membro->nome }} deste mural? O usuário perderá acesso aos avisos.')">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" id="botao-expulsar">Remover?</button>
+                        </form>
                     </div>
                 @endif
             </div>

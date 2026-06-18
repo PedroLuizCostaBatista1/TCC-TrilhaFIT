@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/turma/{id}/atualizar', [TurmaController::class, 'atualizar'])->name('turma.atualizar');
     Route::delete('/turma/{id}/deletar', [TurmaController::class, 'deletar'])->name('turma.deletar');
     Route::get('/turma/{id}/membros', [TurmaController::class, 'listar'])->name('turma.membros');
+    Route::put('/turma/{id}/remover/{usuarioId}', [TurmaController::class, 'remover'])->name('turma.remover');
 
     Route::get('/turma/{id}/aviso/criar', [AvisoController::class, 'criar'])->name('turma.aviso');
     Route::post('/turma/{id}/aviso', [AvisoController::class, 'publicar'])->name('turma.publicar');
