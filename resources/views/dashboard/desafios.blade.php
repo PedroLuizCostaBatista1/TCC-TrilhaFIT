@@ -1,8 +1,15 @@
 @extends("dashboard/config")
 @section("conteudo")
 @push("css")
-<link rel="stylesheet" href="/assets/css/dashboard/desafios.css">
+    <link rel="stylesheet" href="/assets/css/dashboard/desafios.css">
 @endpush
+<header>
+    <h1 id="titulo">Desafios</h1>
+    <div id="timer">
+        <span class="material-symbols-outlined" id="timer-icone">schedule</span>
+        <p id="timer-texto">Novos desafios em: <strong>2d 14h 0m</strong></p>
+    </div>
+</header>
 <main class="tela">
     <div id="card-vermelho">
         <div class="card-header">

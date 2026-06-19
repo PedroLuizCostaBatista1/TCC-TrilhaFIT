@@ -1,6 +1,3 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;display=swap");
-
 :root {
     --cor-fundo: white;
     --cor-texto: #18181B;
@@ -12,18 +9,36 @@
     --cor-card-roxo-fundo: #f3e8ff;
 
     --cor-fundo-barra: #e5e5e5;
+    --cor-primaria: #FF6517;
     --cor-segundaria: #FF822E;
     --cor-verde: #22c55e;
     --cor-azul: #3b82f6;
     --cor-roxo: #a78bfa;
 }
 
-.tela {
-    display: grid; 
-    gap: 20px;
-    background-color: var(--cor-fundo);
-    padding: 40px 20px;
-    min-height: 100dvh;
+header {
+    background-color: var(--cor-primaria);
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+#timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 14px;
+    border-radius: 12px;
+    gap: 8px;
+}
+
+#timer-icone {
+    font-size: 26px;
+}
+
+#timer-texto {
+    margin: 0px;
 }
 
 #card-vermelho {
