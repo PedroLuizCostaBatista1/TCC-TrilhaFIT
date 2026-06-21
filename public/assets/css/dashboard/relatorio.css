@@ -46,7 +46,7 @@ header > div {
 }
 
 .card > span {
-    color: var(--cor-inativa); 
+    color: var(--cor-primaria); 
     margin-bottom: 10px;
     font-size: 28px;
 }
