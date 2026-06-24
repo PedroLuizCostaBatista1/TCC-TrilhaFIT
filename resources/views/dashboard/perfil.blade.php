@@ -48,7 +48,7 @@
         </div>
     </section>
     <section class="botoes">
-        <button id="botao1" data-user='@json(Auth::user())' data-mes="{{ $nomeMes }}" data-ano="{{ $ano }}"><span class="material-symbols-outlined">share</span>Compartilhar</button>
+        <button id="botao1" data-user='@json(['distancia' => Auth::user()->estatistica['distancia'], 'corridas' => Auth::user()->estatistica['corridas'], 'calorias' => Auth::user()->estatistica['calorias']])' data-mes="{{ $nomeMes }}" data-ano="{{ $ano }}"><span class="material-symbols-outlined">share</span>Compartilhar</button>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
             <button type="submit" id="botao2" texto-carregando="Saindo..."><span class="material-symbols-outlined">logout</span>Sair</button>

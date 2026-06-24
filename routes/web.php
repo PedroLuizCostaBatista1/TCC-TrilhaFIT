@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AvisoController;
+use App\Http\Controllers\DesafioController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TurmaController;
@@ -56,5 +57,5 @@ Route::middleware('auth')->group(function () {
     Route::put('/aviso/{id}', [AvisoController::class, 'atualizar'])->name('aviso.atualizar');
 
     Route::view('/relatorio', 'dashboard.relatorio')->name('relatorio');
-    Route::view('/desafios', 'dashboard.desafios')->name('desafios');
+    Route::get('/desafios', [DesafioController::class, 'index'])->name('desafios');
 });

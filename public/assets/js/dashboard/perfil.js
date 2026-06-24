@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = JSON.parse(botaoCompartilhar.dataset.user);
 
         botaoCompartilhar.addEventListener('click', async() => {
-            const distancia = data.estatistica.distancia;
-            const corridas = data.estatistica.corridas;
-            const calorias = data.estatistica.calorias;
+            const distancia = data.distancia;
+            const corridas = data.corridas;
+            const calorias = data.calorias;
             const mes = botaoCompartilhar.dataset.mes;
             const ano = botaoCompartilhar.dataset.ano;
 

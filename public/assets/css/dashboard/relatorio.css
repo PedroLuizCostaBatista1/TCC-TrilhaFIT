@@ -52,21 +52,21 @@ header > div {
 }
 
 .card-valor {
-    color: var(--texto-escuro); 
+    color: var(--cor-primaria); 
     font-size: 28px;
     margin:0px 0px 5px 0px;
 }
 
 .card-valor > span {
-    color: var(--cor-inativa);
-    font-weight: normal;
+    color: var(--cor-primaria);
+    font-weight: 500;
     font-size: 14px;
 }
 
 .card-titulo {
     font-weight: 500;
     font-size: 16px;
-    color: var(--cor-inativa); 
+    color: var(--texto-escuro); 
     margin: 0px;
 }
 
@@ -112,6 +112,7 @@ header > div {
     justify-content: center;
     gap: 10px;
     background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-segundaria) 100%);
+    box-shadow: 0px 0px 15px rgba(255, 101, 23, 0.5);
     border-radius: 14px;
     padding: 16px;
     color: white;
