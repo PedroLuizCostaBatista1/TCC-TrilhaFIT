@@ -7,15 +7,15 @@
     --cor-card: white;
 
     --cor-card-vermelho-fundo: #FFEFE9;
+    --cor-card-azul-fundo: #E3F2FD;
     --cor-card-verde-fundo: #f0fdf4;
-    --cor-card-azul-fundo: #eff6ff;
     --cor-card-roxo-fundo: #f3e8ff;
 
     --cor-fundo-barra: #e5e5e5;
     --cor-primaria: #FF6517;
     --cor-segundaria: #FF822E;
     --cor-verde: #22c55e;
-    --cor-azul: #3b82f6;
+    --cor-azul: #1E88E5;
     --cor-roxo: #a78bfa;
 }
 
@@ -129,6 +129,42 @@ header {
 
 .barra-progresso-informacoes > p {
     margin: 4px 0px 0px 0px;
+}
+
+.barra-progresso-corrida {
+    height: 100%;
+    border-radius: 4px;
+    width: 60%;
+    background-color: var(--cor-primaria);
+}
+
+.desafio-card-icone-coletavel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: var(--cor-card-azul-fundo);
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--cor-azul);
+}
+
+.desafio-card-xp-coletavel {
+    background-color: var(--cor-card-azul-fundo);
+    color: var(--cor-azul);
+    white-space: nowrap;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 10px;
+    margin: 0px;
+}
+
+.barra-progresso-coletavel {
+    height: 100%;
+    border-radius: 4px;
+    width: 87%;
+    background-color: var(--cor-azul);
 }
 
 #card-vermelho {
