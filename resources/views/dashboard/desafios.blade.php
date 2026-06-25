@@ -60,19 +60,21 @@
         <div class="desafio-card">
             <div class="desafio-card-header">
                 <div class="desafio-card-titulo">
-                    <span class="material-symbols-outlined desafio-card-icone-corrida">bolt</span>
+                    <span class="material-symbols-outlined desafio-card-icone-calorias">mode_heat</span>
                     <div>
-                        <h3>Corrida Rápida</h3>
-                        <p>Termine a corrida em 30 minutos</p>
+                        <h3>Queimador de Calorias</h3>
+                        <p>Queime 500 calorias no treino</p>
                     </div>
                 </div>
-                <p class="desafio-card-xp-corrida">+50 XP</p>
+                <p class="desafio-card-xp-calorias">+100 XP</p>
             </div>
             <div class="desafio-card-body">
-                <div class="barra-progresso-fundo"></div>
+                <div class="barra-progresso-fundo">
+                    <div class="barra-progresso-calorias"></div>
+                </div>
                 <div class="barra-progresso-informacoes">
                     <p>Progresso</p>
-                    <p>18/30 min</p>
+                    <p>347/500 kcal</p>
                 </div>
             </div>
         </div>

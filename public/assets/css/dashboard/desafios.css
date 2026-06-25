@@ -8,6 +8,7 @@
 
     --cor-card-vermelho-fundo: #FFEFE9;
     --cor-card-azul-fundo: #E3F2FD;
+    --cor-card-amarelho-fundo: #FFFDE7;
     --cor-card-verde-fundo: #f0fdf4;
     --cor-card-roxo-fundo: #f3e8ff;
 
@@ -17,6 +18,7 @@
     --cor-verde: #22c55e;
     --cor-azul: #1E88E5;
     --cor-roxo: #a78bfa;
+    --cor-amarelo: #F9A825;
 }
 
 header {
@@ -165,6 +167,35 @@ header {
     border-radius: 4px;
     width: 87%;
     background-color: var(--cor-azul);
+}
+
+.desafio-card-icone-calorias {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: var(--cor-card-amarelho-fundo);
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--cor-amarelo);
+}
+
+.desafio-card-xp-calorias {
+    background-color: var(--cor-card-amarelho-fundo);
+    color: var(--cor-amarelo);
+    white-space: nowrap;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 10px;
+    margin: 0px;
+}
+
+.barra-progresso-calorias {
+    height: 100%;
+    border-radius: 4px;
+    width: 69%;
+    background-color: var(--cor-amarelo);
 }
 
 #card-vermelho {
