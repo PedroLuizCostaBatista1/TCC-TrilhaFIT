@@ -3,9 +3,9 @@ async function compartilhar(distancia, corridas, calorias, mes, ano) {
     const texto = "Minha evolução no TrilhaFIT (" + mes + " - " + ano + ")\n\n" +
                   "Corridas realizadas: " + corridas + "\n" +
                   "Distância total: " + distancia + " km\n" +
-                  "Calorias queimadas: " + calorias + " kcal\n\n" +
-                  "Bora treinar?";
-            
+                   "Calorias queimadas: " + calorias + " kcal\n\n" +
+                   "Bora treinar?";
+
     if (navigator.share) {
         try {
             await navigator.share({
@@ -14,39 +14,9 @@ async function compartilhar(distancia, corridas, calorias, mes, ano) {
             });
         } catch (erro) {
             console.log(erro)
-        }
+        } 
     } else {
         const url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(texto);
         window.open(url, '_blank');
-    }
-}
-
-function mudarMes(direcao) {
-    const container = document.getElementById("estatisticas-data");
-    let mes = parseInt(container.getAttribute('data-mes'));
-    let ano = parseInt(container.getAttribute('data-ano'));
-
-    const baseURL = container.getAttribute('data-url');
-
-    mes += direcao;
-    if (mes < 1) { mes = 12; ano--; }
-    if (mes > 12) { mes = 1; ano++; }
-
-    container.setAttribute('data-mes', mes);
-    container.setAttribute('data-ano', ano);
-
-    const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-    document.getElementById('texto-mes-ano').innerText = `${meses[mes - 1]} - ${ano}`;
-
-    fetch(`${baseURL}?mes=${mes}&ano=${ano}`, {
-        headers: {
-            'X-Requested-With': 'XMLHttpRequest'
-        }
-    })
-    .then(response => response.text())
-    .then(html => {
-        console.log(html);
-        document.getElementById('wrapper-dados-estatisticas').innerHTML = html;
-    })
-    .catch(err => console.error("Erro ao mudar estatísticas:", err));
-}
+    }  
+};
