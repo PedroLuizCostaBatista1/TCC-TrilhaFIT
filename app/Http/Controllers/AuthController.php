@@ -26,7 +26,10 @@
             $usuario = Usuario::where('email', $request->email)->first();
 
             if (!$usuario) {
-                return back()->withErrors(['email' => 'E-mail invalido. Tente novamente'])->onlyInput('email');
+                return response()->json([
+                    'mensagem' => 'E-mail invalido. Tente novamente'
+                ], 422);
+                /*return back()->withErrors(['email' => 'E-mail invalido. Tente novamente'])->onlyInput('email');*/
             }
 
             $codigo = rand(100000, 999999);
@@ -123,18 +126,12 @@
                 return response()->json([
                     'mensagem' => 'E-mail ou senha estão invalidos. Tente novamente'
                 ], 422);
-
-                /*return back()->withErrors([
-                    'credenciais' => 'E-mail ou senha estão invalidos. Tente novamente'
-                ])->onlyInput('email');*/
             }
 
             Auth::login($usuario);
             $request->session()->regenerate();
 
-            return response()->json(['redirecionar' => route('perfil')]);
-            
-            /*return redirect()->intended('perfil');*/
+            return response()->json(['redirecionar' => route('perfil')], 200);
         }
 
         public function logout(Request $request) {

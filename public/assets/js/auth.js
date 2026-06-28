@@ -12,50 +12,64 @@ function mostrarSenha() {
     }
 }
 
-function mudarEstadoDoTexto(botao, texto) {
-    const formulario = botao.closest('form');
+function mostrarMensagem(formulario, campo, texto) {
+    const elemento = formulario.querySelector(`#erro-${campo}`);
 
-    if (formulario && !formulario.checkValidity()) {
-        formulario.reportValidity();
-        return;
+    if (elemento && texto) {
+        elemento.textContent = texto;
+        elemento.style.display = 'block';
+        elemento.classList.add('show');
+
+        setTimeout(() => {
+            elemento.classList.add('animar');
+        }, 10);
     }
+}
 
-    const icone = botao.querySelector('.material-symbols-outlined');
+function esconderMensagem(formulario) {
+    formulario.querySelectorAll('.mensagem-erro').forEach(elemento => {
+        elemento.classList.remove('animar');
+        setTimeout(() => {
+            elemento.classList.remove('show');
+        }, 400);
+    });
+}
 
-    setTimeout(() => {
+function mudarEstadoDoTexto(botao, carregando) {
+    const textoOriginal = botao.querySelector('.botao-texto');
+    const textoCarregando = botao.getAttribute('texto-carregando');
+
+    if (carregando) {
+        botao.dataset.originalText = textoOriginal.textContent;
         botao.disabled = true;
-    }, 1);
-
-    if (icone) {
-        botao.innerHTML = icone.outerHTML + ' ' + texto;
+        textoOriginal.textContent = textoCarregando;
     } else {
-        botao.innerHTML = texto;
+        botao.disabled = false;
+        textoOriginal.textContent = botao.dataset.originalText;
     }
+}
+
+function mostrarPopup(mensagem) {
+    
 }
 
 async function enviarFormulario(formulario, event) {
     event.preventDefault();
 
+    const botaoEnviar = formulario.querySelector('button[type="submit"]');
+    
+    esconderMensagem(formulario);
+    mudarEstadoDoTexto(botaoEnviar, true);
+
     const formularioData = new FormData(formulario);
-    const mensagem = formulario.querySelector('.mensagem-erro');
-
-    if (mensagem) {
-        mensagem.style.display = "none";
-    }
-
     const url = formulario.getAttribute('action');
     const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
-
-    if (!url) {
-        console.error('O formulário precisa do atributo "data-url" definido.');
-        return;
-    }
 
     try {
         const resposta = await fetch(url, {
             method: "POST",
             headers: {
-                'X-CSRF-TOKEN': token || '',
+                'X-CSRF-TOKEN': token,
                 'Accept': 'application/json'
             },
             body: formularioData
@@ -66,27 +80,26 @@ async function enviarFormulario(formulario, event) {
         if (resposta.ok) {
             if (data.redirecionar) {
                 window.location.href = data.redirecionar;
-            } else if (data.mensagem && mensagem) {
-                console.log('weeeee');
             }
+            
+            mostrarMensagem(formulario, "sucesso", data.mensagem);
         } else {
-            if (mensagem) {
-                mensagem.textContent = data.mensagem || 'Ocorreu um erro.';
-                mensagem.style.display = 'block';
+
+            if (data.errors) {
+                Object.keys(data.errors).forEach(campo => {
+                    const mensagem = data.errors[campo][0];
+                    mostrarMensagem(formulario, campo, mensagem);
+                });
             }
+
+            if (data.mensagem) {
+                mostrarMensagem(formulario, "geral", data.mensagem);
+            }
+
+            mudarEstadoDoTexto(botaoEnviar, false);
         }
     } catch (error) {
         console.error(error);
+        mudarEstadoDoTexto(botaoEnviar, false);
     }
 }
-
-/*const campos = document.querySelectorAll("input");
-const mensagem = document.getElementById("mensagem");
-
-if (mensagem) {
-    campos.forEach((campo) => {
-        campo.addEventListener("input", (evento) => {
-            mensagem.style.display = "none";
-        });
-    });
-}*/
