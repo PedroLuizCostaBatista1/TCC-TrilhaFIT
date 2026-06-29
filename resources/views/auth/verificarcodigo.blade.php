@@ -11,17 +11,13 @@
             <h1 class="titulo">Código de Verificação</h1>
         </header>
         <form method="POST" action="{{ route('validar-codigo') }}">
-            @csrf
-
             <div class="anim-in anim-d1">
                 <div class="campo-container">
                     <span class="material-symbols-outlined icone-campo">encrypted</span>
                     <input type="number" name="codigo" id="codigo" class="campo" placeholder="Digite o codigo enviado pelo e-mail" required>
                 </div>
 
-                @error('codigo')
-                    <p id="mensagem" class="mensagem-erro">{{ $message }}</p>
-                @enderror
+                <p id="mensagem" class="mensagem-erro"></p>
 
                 @if(session('sucesso'))
                     <p id="mensagem" class="mensagem-sucesso">{{ session('sucesso') }}</p>

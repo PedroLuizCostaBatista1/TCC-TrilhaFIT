@@ -29,7 +29,6 @@
                 return response()->json([
                     'mensagem' => 'E-mail invalido. Tente novamente'
                 ], 422);
-                /*return back()->withErrors(['email' => 'E-mail invalido. Tente novamente'])->onlyInput('email');*/
             }
 
             $codigo = rand(100000, 999999);
@@ -38,7 +37,11 @@
 
             Mail::to($request->email)->send(new RecuperarSenhaMail($codigo));
 
-            return redirect()->route('verificar-codigo');
+            if ($request->wantsJson() || $request->ajax()) {
+                return response()->json(['redirecionar' => route('verificar-codigo')], 200);
+            }
+
+            return response()->json(['redirecionar' => route('verificar-codigo')], 200);
         }
 
         public function telaVerificarCodigo() {
