@@ -23,12 +23,12 @@
     <section id="estatisticas">
         <div id="estatisticas-header">
             <h2 id="subtitulo">Estatísticas</h2>
-            <p id="estatisticas-data" data-mes="{{ $mesAnterior->addMonth()->month }}" data-ano="{{ $ano }}">
+            <p id="estatisticas-data" data-mes="{{ $mesAnterior->addMonth()->month }}" data-ano="{{ $ano }}" data-url="{{ route('perfil') }}">
                 <button type="button" onclick="mudarMes(-1)">
                     <span class="material-symbols-outlined">chevron_left</span>
                 </button>
 
-                <span>{{ $nomeMes }} - {{ $ano }}</span>
+                <span id="texto-mes-ano">{{ $nomeMes }} - {{ $ano }}</span>
 
                 <button type="button" onclick="mudarMes(1)">
                     <span class="material-symbols-outlined">chevron_right</span>

@@ -26,6 +26,8 @@ function mudarMes(direcao) {
     let mes = parseInt(container.getAttribute('data-mes'));
     let ano = parseInt(container.getAttribute('data-ano'));
 
+    const baseURL = container.getAttribute('data-url');
+
     mes += direcao;
     if (mes < 1) { mes = 12; ano--; }
     if (mes > 12) { mes = 1; ano++; }
@@ -33,5 +35,18 @@ function mudarMes(direcao) {
     container.setAttribute('data-mes', mes);
     container.setAttribute('data-ano', ano);
 
-    console.log(mes);
+    const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    document.getElementById('texto-mes-ano').innerText = `${meses[mes - 1]} - ${ano}`;
+
+    fetch(`${baseURL}?mes=${mes}&ano=${ano}`, {
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => response.text())
+    .then(html => {
+        console.log(html);
+        document.getElementById('wrapper-dados-estatisticas').innerHTML = html;
+    })
+    .catch(err => console.error("Erro ao mudar estatísticas:", err));
 }
