@@ -27,7 +27,9 @@
 
             if (!$usuario) {
                 return response()->json([
-                    'mensagem' => 'E-mail invalido. Tente novamente'
+                    'errors' => [
+                        'email' => ['E-mail inválido. Tente novamente']
+                    ]
                 ], 422);
             }
 
@@ -37,10 +39,6 @@
 
             Mail::to($request->email)->send(new RecuperarSenhaMail($codigo));
 
-            if ($request->wantsJson() || $request->ajax()) {
-                return response()->json(['redirecionar' => route('verificar-codigo')], 200);
-            }
-
             return response()->json(['redirecionar' => route('verificar-codigo')], 200);
         }
 
@@ -49,20 +47,26 @@
         }
 
         public function validarCodigo(Request $request) {
-            $request->validate([
-                'codigo' => 'required|numeric|digits:6'
-            ], [
-                'codigo.digits' => 'O código ter que ser exatamente 6 digitos.'
-            ]);
-
-            if ($request->codigo == session('codigo_recuperacao')) {
-                $email = session('email_recuperacao');
-                return redirect()->route('redefinir-senha');
+            try {
+                $request->validate([
+                    'codigo' => 'required|numeric|digits:6'
+                ], [
+                    'codigo.digits' => 'O código ter que ser exatamente 6 digitos.'
+                ]);
+    
+                if ($request->codigo == session('codigo_recuperacao')) {
+                    $email = session('email_recuperacao');
+                    return redirect()->route('redefinir-senha');
+                }
+    
+                return response()->json([
+                    'errors' => [
+                        'codigo' => ['O código informado é invalido ou expirou']
+                    ]
+                ], 422);
+            } catch (ValidationException $e) {
+                return response()->json($e->validator->errors()->first(), 422);
             }
-
-            return back()->withErrors([
-                'codigo' => 'O código informado é invalido ou expirou.'
-            ]);
         }
 
         public function reenviarCodigo(Request $request) {
@@ -127,7 +131,9 @@
 
             if (!$usuario or !Hash::check($request->senha, $usuario->senha)) {
                 return response()->json([
-                    'mensagem' => 'E-mail ou senha estão invalidos. Tente novamente'
+                    'errors' => [
+                        'geral' => ['E-mail ou senha é inválido. Tente novamente']
+                    ]
                 ], 422);
             }
 

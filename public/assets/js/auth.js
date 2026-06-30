@@ -69,7 +69,7 @@ async function enviarFormulario(formulario, event) {
         const resposta = await fetch(url, {
             method: "POST",
             headers: {
-                'X-CSRF-TOKEN': token,
+                'X-CSRF-TOKEN': token || '',
                 'Accept': 'application/json'
             },
             body: formularioData
@@ -90,10 +90,6 @@ async function enviarFormulario(formulario, event) {
                     const mensagem = data.errors[campo][0];
                     mostrarMensagem(formulario, campo, mensagem);
                 });
-            }
-
-            if (data.mensagem) {
-                mostrarMensagem(formulario, "geral", data.mensagem);
             }
 
             mudarEstadoDoTexto(botaoEnviar, false);

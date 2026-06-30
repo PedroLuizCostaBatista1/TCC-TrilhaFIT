@@ -14,7 +14,7 @@
                 <input type="email" name="email" id="email" class="campo" placeholder="Digite seu e-mail" required>
             </div>
 
-            <p id="erro-geral" class="mensagem-erro"></p>
+            <p id="erro-email" class="mensagem-erro"></p>
         </div>
 
         <button type="submit" class="anim-in anim-d2 botao1" texto-carregando="Enviando o codigo...">

@@ -1,3 +1,8 @@
+function reenviarCodigo() {
+    const reenviar = document.getElementById('reenviar');
+    let tempoEspera = parseInt(reenviar.dataset.tempoEspera) || 0;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const reenviar = document.getElementById('reenviar');
     let tempoEspera = parseInt(reenviar.dataset.tempoEspera) || 0;
