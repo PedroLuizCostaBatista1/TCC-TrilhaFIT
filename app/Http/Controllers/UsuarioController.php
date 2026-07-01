@@ -9,6 +9,7 @@
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Hash;
     use Illuminate\Support\Facades\DB;
+    use Illuminate\Validation\ValidationException; 
     use Illuminate\Support\Str;
 
     class UsuarioController extends Controller {

@@ -31,7 +31,7 @@
                 </button>
             </div>
         </form>
-        <form id="reenviar-codigo-form" method="POST" action="{{ route('reenviar-codigo') }}">
+        <form id="reenviar-codigo-form" method="POST" action="{{ route('reenviar-codigo') }}" onsubmit="enviarFormulario(this, event);">
             <div class="anim-in anim-d3 botoes">
                 <button type="submit" id="reenviar" class="botao2" texto-carregando="Reenviando o código..." data-tempo-espera="{{ (int) session('tempo_espera', 0) }}">
                     <span class="material-symbols-outlined">sync</span>

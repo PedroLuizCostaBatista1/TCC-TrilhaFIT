@@ -36,6 +36,7 @@ function esconderMensagem(formulario) {
 }
 
 function mudarEstadoDoTexto(botao, carregando) {
+    console.log("Elemento recebido:", botao);
     const textoOriginal = botao.querySelector('.botao-texto');
     const textoCarregando = botao.getAttribute('texto-carregando');
 
@@ -82,7 +83,7 @@ async function enviarFormulario(formulario, event) {
                 window.location.href = data.redirecionar;
             }
             
-            mostrarMensagem(formulario, "sucesso", data.mensagem);
+            mostrarPopup(data.mensagem);
         } else {
 
             if (data.errors) {

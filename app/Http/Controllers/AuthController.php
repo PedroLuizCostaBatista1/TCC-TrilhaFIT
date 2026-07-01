@@ -8,6 +8,9 @@
     use Illuminate\Support\Facades\Mail;
     use Illuminate\Support\Facades\Hash;
     use Illuminate\Support\Facades\Auth;
+    use Illuminate\Validation\ValidationException;
+
+    use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
     class AuthController extends Controller {
         public function telaLogin() {
@@ -34,10 +37,17 @@
             }
 
             $codigo = rand(100000, 999999);
-
             session(['codigo_recuperacao' => $codigo, 'email_recuperacao' => $request->email]);
 
-            Mail::to($request->email)->send(new RecuperarSenhaMail($codigo));
+            try {
+                Mail::to($request->email)->send(new RecuperarSenhaMail($codigo));
+            } catch (TransportExceptionInterface $e) {
+                return response()->json([
+                    'errors' => [
+                        'email' => ['Ocorreu um erro ao enviar codigo pelo e-mail']
+                    ]
+                ], 500);
+            }
 
             return response()->json(['redirecionar' => route('verificar-codigo')], 200);
         }
@@ -75,6 +85,14 @@
 
             if ($tempoEspera > $tempoAgora) {
                 $tempoRestante = $tempoEspera - $tempoAgora;
+
+                if ($request->ajax() || $request->wantsJson()) {
+                    return response()->json([
+                        'mensagem' => "Aguarde {$tempoRestante} segundos para reenviar.",
+                        'tempo_espera' => $tempoEspera
+                    ], 422);
+                }
+                
                 return back()->withErrors([
                     'tempo' => "Aguarde {$tempoRestante} segundos para reenviar."
                 ]);
@@ -90,6 +108,13 @@
             ]);
 
             Mail::to($email)->send(new RecuperarSenhaMail($codigo));
+
+            if ($request->ajax() || $request->wantsJson()) {
+                return response()->json([
+                    'mensagem' => 'Código reenviado com sucesso!',
+                    'tempo_espera' => $novoTempoEspera
+                ]);
+            }
 
             return back()->with('sucesso', 'Código reenviado!');
         }
