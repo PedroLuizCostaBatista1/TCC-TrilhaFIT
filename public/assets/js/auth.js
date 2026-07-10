@@ -36,7 +36,7 @@ function esconderMensagem(formulario) {
 }
 
 function mudarEstadoDoTexto(botao, carregando) {
-    console.log("Elemento recebido:", botao);
+    console.log(botao.innerHTML);
     const textoOriginal = botao.querySelector('.botao-texto');
     const textoCarregando = botao.getAttribute('texto-carregando');
 
