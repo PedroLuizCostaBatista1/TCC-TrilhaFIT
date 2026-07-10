@@ -57,26 +57,21 @@
         }
 
         public function validarCodigo(Request $request) {
-            try {
-                $request->validate([
-                    'codigo' => 'required|numeric|digits:6'
-                ], [
-                    'codigo.digits' => 'O código ter que ser exatamente 6 digitos.'
-                ]);
-    
-                if ($request->codigo == session('codigo_recuperacao')) {
-                    $email = session('email_recuperacao');
-                    return redirect()->route('redefinir-senha');
-                }
-    
-                return response()->json([
-                    'errors' => [
-                        'codigo' => ['O código informado é invalido ou expirou']
-                    ]
-                ], 422);
-            } catch (ValidationException $e) {
-                return response()->json($e->validator->errors()->first(), 422);
+            $request->validate([
+                'codigo' => 'required|numeric|digits:6'
+            ], [
+                'codigo.digits' => 'O código ter que ser exatamente 6 digitos.'
+            ]);
+
+            if ($request->codigo == session('codigo_recuperacao')) {
+                return response()->json(['redirecionar' => route('redefinir-senha')], 200);
             }
+
+            return response()->json([
+                'errors' => [
+                    'codigo' => ['O código informado é invalido ou expirou']
+                ]
+            ], 422);
         }
 
         public function reenviarCodigo(Request $request) {
@@ -107,7 +102,15 @@
                 'tempo_espera' => $novoTempoEspera
             ]);
 
-            Mail::to($email)->send(new RecuperarSenhaMail($codigo));
+            try {
+                Mail::to($email)->send(new RecuperarSenhaMail($codigo));
+            } catch (TransportExceptionInterface $e) {
+                return response()->json([
+                    'errors' => [
+                        'email' => ['Ocorreu um erro ao enviar codigo pelo e-mail']
+                    ]
+                ], 500);
+            }
 
             if ($request->ajax() || $request->wantsJson()) {
                 return response()->json([

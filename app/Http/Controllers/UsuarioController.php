@@ -19,41 +19,37 @@
         }
 
         public function cadastrar(Request $request) {
-            try {
-                $validated = $request->validate([
-                    'nome' => 'required|string|max:255',
-                    'email' => 'required|string|email|max:255|unique:usuarios',
-                    'senha' => 'required|string|min:8',
-                    'cpf' => 'required|string|digits:11|unique:usuarios',
-                    'academia' => 'nullable|string|max:255'
-                ], [
-                    'email.unique' => 'Este e-mail já existe',
-                    'senha.min' => 'Senha abaixo de 8 caracteres',
-                    'cpf.digits' => 'CPF tem que ser exatamente 11 digitos',
-                    'cpf.unique' => 'Este CPF já existe'
-                ]);
-    
-                if (Str::endsWith($request->email, 'instrutor.com')) {
-                    $validated['tipo'] = 'instrutor';
-                }
-    
-                $validated['senha'] = Hash::make($validated['senha']);
-                $usuario = DB::transaction(function() use ($validated) {
-                    $usuarioCriado = Usuario::create($validated);
-    
-                    Estatisticas::create([
-                        'usuarios_id' => $usuarioCriado->id
-                    ]);
-    
-                    return $usuarioCriado;
-                });
-    
-                Auth::login($usuario);
-    
-                return response()->json(['redirecionar' => route('perfil')], 200);
-            } catch (ValidationException $e) {
-                return response()->json($e->validator->errors()->first(), 422);
+            $validated = $request->validate([
+                'nome' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:usuarios',
+                'senha' => 'required|string|min:8',
+                'cpf' => 'required|string|digits:11|unique:usuarios',
+                'academia' => 'nullable|string|max:255'
+            ], [
+                'email.unique' => 'Este e-mail já existe',
+                'senha.min' => 'Senha abaixo de 8 caracteres',
+                'cpf.digits' => 'CPF tem que ser exatamente 11 digitos',
+                'cpf.unique' => 'Este CPF já existe'
+            ]);
+
+            if (Str::endsWith($request->email, 'instrutor.com')) {
+                $validated['tipo'] = 'instrutor';
             }
+
+            $validated['senha'] = Hash::make($validated['senha']);
+            $usuario = DB::transaction(function() use ($validated) {
+                $usuarioCriado = Usuario::create($validated);
+
+                Estatisticas::create([
+                    'usuarios_id' => $usuarioCriado->id
+                ]);
+
+                return $usuarioCriado;
+            });
+
+            Auth::login($usuario);
+
+            return response()->json(['redirecionar' => route('perfil')], 200);
         }
 
         public function editar() {

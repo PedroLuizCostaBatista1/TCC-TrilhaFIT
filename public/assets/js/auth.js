@@ -70,7 +70,7 @@ async function enviarFormulario(formulario, event) {
         const resposta = await fetch(url, {
             method: "POST",
             headers: {
-                'X-CSRF-TOKEN': token || '',
+                'X-CSRF-TOKEN': token,
                 'Accept': 'application/json'
             },
             body: formularioData
@@ -81,22 +81,22 @@ async function enviarFormulario(formulario, event) {
         if (resposta.ok) {
             if (data.redirecionar) {
                 window.location.href = data.redirecionar;
+                return;
             }
             
-            mostrarPopup(data.mensagem);
+            const evento = new CustomEvent('formularioSucesso', { detail: { formulario, data } });
+            document.dispatchEvent(evento);
         } else {
-
             if (data.errors) {
                 Object.keys(data.errors).forEach(campo => {
                     const mensagem = data.errors[campo][0];
                     mostrarMensagem(formulario, campo, mensagem);
                 });
             }
-
-            mudarEstadoDoTexto(botaoEnviar, false);
         }
     } catch (error) {
         console.error(error);
+    } finally {
         mudarEstadoDoTexto(botaoEnviar, false);
     }
 }
