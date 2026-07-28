@@ -17,30 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
     iniciarContadorReenvio(tempoFinal);
 });
 
-// 🔥 NOVO: Escuta o evento global de sucesso
-// Escuta o evento global de sucesso
 document.addEventListener('formularioSucesso', (event) => {
     const { formulario, data } = event.detail;
-    
-    // Verifica se o formulário que teve sucesso é o dono do botão #reenviar
     const botaoReenviar = formulario.querySelector('#reenviar');
     
     if (botaoReenviar) {
-        // Pega o valor enviado pelo Laravel ou assume 60 segundos de padrão
         const valorRecebido = parseInt(data.tempo_espera) || 60;
         const tempoAgora = Math.floor(Date.now() / 1000);
         let tempoFinal = 0;
         
-        // Se o Laravel enviou um Timestamp completo (ex: 1783682546)
         if (valorRecebido > 100000) {
             tempoFinal = valorRecebido;
         } else {
-            // Se o Laravel enviou apenas a quantidade de segundos (ex: 60)
             tempoFinal = tempoAgora + valorRecebido;
         }
         
-        // Inicia o contador com o tempo final correto
         iniciarContadorReenvio(tempoFinal);
+        mostrarPopup("Codigo reenviado com sucesso!");
     }
 });
 

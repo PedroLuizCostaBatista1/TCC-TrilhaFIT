@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="/assets/css/dashboard/perfil.css">
 @endpush
 @push("scripts")
+    <script src="/assets/js/auth.js" defer></script>
     <script src="/assets/js/dashboard/perfil.js" defer></script>
 @endpush
 <main>
@@ -12,7 +13,7 @@
             <span id="icone" class="material-symbols-outlined">person</span>
         </figure>
         <h1>Olá, {{ Auth::user()->nome }}!</h1>
-        @if (!blank(Auth::user()->academia))
+        @if(!blank(Auth::user()->academia))
             <p id="academia"><span class="material-symbols-outlined icone-campo">location_on</span>{{ Auth::user()->academia }}</p>
         @endif
         <a href="{{ route('perfil-editar') }}" id="editar-conta">
@@ -61,11 +62,10 @@
             <span class="material-symbols-outlined">share</span>
             <span>Compartilhar</span>
         </button>
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
+        <form method="POST" action="{{ route('logout') }}" onsubmit="enviarFormulario(this, event);">
             <button type="submit" id="botao2" texto-carregando="Saindo...">
                 <span class="material-symbols-outlined">logout</span>
-                <span>Sair</span>
+                <span class="botao-texto">Sair</span>
             </button>
         </form>
     </section>

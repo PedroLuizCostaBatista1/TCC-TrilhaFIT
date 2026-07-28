@@ -7,6 +7,7 @@
     --cor-borda-nav: #EEEEEE;
     --cor-inativa: #707070;
     --cor-primaria: #FF6517;
+    --cor-popup-sucesso: #2ECC71;
     --fonte-principal: "Outfit", sans-serif;
 }
 
@@ -68,6 +69,7 @@ nav {
     border-top: 2px solid var(--cor-borda-nav);
     background-color: var(--cor-fundo-nav); 
     padding: 20px;
+    z-index: 20;
 }
 
 .nav-botao {
@@ -88,4 +90,44 @@ nav {
     margin: 0px;
     font-weight: 500;
     font-size: 14px;
+}
+
+.popup[open] {
+    animation: slideUp 0.4s ease-out;
+}
+
+.popup.modal-closing {
+    animation: slideDown 0.4s ease-in;
+}
+
+.popup {
+    background-color: var(--cor-popup-sucesso);
+    box-shadow: 0 -4px 20px rgba(46, 204, 113, 0.15);
+    border-radius: 16px;
+    position: fixed;
+    bottom: 112px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.popup-sucesso {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.popup-sucesso > p {
+    font-size: 14px;
+    margin: 0px;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(150%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(0); }
+    to { transform: translateY(150%); }
 }

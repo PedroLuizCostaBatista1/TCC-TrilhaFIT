@@ -1,5 +1,8 @@
 @extends("config")
 @section("conteudo")
+@push("scripts")
+    <script src="/assets/js/auth/cadastro.js" defer></script>
+@endpush
 <main class="tela">
     <header class="anim-in">
         <a href="/">
@@ -36,7 +39,7 @@
         <div class="anim-in anim-d4">
             <div class="campo-container">
                 <span class="material-symbols-outlined icone-campo">id_card</span>
-                <input type="number" name="cpf" id="cpf" class="campo" placeholder="Digite seu CPF" required>
+                <input type="text" name="cpf" id="cpf" class="campo" maxlength="14" oninput="formatarCPF()" placeholder="Digite seu CPF" required>
             </div>
 
             <p id="erro-cpf" class="mensagem-erro"></p>
@@ -45,7 +48,7 @@
         <div class="anim-in anim-d5">
             <div class="campo-container">
                 <span class="material-symbols-outlined icone-campo">location_on</span>
-                <input type="text" name="academia" id="academia" class="campo" placeholder="Digite o nome da sua academia (opcional)">
+                <input type="tel" name="academia" id="academia" class="campo" placeholder="Digite o nome da sua academia (opcional)">
             </div>
         </div>
 
@@ -54,9 +57,12 @@
             <span class="botao-texto">Cadastrar-se</span>
         </button>
 
-        <p class="anim-in anim-d7" id="termos">
-            Ao se cadastrar, você concorda com os <br> <a href="#" class="termos-cor">Termos de Uso</a> e <a href="#" class="termos-cor">Política de Privacidade</a>
-        </p>
+        <div id="termos-container" class="anim-in anim-d7">
+            <span class="material-symbols-outlined" id="termo-icone">info</span>
+            <p id="termos">
+                Ao se cadastrar, você concorda com os <br> <a href="{{ route('termosdeuso') }}" class="termos-cor">Termos de Uso</a> e <a href="{{ route('privacidade') }}" class="termos-cor">Política de Privacidade</a>
+            </p>
+        </div>
     </form>
 </main>
 @endsection

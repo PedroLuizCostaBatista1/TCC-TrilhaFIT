@@ -14,14 +14,10 @@
             <div class="anim-in anim-d1">
                 <div class="campo-container">
                     <span class="material-symbols-outlined icone-campo">encrypted</span>
-                    <input type="number" name="codigo" id="codigo" class="campo" placeholder="Digite o codigo enviado pelo e-mail" required>
+                    <input type="tel" name="codigo" id="codigo" class="campo" placeholder="Digite o codigo enviado pelo e-mail" maxlength="6" required>
                 </div>
 
                 <p id="erro-codigo" class="mensagem-erro"></p>
-
-                @if(session('sucesso'))
-                    <p id="mensagem" class="mensagem-sucesso">{{ session('sucesso') }}</p>
-                @endif
             </div>
 
             <div class="anim-in anim-d2 botoes">
@@ -39,5 +35,11 @@
                 </button>
             </div>
         </form>
+        <dialog id="popup" class="popup">
+            <div class="popup-sucesso">
+                <span class="material-symbols-outlined popup-icone">check_circle</span>
+                <p id="popup-texto"></p> 
+            </div>
+        </dialog>
     </main>
 @endsection

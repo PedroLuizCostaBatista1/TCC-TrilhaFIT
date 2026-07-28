@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=check,check_circle,chevron_left,encrypted,id_card,location_on,lock_reset,login,mail,password_2,person,person_add,sync,visibility,visibility_off");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=bolt,check,check_circle,chevron_left,chevron_right,directions_run,encrypted,exercise,height,home,id_card,info,location_on,lock_reset,login,mail,mode_fan,password_2,person,person_add,sync,visibility,visibility_off,weight");
 
 .material-symbols-outlined {
     font-family: 'Material Symbols Outlined';
@@ -23,6 +23,7 @@
     --cor-primaria: #FF6517;
     --cor-segundaria: #FF822E;
     --cor-tercearia: #EF5411;
+    --cor-popup-sucesso: #2ECC71;
     --fonte-principal: "Outfit", sans-serif;
 }
 
@@ -187,7 +188,6 @@ input:focus {
     max-height: 0;
     margin: 0px;
     transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
-
     color: #dc3545;
     font-size: 15px;
 }
@@ -208,11 +208,24 @@ input:focus {
     margin-top: 8px;
 }
 
+#termos-container {
+    border: 2px solid var(--cor-primaria);
+    background-color: rgba(255, 101, 23, 0.1);
+    border-radius: 14px;
+    padding: 15px;
+}
+
+#termo-icone {
+    color: var(--cor-primaria);
+    text-align: center;
+}
+
 #termos {
     text-align: center; 
-    font-size: 14px; 
+    font-size: 15px; 
     color: rgba(0,0,0,0.45); 
-    margin-top: 16px;
+    margin-top: 8px;
+    margin-bottom: 0px;
 }
 
 #reenviar-codigo-form {
@@ -221,10 +234,37 @@ input:focus {
 
 .termos-cor {
     color: var(--cor-tercearia);
+    font-weight: bold;
+}
+
+.termos-texto > p, li {
+    text-align: justify;
 }
 
 #reenviar:disabled {
     opacity: 0.4;
+}
+
+.popup {
+    background-color: var(--cor-popup-sucesso);
+    box-shadow: 0 -4px 20px rgba(46, 204, 113, 0.15);
+    border-radius: 16px;
+    position: fixed;
+    bottom: 20px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.popup-sucesso {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.popup-sucesso > p {
+    font-size: 14px;
+    margin: 0px;
 }
 
 @keyframes float-in {
@@ -269,4 +309,22 @@ input:focus {
 
 .anim-d7 {
     animation-delay: 0.6s;
+}
+
+.popup[open] {
+    animation: slideUp 0.4s ease-out;
+}
+
+.popup.modal-closing {
+    animation: slideDown 0.4s ease-in;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(150%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(0); }
+    to { transform: translateY(150%); }
 }

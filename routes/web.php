@@ -6,12 +6,16 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TurmaController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\IntegracaoController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'boasvindas');
 
 Route::get('/cadastro', [UsuarioController::class, 'telaCadastro'])->name('cadastro');
 Route::post('/cadastro', [UsuarioController::class, 'cadastrar']);
+
+Route::view('/termos', 'termos.termosdeuso')->name('termosdeuso');
+Route::view('/privacidade', 'termos.privacidade')->name('privacidade');
 
 Route::get('/login', [AuthController::class, 'telaLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -27,6 +31,9 @@ Route::get('/redefinir-senha', [AuthController::class, 'telaRedefinirSenha'])->n
 Route::post('/redefinir-senha', [AuthController::class, 'atualizarSenha'])->name('atualizar-senha');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/integracao', [IntegracaoController::class, 'index'])->name('integracao.index');
+    Route::post('/integracao', [IntegracaoController::class, 'salvar'])->name('integracao.salvar');
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/perfil', [PerfilController::class, 'exibirEstatisticas'])->name('perfil');

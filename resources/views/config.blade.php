@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="/assets/js/auth.js" defer></script>
     <link rel="stylesheet" href="/assets/css/auth.css">
+    @stack('css')
     @stack('scripts')
     <title>TrilhaFIT</title>
 </head>

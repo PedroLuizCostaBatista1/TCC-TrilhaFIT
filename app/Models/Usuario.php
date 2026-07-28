@@ -16,7 +16,11 @@
             'senha',
             'cpf',
             'academia',
-            'tipo'
+            'tipo',
+            'ambiente_treino',
+            'nivel_fisico',
+            'peso',
+            'altura',
         ];
         protected $hidden = [
             'senha'

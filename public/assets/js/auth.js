@@ -1,17 +1,3 @@
-function mostrarSenha() {
-    const senhaCampo = document.getElementById("senha-campo");
-    const botaoMostrarSenha = document.getElementById("botao-mostrar-senha");
-    const iconeMostrarSenha = document.getElementById("icone-mostrar-senha");
-
-    if (senhaCampo.type === "password") {
-        senhaCampo.type = "text";
-        iconeMostrarSenha.textContent = "visibility";
-    } else {
-        senhaCampo.type = "password";
-        iconeMostrarSenha.textContent = "visibility_off";
-    }
-}
-
 function mostrarMensagem(formulario, campo, texto) {
     const elemento = formulario.querySelector(`#erro-${campo}`);
 
@@ -36,7 +22,6 @@ function esconderMensagem(formulario) {
 }
 
 function mudarEstadoDoTexto(botao, carregando) {
-    console.log(botao.innerHTML);
     const textoOriginal = botao.querySelector('.botao-texto');
     const textoCarregando = botao.getAttribute('texto-carregando');
 
@@ -51,7 +36,19 @@ function mudarEstadoDoTexto(botao, carregando) {
 }
 
 function mostrarPopup(mensagem) {
-    
+    const popup = document.getElementById('popup');
+    const texto = document.getElementById('popup-texto');
+
+    texto.innerText = mensagem;
+    popup.show();
+
+    setTimeout(() => {
+        popup.classList.add('modal-closing');
+        popup.addEventListener('animationend', function() {
+            popup.close();
+            popup.classList.remove('modal-closing');
+        }, { once: true });
+    }, 4000);
 }
 
 async function enviarFormulario(formulario, event) {
@@ -85,7 +82,10 @@ async function enviarFormulario(formulario, event) {
             }
             
             const evento = new CustomEvent('formularioSucesso', { detail: { formulario, data } });
-            document.dispatchEvent(evento);
+            
+            if (evento) {
+                document.dispatchEvent(evento);
+            }
         } else {
             if (data.errors) {
                 Object.keys(data.errors).forEach(campo => {

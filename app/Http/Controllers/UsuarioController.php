@@ -23,12 +23,12 @@
                 'nome' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:usuarios',
                 'senha' => 'required|string|min:8',
-                'cpf' => 'required|string|digits:11|unique:usuarios',
+                'cpf' => 'required|string|size:14|unique:usuarios',
                 'academia' => 'nullable|string|max:255'
             ], [
                 'email.unique' => 'Este e-mail já existe',
                 'senha.min' => 'Senha abaixo de 8 caracteres',
-                'cpf.digits' => 'CPF tem que ser exatamente 11 digitos',
+                'cpf.size' => 'CPF tem que ser exatamente 11 digitos',
                 'cpf.unique' => 'Este CPF já existe'
             ]);
 
@@ -49,7 +49,7 @@
 
             Auth::login($usuario);
 
-            return response()->json(['redirecionar' => route('perfil')], 200);
+            return response()->json(['redirecionar' => route('integracao.index')], 200);
         }
 
         public function editar() {
@@ -64,6 +64,9 @@
                 'email' => ['required', 'string', 'email', 'max:255', Rule::unique('usuarios')->ignore($usuario->id)],
                 'senha' => 'nullable|string|min:8|confirmed',
                 'academia' => 'nullable|string|max:255'
+            ], [
+                'senha.min' => 'Senha abaixo de 8 caracteres',
+                'senha.confirmed' => 'As senhas não concidem',
             ]);
 
             if ($request->filled('senha')) {
@@ -73,8 +76,9 @@
             }
 
             $usuario->update($validated);
+            session()->flash('perfil-editado', 'Perfil atualizado com sucesso!');
 
-            return redirect()->route('perfil')->with('success', 'Perfil atualizado com sucesso!');
+            return response()->json(['redirecionar' => route('perfil')], 200);
         }
 
         public function deletar(Request $request) {
@@ -84,8 +88,9 @@
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
+            session()->flash('sucesso', 'Conta deletada com sucesso!');
 
-            return redirect('/')->with('status', 'Conta excluída com sucesso.');
+            return response()->json(['redirecionar' => route('login')], 200);
         }
     }
 ?>

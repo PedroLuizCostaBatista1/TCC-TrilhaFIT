@@ -1,7 +1,6 @@
 :root {
     --cor-fundo: #F9F9F9;
     --texto-cinza: #707070;
-    --texto-escuro: black;
     --cor-card: white;
     --cor-borda: #D0D0D0;
 
@@ -66,7 +65,7 @@ header > div {
 .card-titulo {
     font-weight: 500;
     font-size: 16px;
-    color: var(--texto-escuro); 
+    color: var(--texto-cinza); 
     margin: 0px;
 }
 
@@ -94,6 +93,7 @@ header > div {
 
 #chart-titulo > h3 {
     margin: 0px;
+    color: var(--texto-cinza);
 }
 
 #botoes {

@@ -4,9 +4,7 @@
         <header class="anim-in">
             <h1 class="titulo">Redefinir sua senha</h1>
         </header>
-        <form method="POST" action="{{ route('atualizar-senha') }}">
-            @csrf
-
+        <form method="POST" action="{{ route('atualizar-senha') }}" onsubmit="enviarFormulario(this, event);">
             <div class="anim-in anim-d1">
                 <div class="campo-container">
                     <span class="material-symbols-outlined icone-campo">password_2</span>
@@ -20,13 +18,14 @@
                     <input type="password" name="senha_confirmation" id="senha_confirmation" class="campo" placeholder="Digite novamente sua nova senha" required>
                 </div>
 
-                @error('senha')
-                    <p id="mensagem" class="mensagem-erro">{{ $message }}</p>
-                @enderror
+                <p id="erro-senha" class="mensagem-erro"></p>
             </div>
 
             <div class="anim-in anim-d3 botoes">
-                <button type="submit" class="botao1" texto-carregando="Redefinindo a senha..."><span class="material-symbols-outlined">lock_reset</span>Redefinir Senha</button>
+                <button type="submit" class="botao1" texto-carregando="Redefinindo a senha...">
+                    <span class="material-symbols-outlined">lock_reset</span>
+                    <span class="botao-texto">Redefinir senha</span>
+                </button>
             </div>
         </form>
     </main>

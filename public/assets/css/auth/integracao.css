@@ -1,0 +1,125 @@
+:root {
+    --cor-cinza: #e2e8f0;
+}
+
+#integracao-header {
+    margin-bottom: 30px;
+}
+
+.barra-progresso {
+    display: flex;
+    gap: 8px;
+}
+
+.progresso {
+    flex: 1;
+    height: 6px;
+    background-color: var(--cor-cinza);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.progresso.ativo {
+    background-color: var(--cor-primaria);
+}
+
+.titulo {
+    margin: 0px 0px 30px 0px;
+    text-align: center;
+}
+
+.grid-opcoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.etapa {
+    display: none;
+}
+
+.etapa.ativa {
+    display: block;
+    animation: float-in 0.3s ease-out;
+}
+
+.botao-voltar {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: white;
+    border: 2px solid var(--cor-primaria);
+    color: var(--cor-primaria);
+    padding: 18px;
+    border-radius: 14px;
+    margin-top: 16px;
+}
+
+.botoes-container {
+    margin-top: 20px;
+}
+
+.card-opcao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid var(--cor-cinza);
+    border-radius: 16px;
+    padding: 20px;
+    transition: border-color 0.25s;
+}
+
+.card-opcao:has(input:checked) {
+    border-color: var(--cor-primaria);
+}
+
+.card-opcao > input {
+    display: none;
+}
+
+.card-opcao-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    transition: border-color 0.25s;
+}
+
+.card-opcao-horizontal:has(input:checked) {
+    border-color: var(--cor-primaria);
+}
+
+.card-icone {
+    margin-bottom: 12px;
+}
+
+.botao-texto {
+    margin-bottom: 3px;
+}
+
+.lista-opcoes {
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px;
+}
+
+#botaoAvancar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-image: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-segundaria) 100%);
+    color: white;
+    padding: 18px;
+    border-radius: 14px;
+    box-shadow: 0px 0px 15px rgba(255, 101, 23, 0.5);
+}
+
+#botaoAvancar:disabled {
+    opacity: 0.5;
+}

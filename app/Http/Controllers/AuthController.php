@@ -80,17 +80,11 @@
 
             if ($tempoEspera > $tempoAgora) {
                 $tempoRestante = $tempoEspera - $tempoAgora;
-
-                if ($request->ajax() || $request->wantsJson()) {
-                    return response()->json([
-                        'mensagem' => "Aguarde {$tempoRestante} segundos para reenviar.",
-                        'tempo_espera' => $tempoEspera
-                    ], 422);
-                }
                 
-                return back()->withErrors([
-                    'tempo' => "Aguarde {$tempoRestante} segundos para reenviar."
-                ]);
+                return response()->json([
+                    'mensagem' => "Aguarde {$tempoRestante} segundos para reenviar.",
+                    'tempo_espera' => $tempoEspera
+                ], 422);
             }
 
             $codigo = rand(100000, 999999);
@@ -112,14 +106,7 @@
                 ], 500);
             }
 
-            if ($request->ajax() || $request->wantsJson()) {
-                return response()->json([
-                    'mensagem' => 'Código reenviado com sucesso!',
-                    'tempo_espera' => $novoTempoEspera
-                ]);
-            }
-
-            return back()->with('sucesso', 'Código reenviado!');
+            return response()->json(['tempo_espera' => $novoTempoEspera]); 
         }
 
         public function telaRedefinirSenha() {
@@ -138,15 +125,20 @@
             $usuario = Usuario::where('email', $email)->first();
 
             if (!$usuario) {
-                return redirect()->route('trocar-senha')->withErrors(['email' => 'Sessão expirada.']);
+                return response()->json([
+                    'errors' => [
+                        'senha' => ['Sessão expirada']
+                    ]
+                ], 422);
             }
 
             $usuario->senha = Hash::make($request->senha);
             $usuario->save();
 
             session()->forget(['codigo_recuperacao', 'email_recuperacao']);
+            session()->flash('sucesso', 'Senha redefinida com sucesso!');
 
-            return redirect()->route('login')->with('sucesso', 'Senha alterada com sucesso!');
+            return response()->json(['redirecionar' => route('login')], 200);
         }
 
         public function login(Request $request) {
@@ -176,8 +168,9 @@
 
             $request->session()->invalidate();
             $request->session()->regenerateToken();
+            session()->flash('sucesso', 'Perfil deslogado com sucesso!');
 
-            return redirect('/login');
+            return response()->json(['redirecionar' => route('login')], 200);
         }
     }
 ?>

@@ -1,11 +1,14 @@
 @extends("config")
 @section("conteudo")
+@push("scripts")
+    <script src="/assets/js/auth/login.js" defer></script>
+@endpush
 <main class="tela">
     <header class="anim-in">
         <a href="/">
             <span class="material-symbols-outlined icone-voltar">chevron_left</span>
         </a>
-        <h1 class="titulo">Bem-vindo de volta!</h1>
+        <h1 class="titulo">Login</h1>
     </header>
     <form method="POST" action="{{ route('login') }}" onsubmit="enviarFormulario(this, event);">
         <div class="anim-in anim-d1">
@@ -25,7 +28,6 @@
             </div>
 
             <p id="erro-geral" class="mensagem-erro"></p>
-            <!--<p id="mensagem" class="mensagem-sucesso">{{ session('sucesso') }}</p>-->
         </div>
 
         <div class="anim-in anim-d3 botoes">
@@ -36,5 +38,18 @@
             <a href="{{ route('trocar-senha') }}" class="botao2">Esqueceu a senha?</a>
         </div>
     </form>
+    @if(session('sucesso'))
+        <dialog open id="popup" class="popup">
+            <div class="popup-sucesso">
+                <span class="material-symbols-outlined popup-icone">check_circle</span>
+                <p id="popup-texto"></p>
+            </div>
+        </dialog>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                mostrarPopup("{{ session('sucesso') }}");
+            });
+        </script>
+    @endif
 </main>
 @endsection

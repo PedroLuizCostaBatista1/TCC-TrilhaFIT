@@ -27,7 +27,6 @@ header > p {
     margin-bottom: 30px;
     font-size: 14px;
     color: var(--cor-inativa);
-    font-style: italic;
 }
 
 form {
@@ -45,10 +44,9 @@ form {
 input {
     width: 100%;
     padding: 20px 18px 20px 56px;
-    border: 2px solid rgba(0, 0, 0, 0.08);
+    border: 2px solid var(--cor-borda);
     font-size: 16px;
     border-radius: 14px;
-    outline: none;
     transition: border-color 0.25s;
 }
 
@@ -57,6 +55,7 @@ input::placeholder {
 }
 
 input:focus {
+    outline: none;
     border-color: var(--cor-segundaria);
 }
 
@@ -93,4 +92,24 @@ input:focus {
     border-radius: 14px; 
     padding: 18px; 
     color: var(--cor-primaria);
+}
+
+.mensagem-erro {
+    display: none;
+    opacity: 0;
+    max-height: 0;
+    margin: 0px;
+    transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
+    color: #dc3545;
+    font-size: 15px;
+}
+
+.mensagem-erro.show {
+    display: block;
+}
+
+.mensagem-erro.animar {
+    opacity: 1;
+    max-height: 100px;
+    margin: 16px 0px 5px 0px;
 }

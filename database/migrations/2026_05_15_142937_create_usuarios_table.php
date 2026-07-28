@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('cpf')->unique();
             $table->string('academia')->nullable();
             $table->string('tipo')->default('aluno');
+            $table->enum('ambiente_treino', ['domestico', 'academia'])->nullable();
+            $table->enum('nivel_fisico', ['iniciante', 'intermediario', 'avancado'])->nullable();
+            $table->decimal('peso', 5, 2)->nullable();
+            $table->decimal('altura', 3, 2)->nullable();
             $table->unsignedBigInteger('turma_id')->nullable();
             $table->timestamps();
         });
