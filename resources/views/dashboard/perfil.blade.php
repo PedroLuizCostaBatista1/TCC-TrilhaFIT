@@ -37,7 +37,7 @@
         <div id="estatisticas-grid">
             <div class="relatorio-cartao relatorio-cartao-full">
                 <span class="material-symbols-outlined relatorio-cartao-icone">distance</span>
-                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->distancia, 2, ',', '.') }}<span class="relatorio-medida">km</span></h3>
+                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->distancia / 1000, 3, ',', '.') }} <span class="relatorio-medida">km</span></h3>
                 <p class="relatorio-titulo">Distância total</p>
             </div>
             <div class="relatorio-cartao">
@@ -52,7 +52,7 @@
             </div>
             <div class="relatorio-cartao relatorio-cartao-full">
                 <span class="material-symbols-outlined relatorio-cartao-icone">mode_heat</span>
-                <h3 class="relatorio-valor">{{ number_format(Auth::user()->estatistica->calorias, 2, ',', '.') }} <span class="relatorio-medida">kcal</span></h3>
+                <h3 class="relatorio-valor">{{ number_format(1.15 * Auth::user()->peso * Auth::user()->estatistica->distancia / 1000, 2, ',', '.') }} <span class="relatorio-medida">kcal</span></h3>
                 <p class="relatorio-titulo">Calorias Queimadas</p>
             </div>
         </div>

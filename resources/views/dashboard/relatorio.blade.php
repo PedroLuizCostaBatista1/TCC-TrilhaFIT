@@ -23,12 +23,12 @@
         </div>
         <div class="card">
             <span class="material-symbols-outlined">sync</span>
-            <h3 class="card-valor">{{ Auth::user()->estatistica->rpm }} <span>rot/min</span></h3>
+            <h3 class="card-valor">{{ number_format(Auth::user()->estatistica->velocidade * 60 / 10.4, 2, ',', '.') }} <span>rot/min</span></h3>
             <p class="card-titulo">RPM Média</p>
         </div>
         <div class="card">
             <span class="material-symbols-outlined">distance</span>
-            <h3 class="card-valor">{{ number_format(Auth::user()->estatistica->distancia, 2, ',', '.') }} <span>km</span></h3>
+            <h3 class="card-valor">{{ number_format(Auth::user()->estatistica->distancia / 1000, 3, ',', '.') }} <span>km</span></h3>
             <p class="card-titulo">Distância</p>
         </div>
         <div class="card">
@@ -38,7 +38,7 @@
         </div>
         <div class="card card-cheio">
             <span id="mural-icone" class="material-symbols-outlined">mode_heat</span>
-            <h3 class="card-valor">{{ number_format(Auth::user()->estatistica->calorias, 2, ',', '.') }} <span>kcal gastas</span></h3>
+            <h3 class="card-valor">{{ number_format(1.15 * Auth::user()->peso * Auth::user()->estatistica->distancia / 1000, 2, ',', '.') }} <span>kcal gastas</span></h3>
             <p class="card-titulo">Calorias queimadas</p>
         </div>
     </section>
